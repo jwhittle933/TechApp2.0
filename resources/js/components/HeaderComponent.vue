@@ -3,7 +3,7 @@
         <div id = "menubar">
             <div id="menu-div">
             <!--<icon-base icon-name='menu'><icon-write /></icon-base>-->
-            <p @click="toggleMenu"><a href="#">{{ menu }}</a></p>
+            <p @click="toggleMenu" class="menu"><a href="#">{{ menu }}</a></p>
             </div>
             <div id="menu-items" v-if='show' class="menu-items-view">
             <ul>
@@ -84,6 +84,9 @@ a {
   margin-left: 4px;
   padding: 2px;
   width: auto;
+}
+.menu {
+  font-family: Lobster;
 }
 header {
   margin-top: 0;

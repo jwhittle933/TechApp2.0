@@ -11,11 +11,11 @@
 <script>
 export default {
     name: "RoomInput",
-    props: ['buildingSelection'],
+    props: ['roomOptions'],
     data: function(){
       return {
         text: "What room are you in?",
-        options: ["", 12, 13, 15, 16, 17, 20, 101, 102, 103, 104, 105],
+        options: ["", 101, 102, 103, 104],
         value: "",
         roomShow: true
       }

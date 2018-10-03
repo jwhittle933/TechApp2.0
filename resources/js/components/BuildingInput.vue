@@ -19,7 +19,9 @@ export default {
       }
     },
     methods: {
-      
+      populateRooms: function(){
+        
+      }
     }
 }
 </script>
