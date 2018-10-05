@@ -43,7 +43,6 @@ class Form
         for  (let field in this.originalData){
             this[field] = '';
         }
-        this.errors.clear();
     }
     post(url){
         return this.submit('post', url)
@@ -78,12 +77,20 @@ class Form
     }
 }
 
+// const router = new VueRouter({
+//     mode: 'history',
+//     routes: [
+//         {path: '/', component: App},
+//         {path: '/reportform', component: ReportForm}
+//     ]
+// })
+
 export default {
     name: "App",
     data: function(){
         return {
             solutionsShow: false,
-            form: new Form({
+            form: new Form ({
                 buildingName: "",
                 roomNumber: "",
                 problem: ""

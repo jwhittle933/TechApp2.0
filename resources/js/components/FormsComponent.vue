@@ -22,7 +22,6 @@
                 <option v-for="probOption in probOptions" :key="probOption">{{ probOption }}</option>
             </select>
         </form>
-        <button v-if="buttonShow" @click.prevent="submitForm">Submit</button>
     </form>
     
 </template>
@@ -40,12 +39,11 @@ export default {
             buildingSelection: "",
             roomSelection: "",
             problemSelection: "",
-            buildOptions: ["", "Norton", "Carver", "Rankin", "Library", "Cook"],
+            buildOptions: ["", "Norton", "Carver", "Rankin", "Library", "Cooke"],
             roomOptions: [],
-            probOptions: ["", "Projector", "Video"],
+            probOptions: [],
             roomShow: false,
-            problemShow: false,
-            buttonShow: false
+            problemShow: false
         }
     },
     watch: {
@@ -58,7 +56,7 @@ export default {
     methods: {
         roomsAppear: function(){
             if(this.buildingSelection == "Norton"){
-                this.roomOptions = ["", 12, 13, 15, 16, 17, 20, 101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232]
+                this.roomOptions = ["", 11, 12, 13, 15, 16, 17, 20, 101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232]
                 this.roomShow = true;
             } else if(this.buildingSelection == "Carver"){
                 this.roomOptions = ["", 108, 135]
@@ -78,19 +76,70 @@ export default {
             }
         },
         problemsAppear: function(){
-            if (this.roomSelection != ""){
+            this.problemShow=true;
+            if (this.buildingSelection === "Norton"){
+                if (this.roomSelection == 11 || this.roomSelection == 15 || this.roomSelection == 17 || this.roomSelection == 20 || this.roomSelection == 207){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.problemShow = true;
+                } else if (this.roomSelection == 12 || this.roomSelection == 16 || this.roomSelection == 204 || this.roomSelection == 205) {
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Extron", "Apple TV"];
+                    this.problemShow = true;
+                } else if (this.roomSelection == 13) {
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Extron", "Apple TV"];
+                    this.problemShow = true;
+                } else if (this.roomSelection == 101 || this.roomSelection == 102 || this.roomSelection == 103 || this.roomSelection == 104 || this.roomSelection == 105 || this.roomSelection == 201 || this.roomSelection == 202 || this.roomSelection == 206 || this.roomSelection == 209){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Crestron", "Apple TV", "Smart Board"];
+                    this.problemShow = true;
+                } else if (this.roomSelection == 195) {
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Crestron", "Apple TV"];
+                    this.problemShow = true;
+                } else {
+                    this.problemShow = false;
+                }
+            } else if (this.buildingSelection === "Carver"){
+                this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
                 this.problemShow = true;
-            } else {
-                this.problemShow = false;
+            } else if (this.buildingSelection === "Rankin"){
+                if (this.roomSelection == 101){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.problemShow = true;
+                } else if(this.roomSelection == 201){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV", "Smart Board"];
+                    this.problemShow = true;
+                }
+            } else if (this.buildingSelection === "Library"){
+                if (this.roomSelection === "Crismon Hall"){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.problemShow = true;
+                } else if (this.roomSelection === "Curriculum Lab"){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV", "Smart Board"];
+                    this.problemShow = true;
+                } else if (this.roomSelection === "Mullins Room"){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.problemShow = true;
+                }
+            } else if (this.buildingSelection === "Cooke"){
+                if (this.roomSelection == 8 || this.roomSelection == 221 || this.roomSelection == 224){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.problemShow = true;
+                } else if(this.roomSelection === "CCRH"){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV", "Smart Board"];
+                    this.problemShow = true;
+                } else if(this.roomSelection === "IRH"){
+                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.problemShow = true;
+                } else if (this.roomSelection === "Heeren Hall"){
+                    window.alert("We do not service Heeren Hall")
+                }
             }
 
-            axios.get('')
-                .then(response => {
-                    this.problemSelection = response.data
-                })
-                .catch(error => {
-                    console.error(error)
-                })
+            // axios.get('')
+            //     .then(response => {
+            //         this.problemSelection = response.data
+            //     })
+            //     .catch(error => {
+            //         console.error(error)
+            //     })
         },
         solutionsAppear: function(){
             
