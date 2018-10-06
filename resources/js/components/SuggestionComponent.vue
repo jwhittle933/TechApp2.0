@@ -2,10 +2,10 @@
     <div id = "suggestion-div">
       <h2>Suggestions:</h2>
       <ul id="suggestion-ul">
-        <li class="clickable" v-for="(option, index) in options" :key="index">{{ option }}</li>
+        <slot name="li"></slot>
       </ul>
-      <span class="solutionButton"><a>Room Info</a></span>
-      <span class="solutionButton"><a href='/reportform'>Report a problem</a></span>
+      <span class="solutionButton">Room Info</span>
+      <span class="solutionButton">Report a problem</span>
     </div>
 </template>
 
@@ -16,19 +16,6 @@ export default {
     props: [],
     data: function (){
         return {
-            possibleOptions: {
-              projector: ["Is the light green?", "Is there a blue screen?", "Is the projector on?"],
-              computer: ["Is it a seminary issued laptop?", "Is it powered on?", "Can't connect to the internet?"],
-              screen: ["Is your computer plugged in?", "Is the screen blue?"],
-              audio: ["Is the cable plugged in?", "Is your computer muted?", "Is the Crestron muted?"],
-              video: ["Is the projector on?", "Are you plugged in?"],
-	            power: ["Are the desks connected?"],
-	            playDisc: ["Are you using a BluRay Player?", "Are you using your computer?"],
-              adapter: ["Does your computer plug straight in?"],
-              appleTV: ["Is it on but won't connect?", "Is your computer not detecting the device?"],
-              smartBoard: ["Have you powered it on?", "Is the USB plugged in?", "Is the HDMI plugged in?", "Have you connected via the mobile app?"]
-            },
-            options: [],
             solutionsShow: true
         }
     }
