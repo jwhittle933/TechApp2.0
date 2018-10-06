@@ -1,5 +1,6 @@
 <template>
     <div id = "suggestion-div">
+      <slot name="selections"></slot>
       <h2>Suggestions:</h2>
       <ul id="suggestion-ul">
         <slot name="li"></slot>
@@ -23,6 +24,10 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+    font-family: Sawarabi Mincho;
+    font-size: 1.25em;
+}
 #suggestion-div{
   width:100%;
 }
