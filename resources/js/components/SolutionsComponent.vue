@@ -31,6 +31,7 @@ export default {
                 audio: ["Is the cable plugged in?", "Is your computer muted?", "Is the Crestron muted?"],
                 video: ["Is the projector on?", "Are you plugged in?"],
                 extron: ["Is the screen responsive?", "Are you on the correct input?", "Have you checked the 'Room Options' button?"],
+                crestron: ["Is the screen responsive?", "Have you selected the correct input?", "Is the screen blue?"],
 	            power: ["Are the desks connected?"],
 	            playDisc: ["Are you using a BluRay Player?", "Are you using your computer?"],
                 adapter: ["Does your computer plug straight in?"],
@@ -48,7 +49,7 @@ export default {
             //L1 conditional Norton
             if (this.buildingSelection === "Norton"){
                 //NORTON BASEMENT ROOMS
-                //L2 conditional Room 11
+                //L2 conditional Rooms 11/15/17/20
                 if(this.roomSelection === "11" ||
                    this.roomSelection === "15" ||
                    this.roomSelection === "17" ||
@@ -74,7 +75,7 @@ export default {
                         this.options = this.possibleOptions.appleTV
                         return this.options
                     }
-                //L2 conditional Room 12
+                //L2 conditional Rooms 12/16
                 } else if(this.roomSelection === "12" ||
                           this.roomSelection === "16"){
                     //L3 conditional Norton 12/16 Projector
@@ -119,6 +120,40 @@ export default {
                     //L3 conditional Norton 13 Apple TV
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
+                        return this.options
+                    }
+                //L2 conditional Rooms 101/102/103/104/105/201/202/206/209
+                } else if (this.roomSelection === "101" ||
+                           this.roomSelection === "102" ||
+                           this.roomSelection === "103" ||
+                           this.roomSelection === "104" ||
+                           this.roomSelection === "105" ||
+                           this.roomSelection === "201" ||
+                           this.roomSelection === "202" ||
+                           this.roomSelection === "206" ||
+                           this.roomSelection === "209"){
+                    //L3 conditional Norton 100200 Projector
+                    if (this.problemSelection === "Projector"){
+                        this.options = this.possibleOptions.projector
+                        return this.options
+                    //L3 conditional Norton 100200 Video
+                    } else if (this.problemSelection === "Video"){
+                        this.options = this.possibleOptions.video
+                        return this.options
+                    //L3 conditional Norton 100200 Audio
+                    } else if (this.problemSelection === "Audio"){
+                        this.options = this.possibleOptions.audio
+                        return this.options
+                    //L3 conditional Norton 100200 Crestron
+                    } else if (this.problemSelection === "Crestron"){
+                        this.options = this.possibleOptions.crestron
+                        return this.options
+                    //L3 conditional Norton 100200 Apple TV
+                    } else if(this.problemSelection === "Apple TV"){
+                        this.options = this.possibleOptions.appleTV
+                        return this.options
+                    } else if(this.problemSelection === "Smart Board"){
+                        this.options = this.possibleOptions.smartBoard
                         return this.options
                     }
                 }
