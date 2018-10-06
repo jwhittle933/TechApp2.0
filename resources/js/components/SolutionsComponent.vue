@@ -1,7 +1,7 @@
 <template>
     <div id="solutions-div">
         <suggestion-component>
-            <h3 slot="selections">{{ buildingSelection }} – {{ roomSelection}} – {{ problemSelection}}</h3>
+            <h3 slot="selections">Your Selections: {{ buildingSelection }} – {{ roomSelection}} – {{ problemSelection}}</h3>
             <li class="clickable" v-for="(option, index) in fillOptions" :key="index" slot="li">{{ option }}</li>
         </suggestion-component>
         <room-description v-if="roomDescriptionShow" />
@@ -45,26 +45,83 @@ export default {
     },
     computed: {
         fillOptions: function (){
-            if (this.buildingSelection === "Norton"){ //L1 conditional
-                if(this.roomSelection === "12"){ //L2 conditional
-                    if (this.problemSelection === "Projector"){//L3 conditional
+            //L1 conditional Norton
+            if (this.buildingSelection === "Norton"){
+                //NORTON BASEMENT ROOMS
+                //L2 conditional Room 11
+                if(this.roomSelection === "11" ||
+                   this.roomSelection === "15" ||
+                   this.roomSelection === "17" ||
+                   this.roomSelection === "20"){
+                    //L3 conditional Norton 11/15/17/20 Projector
+                    if (this.problemSelection === "Projector"){
                         this.options = this.possibleOptions.projector
                         return this.options
+                    //L3 conditional Norton 11/15/17/20 Video
                     } else if (this.problemSelection === "Video"){
                         this.options = this.possibleOptions.video
                         return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if (this.problemSelection === "Audio"){
                         this.options = this.possibleOptions.audio
                         return this.options
+                    //L3 conditional Norton 11/15/17/20 Extron
                     } else if (this.problemSelection === "Extron"){
                         this.options = this.possibleOptions.extron
                         return this.options
+                    //L3 conditional Norton 11/15/17/20 Apple TV
+                    } else if(this.problemSelection === "Apple TV"){
+                        this.options = this.possibleOptions.appleTV
+                        return this.options
+                    }
+                //L2 conditional Room 12
+                } else if(this.roomSelection === "12" ||
+                          this.roomSelection === "16"){
+                    //L3 conditional Norton 12/16 Projector
+                    if (this.problemSelection === "Projector"){
+                        this.options = this.possibleOptions.projector
+                        return this.options
+                    //L3 conditional Norton 12/16 Video
+                    } else if (this.problemSelection === "Video"){
+                        this.options = this.possibleOptions.video
+                        return this.options
+                    //L3 conditional Norton 12/16 Audio
+                    } else if (this.problemSelection === "Audio"){
+                        this.options = this.possibleOptions.audio
+                        return this.options
+                    //L3 conditional Norton 12/16 Extron
+                    } else if (this.problemSelection === "Extron"){
+                        this.options = this.possibleOptions.extron
+                        return this.options
+                    //L3 conditional Norton 12/16 Apple TV
+                    } else if(this.problemSelection === "Apple TV"){
+                        this.options = this.possibleOptions.appleTV
+                        return this.options
+                    }
+                //L2 conditional Room 13
+                } else if(this.roomSelection === "13"){
+                    //L3 conditional Norton 13 Projector
+                    if (this.problemSelection === "Projector"){
+                        this.options = this.possibleOptions.projector
+                        return this.options
+                    //L3 conditional Norton 13 Video
+                    } else if (this.problemSelection === "Video"){
+                        this.options = this.possibleOptions.video
+                        return this.options
+                    //L3 conditional Norton 13 Audio
+                    } else if (this.problemSelection === "Audio"){
+                        this.options = this.possibleOptions.audio
+                        return this.options
+                    //L3 conditional Norton 13 Extron
+                    } else if (this.problemSelection === "Extron"){
+                        this.options = this.possibleOptions.extron
+                        return this.options
+                    //L3 conditional Norton 13 Apple TV
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         return this.options
                     }
                 }
-
             }
         }
     }
