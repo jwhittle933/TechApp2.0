@@ -10,7 +10,7 @@
           v-on:submit.prevent="populateProblemMenu"
           v-if="roomShow">
             <label for="roomop">{{ roomLabel }}</label>
-            <select id="roomop" name="roomop" v-model="formSelections.roomSelection"                                                          @change="problemsAppear">
+            <select id="roomop" name="roomop"                                       v-model="formSelections.roomSelection"                              @change="problemsAppear">
                 <option v-for="roomOption in roomOptions" :key="roomOption">{{ roomOption }}</option>
             </select>
         </form>
@@ -18,13 +18,13 @@
             v-on:submit.prevent="populatesolutions"
             v-if="problemShow">
              <label for="probop">{{ problemLabel }}</label>
-            <select id="probop" name="probop" v-model="formSelections.problemSelection" 
+            <select id="probop" name="probop" v-model="formSelections.problemSelection"
                                               @change="$emit('show-solutions', formSelections)">
                 <option v-for="probOption in probOptions" :key="probOption">{{ probOption }}</option>
             </select>
         </form>
     </form>
-    
+
 </template>
 
 <script>
@@ -82,35 +82,38 @@ export default {
         problemsAppear: function(){
             this.problemShow=true;
             if (this.formSelections.buildingSelection === "Norton"){
-                if (this.formSelections.roomSelection == 11 || 
-                    this.formSelections.roomSelection == 15 || 
-                    this.formSelections.roomSelection == 17 || 
-                    this.formSelections.roomSelection == 20 || 
+                if (this.formSelections.roomSelection == 11 ||
+                    this.formSelections.roomSelection == 15 ||
+                    this.formSelections.roomSelection == 17 ||
+                    this.formSelections.roomSelection == 20 ||
                     this.formSelections.roomSelection == 207) {
                         this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
                         this.problemShow = true;
-                } else if (this.formSelections.roomSelection == 12 || 
-                           this.formSelections.roomSelection == 16 || 
-                           this.formSelections.roomSelection == 204 || 
+                } else if (this.formSelections.roomSelection == 12 ||
+                           this.formSelections.roomSelection == 16 ||
+                           this.formSelections.roomSelection == 204 ||
                            this.formSelections.roomSelection == 205) {
                     this.probOptions = ["", "Projector", "Video", "Audio", "Extron", "Apple TV"];
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection == 13) {
                     this.probOptions = ["", "Projector", "Video", "Audio", "Extron", "Apple TV"];
                     this.problemShow = true;
-                } else if (this.formSelections.roomSelection == 101 || 
-                           this.formSelections.roomSelection == 102 || 
-                           this.formSelections.roomSelection == 103 || 
-                           this.formSelections.roomSelection == 104 || 
-                           this.formSelections.roomSelection == 105 || 
-                           this.formSelections.roomSelection == 201 || 
-                           this.formSelections.roomSelection == 202 || 
-                           this.formSelections.roomSelection == 206 || 
+                } else if (this.formSelections.roomSelection == 101 ||
+                           this.formSelections.roomSelection == 102 ||
+                           this.formSelections.roomSelection == 103 ||
+                           this.formSelections.roomSelection == 104 ||
+                           this.formSelections.roomSelection == 105 ||
+                           this.formSelections.roomSelection == 201 ||
+                           this.formSelections.roomSelection == 202 ||
+                           this.formSelections.roomSelection == 206 ||
                            this.formSelections.roomSelection == 209) {
                                 this.probOptions = ["", "Projector", "Video", "Audio", "Crestron", "Apple TV", "Smart Board"];
                                 this.problemShow = true;
                 } else if (this.formSelections.roomSelection == 195) {
                     this.probOptions = ["", "Projector", "Video", "Audio", "Crestron", "Apple TV"];
+                    this.problemShow = true;
+                } else if (this.formSelections.roomSelection == 232){
+                    this.probOptions = ["", "TV", "Video", "Audio", "Apple TV"];
                     this.problemShow = true;
                 } else {
                     this.problemShow = false;
@@ -138,8 +141,8 @@ export default {
                     this.problemShow = true;
                 }
             } else if (this.formSelections.buildingSelection === "Cooke"){
-                if (this.formSelections.roomSelection == 8 || 
-                    this.formSelections.roomSelection == 221 || 
+                if (this.formSelections.roomSelection == 8 ||
+                    this.formSelections.roomSelection == 221 ||
                     this.formSelections.roomSelection == 224){
                         this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
                         this.problemShow = true;
@@ -177,12 +180,12 @@ select {
      height: 300px;
  }
  button {
-     border-radius: 10px; 
-     margin-top: 15px; 
+     border-radius: 10px;
+     margin-top: 15px;
      background-color:lightblue;
      font-family: Lobster;
      font-size: 1.1em;
-     height: 25px; 
-     width: auto; 
+     height: 25px;
+     width: auto;
  }
 </style>

@@ -5,8 +5,8 @@
       <ul id="suggestion-ul">
         <slot name="li"></slot>
       </ul>
-      <span class="solutionButton">Room Info</span>
-      <span class="solutionButton">Report a problem</span>
+      <button class="solutionButton">Room Info</button>
+      <button class="solutionButton">Report a problem</button>
     </div>
 </template>
 
@@ -30,6 +30,7 @@ h3 {
 }
 #suggestion-div{
   width:100%;
+  margin-bottom: 25px;
 }
 #suggestion-ul {
   padding-left: 0;
