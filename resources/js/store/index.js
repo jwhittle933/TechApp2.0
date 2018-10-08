@@ -264,12 +264,12 @@ export default new Vuex.Store ({
     mutations: {
         setBuildingChoice(state, selection){
             state.formSelections.buildingSelection = selection;
-        },
+        }, //FormsComponent >>this.$store.commit('setBuildingChoice', payload)
         setRoomChoice(state, selection){
             state.formSelections.roomSelection = selection;
-        },
+        }, //FormsComponent >>this.$store.commit('setRoomChoice', payload)
         setProblemChoice(state, selection){
             state.formSelections.problemSelection = selection;
-        }
+        } //FormsComponent >>this.$store.commit('setProblemChoice', payload)
     }
 })
