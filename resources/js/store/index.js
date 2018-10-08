@@ -4,8 +4,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store ({
     state: {
-        campusTechnology: {
-
-        }
+        message: "This is the store message",
+        message2: "This is the second message"
     }
 })

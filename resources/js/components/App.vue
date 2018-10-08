@@ -19,6 +19,7 @@ import FormsComponent from './FormsComponent.vue';
 import SolutionsComponent from './SolutionsComponent.vue';
 import FooterComponent from './FooterComponent.vue';
 
+import { mapState } from 'vuex';
 
 // const router = new VueRouter({
 //     mode: 'history',
@@ -47,7 +48,8 @@ export default {
             this.form = $event;
             this.solutionsShow = true;
         }
-    }
+    },
+    computed: mapState(['message', 'message2'])
 }
 
 </script>
