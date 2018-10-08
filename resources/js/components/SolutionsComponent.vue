@@ -12,6 +12,8 @@
 import RoomDescription from './RoomDescription.vue';
 import SuggestionComponent from './SuggestionComponent.vue';
 
+import { mapState, mapGetters } from 'vuex';
+
 export default {
     name: "SolutionsComponent",
     props: {
@@ -73,7 +75,7 @@ export default {
         SuggestionComponent
     },
     computed: {
-        fillOptions: function (){
+        fillOptions(){
             //L1 conditional Norton
             if (this.buildingSelection === "Norton"){
                 //NORTON BASEMENT ROOMS
@@ -473,7 +475,15 @@ export default {
                     }
                 }//close L2 building selections
             }//close Cooke rooms
-        }//close fillOptions function
+        },
+        ...mapState({
+            nortonRooms: (state) => state.Norton,
+            carverRooms: (state) => state.Carver,
+            rankinRooms: (state) => state.Rankin,
+            libraryRooms: (state) => state.Library,
+            cookeRooms: (state) => state.Cooke
+        }),
+        ...mapGetters(['getNorton'])
     }//close computed hook
 }//close component
 </script>

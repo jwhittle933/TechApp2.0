@@ -49,7 +49,10 @@ export default {
             this.solutionsShow = true;
         }
     },
-    computed: mapState(['message', 'message2'])
+    computed: mapState({
+        message: (state) => state.message,
+        message2: 'message2'
+    })
 }
 
 </script>
