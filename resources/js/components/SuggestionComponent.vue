@@ -5,7 +5,7 @@
       <ul id="suggestion-ul">
         <slot name="li"></slot>
       </ul>
-      <button class="solutionButton">Room Info</button>
+      <button class="solutionButton">Get Info</button>
       <button class="solutionButton">Report a problem</button>
     </div>
 </template>
