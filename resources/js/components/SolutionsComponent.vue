@@ -9,13 +9,6 @@
                 @click="this.roomDescriptionShow = true">Get Info</button>
             <button class="solutionButton">Report a problem</button>
         </div>
-        <!--
-        <suggestion-component >
-            <h3 slot="selections">Your Selections: {{ buildingSelection }} – {{ roomSelection}} – {{ problemSelection}}</h3>
-            <li class="clickable" v-for="(option, index) in fillOptions" :key="index" slot="li">{{ option }}</li>
-        </suggestion-component>
-        <room-description v-if="roomDescriptionShow" />
-        -->
         <div id="solution-content-div" v-if="roomDescriptionShow">
             <button class="solution-close"
                 @click="this.roomDescriptionShow = false">X</button>

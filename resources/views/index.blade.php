@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <router-link to="/"></router-link>
+      <router-link to="/reportform">Go to Report Form</router-link>
+    </div>
   <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>
