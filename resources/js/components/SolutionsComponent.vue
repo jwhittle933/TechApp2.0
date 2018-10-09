@@ -1,14 +1,24 @@
 <template>
     <div id="solutions-div">
-        <suggestion-component @show-description="this.roomDescriptionShow = !this.roomDescriptionShow">
+        <div id = "suggestion-div">
+            <h2>Suggestions:</h2>
+            <ul id="suggestion-ul">
+                <li class="clickable" v-for="(option, index) in fillOptions" :key="index">{{ option }}</li>
+            </ul>
+            <button class="solutionButton"
+                @click="this.roomDescriptionShow = true">Get Info</button>
+            <button class="solutionButton">Report a problem</button>
+        </div>
+        <!--
+        <suggestion-component >
             <h3 slot="selections">Your Selections: {{ buildingSelection }} – {{ roomSelection}} – {{ problemSelection}}</h3>
             <li class="clickable" v-for="(option, index) in fillOptions" :key="index" slot="li">{{ option }}</li>
         </suggestion-component>
-        <!--
         <room-description v-if="roomDescriptionShow" />
         -->
-        <div id="solution-content-div">
-            <button class="solution-close" type="submit">X</button>
+        <div id="solution-content-div" v-if="roomDescriptionShow">
+            <button class="solution-close"
+                @click="this.roomDescriptionShow = false">X</button>
             <h2>Room Details</h2>
             <p id="populate"></p>
         </div>
@@ -17,7 +27,7 @@
 
 <script>
 //import RoomDescription from './RoomDescription.vue';
-import SuggestionComponent from './SuggestionComponent.vue';
+// import SuggestionComponent from './SuggestionComponent.vue';
 
 import { mapState, mapGetters, mapMutations } from 'vuex';
 
@@ -51,8 +61,8 @@ export default {
         }
     },
     components: {
-        RoomDescription,
-        SuggestionComponent
+        // RoomDescription,
+        // SuggestionComponent
     },
     methods: mapMutations(['setBuildingChoice', 'setRoomChoice', 'setProblemChoice']),
     computed: {
@@ -506,5 +516,49 @@ export default {
   position: absolute;
   left: -10px;
   top: -10px;
+}
+h3 {
+    font-family: Sawarabi Mincho;
+    font-size: 1.25em;
+}
+#suggestion-div{
+  width:100%;
+  margin-bottom: 25px;
+}
+#suggestion-ul {
+  padding-left: 0;
+  width: 80%;
+}
+#suggestion-ul p {
+  /*display: none;*/
+  font-family: Sawarabi Mincho;
+}
+.solutionButton {
+  height: auto;
+  width: auto;
+  font-family: monospace;
+  font-size: 1.25em;
+  color: black;
+  border-radius: 5px;
+  background-color: darkgrey;
+}
+.solution-button a:clicked{
+  color: black;
+}
+.clickable{
+  display: flex;
+  justify-content: space-between;
+  font-family: Montserrat;
+  font-size: 1.75em;
+  list-style: none;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-top: solid 2px #243441;
+  border-right: solid 2px #243441;
+  border-bottom: solid 1px #243441;
+  border-left: solid 5px #0468BF;
+  background-color: #FFFDFA;
+  box-shadow: 3px 3px grey;
 }
 </style>

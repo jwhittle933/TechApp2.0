@@ -14,19 +14,11 @@
 
 <script>
 
-import HeaderComponent from './HeaderComponent.vue';
-import FormsComponent from './FormsComponent.vue';
-import SolutionsComponent from './SolutionsComponent.vue';
-import FooterComponent from './FooterComponent.vue';
+import HeaderComponent from './HeaderComponent.vue'
+import FormsComponent from './FormsComponent.vue'
+import SolutionsComponent from './SolutionsComponent.vue'
+import FooterComponent from './FooterComponent.vue'
 
-
-// const router = new VueRouter({
-//     mode: 'history',
-//     routes: [
-//         {path: '/', component: App},
-//         {path: '/reportform', component: ReportForm}
-//     ]
-// })
 
 export default {
     name: "App",
