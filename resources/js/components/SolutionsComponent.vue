@@ -1,15 +1,22 @@
 <template>
     <div id="solutions-div">
-        <suggestion-component>
+        <suggestion-component @show-description="this.roomDescriptionShow = !this.roomDescriptionShow">
             <h3 slot="selections">Your Selections: {{ buildingSelection }} – {{ roomSelection}} – {{ problemSelection}}</h3>
             <li class="clickable" v-for="(option, index) in fillOptions" :key="index" slot="li">{{ option }}</li>
         </suggestion-component>
+        <!--
         <room-description v-if="roomDescriptionShow" />
+        -->
+        <div id="solution-content-div">
+            <button class="solution-close" type="submit">X</button>
+            <h2>Room Details</h2>
+            <p id="populate"></p>
+        </div>
     </div>
 </template>
 
 <script>
-import RoomDescription from './RoomDescription.vue';
+//import RoomDescription from './RoomDescription.vue';
 import SuggestionComponent from './SuggestionComponent.vue';
 
 import { mapState, mapGetters, mapMutations } from 'vuex';
@@ -23,9 +30,8 @@ export default {
     },
     data: function() {
         return {
-            roomDescriptionShow: false,
+            roomDescriptionShow: true,
             roomDescription: "",
-            suggestionCompomentShow: true,
             options: [],
             possibleOptions: {
                 projector: ["Is the light green?", "Is there a blue screen?", "Is the projector on?"],
@@ -452,7 +458,7 @@ export default {
             }//close Cooke rooms
         },
         ...mapState({
-            nortonRooms: (state) => state.roomTech.Norton, //currently return undefined
+            nortonRooms: (state) => state.roomTech.Norton,
             carverRooms: (state) => state.roomTech.Carver,
             rankinRooms: (state) => state.roomTech.Rankin,
             libraryRooms: (state) => state.roomTech.Library,
@@ -467,5 +473,38 @@ export default {
 #solutions-div{
     float: right;
     width: 50%;
+}
+#solution-content-div{
+  background: #FFF;
+  color: #fff;
+  position: fixed;
+  height: auto;
+  width: auto;
+  top: 20%;
+  left: 13%;
+  right: 13%;
+  z-index: 2;
+  box-shadow: 5px 5px 5px #67696E;
+  border: solid 2px #243441;
+}
+#solution-content-div h2 {
+  font-family: Sawarabi Mincho;
+  color: black;
+  text-align: center;
+}
+#solution-content-div p {
+  font-family: Sawarabi Mincho;
+  font-size: 1.25em;
+  color: black;
+  margin: 5px;
+  padding: 5px;
+}
+.solution-close {
+  font-family: monospace;
+  border-radius: 40%;
+  background-color: #FF5D4E;
+  position: absolute;
+  left: -10px;
+  top: -10px;
 }
 </style>

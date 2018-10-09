@@ -1,5 +1,5 @@
 <template>
-    <div id="solution-content-div" v-if="show">
+    <div id="solution-content-div">
       <button class="solution-close" type="submit">X</button>
       <h2>Room Details</h2>
       <p id="populate"></p>
@@ -10,11 +10,9 @@
 <script>
 export default {
     name: "RoomDescription",
-    props: ['solutionShow'],
     data: function (){
         return {
-            options: [],
-            show: false
+            options: []
         }
     }
 }

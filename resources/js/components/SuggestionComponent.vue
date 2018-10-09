@@ -5,7 +5,8 @@
       <ul id="suggestion-ul">
         <slot name="li"></slot>
       </ul>
-      <button class="solutionButton">Get Info</button>
+      <button class="solutionButton"
+          @click="$emit('show-description')">Get Info</button>
       <button class="solutionButton">Report a problem</button>
     </div>
 </template>
