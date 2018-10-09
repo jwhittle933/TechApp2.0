@@ -5,13 +5,13 @@
             <ul id="suggestion-ul">
                 <li class="clickable" v-for="(option, index) in fillOptions" :key="index">{{ option }}</li>
             </ul>
-            <button class="solutionButton"
-                @click="this.roomDescriptionShow = true">Get Info</button>
+            <button class="solutionButton" type="submit"
+                @submit.prevent="this.roomDescriptionShow = true">Get Info</button>
             <button class="solutionButton">Report a problem</button>
         </div>
         <div id="solution-content-div" v-if="roomDescriptionShow">
-            <button class="solution-close"
-                @click="this.roomDescriptionShow = false">X</button>
+            <button class="solution-close" type="submit"
+                @submit.prevent="this.roomDescriptionShow = false">X</button>
             <h2>Room Details</h2>
             <p id="populate"></p>
         </div>
@@ -19,9 +19,6 @@
 </template>
 
 <script>
-//import RoomDescription from './RoomDescription.vue';
-// import SuggestionComponent from './SuggestionComponent.vue';
-
 import { mapState, mapGetters, mapMutations } from 'vuex';
 
 export default {
@@ -33,7 +30,7 @@ export default {
     },
     data: function() {
         return {
-            roomDescriptionShow: true,
+            roomDescriptionShow: false,
             roomDescription: "",
             options: [],
             possibleOptions: {
@@ -57,7 +54,9 @@ export default {
         // RoomDescription,
         // SuggestionComponent
     },
-    methods: mapMutations(['setBuildingChoice', 'setRoomChoice', 'setProblemChoice']),
+    methods: {
+
+    },
     computed: {
         fillOptions(){
             //L1 conditional Norton

@@ -11,8 +11,6 @@
 
   <body>
     <div id="app">
-      <router-link to="/"></router-link>
-      <router-link to="/reportform">Go to Report Form</router-link>
     </div>
   <script src="{{ asset('js/app.js') }}"></script>
   </body>

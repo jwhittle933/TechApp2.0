@@ -19,7 +19,7 @@
             v-if="problemShow">
              <label for="probop">{{ problemLabel }}</label>
             <select id="probop" name="probop" v-model="formSelections.problemSelection"
-                                              @change="$emit('show-solutions', formSelections)">
+                                              @change="revealSolutions">
                 <option v-for="probOption in probOptions" :key="probOption">{{ probOption }}</option>
             </select>
         </form>
@@ -52,6 +52,7 @@ export default {
     watch: {
         solutionsAppear: function(){
             if(buildingSelection && roomSelection && problemSelection){
+                setProblemChoice(this.formSelections.problemSelection)
                 this.$emit('revealSolutions')
             }
         }
@@ -59,6 +60,7 @@ export default {
     methods: {
         roomsAppear: function(){
             this.problemShow = false;
+            this.setBuildingChoice(this.formSelections.buildingSelection)
             if(this.formSelections.buildingSelection == "Norton"){
                 this.roomOptions = ["", 11, 12, 13, 15, 16, 17, 20, 101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232]
                 this.roomShow = true;
@@ -80,7 +82,8 @@ export default {
             }
         },
         problemsAppear: function(){
-            this.problemShow=true;
+            this.problemShow = true;
+            this.setRoomChoice(this.formSelections.roomSelection)
             if (this.formSelections.buildingSelection === "Norton"){
                 if (this.formSelections.roomSelection == 11 ||
                     this.formSelections.roomSelection == 15 ||
@@ -157,6 +160,20 @@ export default {
                     window.alert("We do not service Heeren Hall. Please contact Event Media.");
                 }
             }
+        },
+        revealSolutions: function(){
+            this.$emit('show-solutions', this.formSelections)
+            this.setProblemChoice(this.formSelections.problemSelection)
+        },
+        //Mutations
+        setBuildingChoice(payload){
+            return this.$store.commit('setBuildingChoice', payload)
+        },
+        setRoomChoice(payload){
+            return this.$store.commit('setRoomChoice', payload)
+        },
+        setProblemChoice(payload){
+            return this.$store.commit('setProblemChoice', payload)
         }
     }
 }
