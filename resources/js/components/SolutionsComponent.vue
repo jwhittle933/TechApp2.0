@@ -5,13 +5,13 @@
             <ul id="suggestion-ul">
                 <li class="clickable" v-for="(option, index) in fillOptions" :key="index">{{ option }}</li>
             </ul>
-            <button class="solutionButton" type="submit"
-                @submit.prevent="this.roomDescriptionShow = true">Get Info</button>
+            <button class="solutionButton"
+                @click="openRoomDescription">Get Info</button>
             <button class="solutionButton">Report a problem</button>
         </div>
         <div id="solution-content-div" v-if="roomDescriptionShow">
-            <button class="solution-close" type="submit"
-                @submit.prevent="this.roomDescriptionShow = false">X</button>
+            <button class="solution-close"
+                @click="closeRoomDescription">X</button>
             <h2>Room Details</h2>
             <p id="populate"></p>
         </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
     name: "SolutionsComponent",
@@ -35,6 +35,7 @@ export default {
             options: [],
             possibleOptions: {
                 projector: ["Is the light green?", "Is there a blue screen?", "Is the projector on?"],
+                tv: ["Is it powered on?", "Is it on the correct input?", "Is your device plugged in?"],
                 computer: ["Is it a seminary issued laptop?", "Is it powered on?", "Can't connect to the internet?"],
                 screen: ["Is your computer plugged in?", "Is the screen blue?"],
                 audio: ["Is the cable plugged in?", "Is your computer muted?", "Is the Crestron muted?"],
@@ -55,7 +56,12 @@ export default {
         // SuggestionComponent
     },
     methods: {
-
+        openRoomDescription(){
+            this.roomDescriptionShow = true
+        },
+        closeRoomDescription(){
+            this.roomDescriptionShow = false
+        }
     },
     computed: {
         fillOptions(){
@@ -73,6 +79,14 @@ export default {
                         this.options = this.possibleOptions.projector
                         return this.options
                     //L3 conditional Norton 11/15/17/20 Video
+                    } else if (this.problemSelection === "Computer"){
+                        this.options = this.possibleOptions.computer
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Screen"){
+                        this.options = this.possibleOptions.screen
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if (this.problemSelection === "Video"){
                         this.options = this.possibleOptions.video
                         return this.options
@@ -81,6 +95,14 @@ export default {
                         this.options = this.possibleOptions.audio
                         return this.options
                     //L3 conditional Norton 11/15/17/20 Apple TV
+                    } else if (this.problemSelection === "Power"){
+                        this.options = this.possibleOptions.power
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "DVD"){
+                        this.options = this.possibleOptions.playDisc
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         return this.options
@@ -96,6 +118,14 @@ export default {
                         this.options = this.possibleOptions.projector
                         return this.options
                     //L3 conditional Norton 12/16 Video
+                    } else if (this.problemSelection === "Computer"){
+                        this.options = this.possibleOptions.computer
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Screen"){
+                        this.options = this.possibleOptions.screen
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if (this.problemSelection === "Video"){
                         this.options = this.possibleOptions.video
                         return this.options
@@ -108,6 +138,18 @@ export default {
                         this.options = this.possibleOptions.extron
                         return this.options
                     //L3 conditional Norton 12/16 Apple TV
+                    } else if (this.problemSelection === "Power"){
+                        this.options = this.possibleOptions.power
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "DVD"){
+                        this.options = this.possibleOptions.playDisc
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Adapter"){
+                        this.options = this.possibleOptions.adapter
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         return this.options
@@ -119,6 +161,14 @@ export default {
                         this.options = this.possibleOptions.projector
                         return this.options
                     //L3 conditional Norton 13 Video
+                    } else if (this.problemSelection === "Computer"){
+                        this.options = this.possibleOptions.computer
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Screen"){
+                        this.options = this.possibleOptions.screen
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if (this.problemSelection === "Video"){
                         this.options = this.possibleOptions.video
                         return this.options
@@ -127,10 +177,18 @@ export default {
                         this.options = this.possibleOptions.audio
                         return this.options
                     //L3 conditional Norton 13 Extron
-                    } else if (this.problemSelection === "Extron"){
-                        this.options = this.possibleOptions.extron
+                    } else if (this.problemSelection === "Power"){
+                        this.options = this.possibleOptions.power
                         return this.options
                     //L3 conditional Norton 13 Apple TV
+                    } else if (this.problemSelection === "DVD"){
+                        this.options = this.possibleOptions.playDisc
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Adapter"){
+                        this.options = this.possibleOptions.adapter
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         return this.options
@@ -149,7 +207,15 @@ export default {
                     if (this.problemSelection === "Projector"){
                         this.options = this.possibleOptions.projector
                         return this.options
-                    //L3 conditional Norton 100200 Video
+                    //L3 conditional Norton 100200 Computer
+                    } else if (this.problemSelection === "Computer"){
+                        this.options = this.possibleOptions.computer
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Video
+                    } else if (this.problemSelection === "Screen"){
+                        this.options = this.possibleOptions.screen
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if (this.problemSelection === "Video"){
                         this.options = this.possibleOptions.video
                         return this.options
@@ -162,6 +228,18 @@ export default {
                         this.options = this.possibleOptions.crestron
                         return this.options
                     //L3 conditional Norton 100200 Apple TV
+                    } else if (this.problemSelection === "Power"){
+                        this.options = this.possibleOptions.power
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "DVD"){
+                        this.options = this.possibleOptions.playDisc
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Adapter"){
+                        this.options = this.possibleOptions.adapter
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         return this.options
@@ -176,6 +254,14 @@ export default {
                         this.options = this.possibleOptions.projector
                         return this.options
                     //L3 conditional Norton 195 Video
+                    } else if (this.problemSelection === "Computer"){
+                        this.options = this.possibleOptions.computer
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Screen"){
+                        this.options = this.possibleOptions.screen
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if (this.problemSelection === "Video"){
                         this.options = this.possibleOptions.video
                         return this.options
@@ -188,6 +274,18 @@ export default {
                         this.options = this.possibleOptions.crestron
                         return this.options
                     //L3 conditional Norton 195 Apple TV
+                    } else if (this.problemSelection === "Power"){
+                        this.options = this.possibleOptions.power
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "DVD"){
+                        this.options = this.possibleOptions.playDisc
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Adapter"){
+                        this.options = this.possibleOptions.adapter
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         return this.options
@@ -195,10 +293,14 @@ export default {
                 //L2 conditional Norton 232
                 } else if (this.roomSelection === "232"){
                     //L3 conditional Norton 232 Projector
-                    if (this.problemSelection === "Projector"){
-                        this.options = this.possibleOptions.projector
+                    if (this.problemSelection === "TV"){
+                        this.options = this.possibleOptions.tv
                         return this.options
                     //L3 conditional Norton 232 Video
+                    } else if (this.problemSelection === "Computer"){
+                        this.options = this.possibleOptions.computer
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if (this.problemSelection === "Video"){
                         this.options = this.possibleOptions.video
                         return this.options
@@ -207,10 +309,18 @@ export default {
                         this.options = this.possibleOptions.audio
                         return this.options
                     //L3 conditional Norton 232 Crestron
-                    } else if (this.problemSelection === "Crestron"){
-                        this.options = this.possibleOptions.crestron
+                    } else if (this.problemSelection === "Power"){
+                        this.options = this.possibleOptions.power
                         return this.options
-                    //L3 conditional Norton 232 Apple TV
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "DVD"){
+                        this.options = this.possibleOptions.playDisc
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
+                    } else if (this.problemSelection === "Adapter"){
+                        this.options = this.possibleOptions.adapter
+                        return this.options
+                    //L3 conditional Norton 11/15/17/20 Audio
                     } else if(this.problemSelection === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         return this.options

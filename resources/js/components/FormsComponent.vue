@@ -90,16 +90,16 @@ export default {
                     this.formSelections.roomSelection == 17 ||
                     this.formSelections.roomSelection == 20 ||
                     this.formSelections.roomSelection == 207) {
-                        this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                        this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                         this.problemShow = true;
                 } else if (this.formSelections.roomSelection == 12 ||
                            this.formSelections.roomSelection == 16 ||
                            this.formSelections.roomSelection == 204 ||
                            this.formSelections.roomSelection == 205) {
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Extron", "Apple TV"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Extron", "Power", "DVD", "Adapter", "Apple TV"];
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection == 13) {
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Extron", "Apple TV"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection == 101 ||
                            this.formSelections.roomSelection == 102 ||
@@ -110,50 +110,50 @@ export default {
                            this.formSelections.roomSelection == 202 ||
                            this.formSelections.roomSelection == 206 ||
                            this.formSelections.roomSelection == 209) {
-                                this.probOptions = ["", "Projector", "Video", "Audio", "Crestron", "Apple TV", "Smart Board"];
+                                this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
                                 this.problemShow = true;
                 } else if (this.formSelections.roomSelection == 195) {
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Crestron", "Apple TV"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection == 232){
-                    this.probOptions = ["", "TV", "Video", "Audio", "Apple TV"];
+                    this.probOptions = ["", "TV", "Computer","Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                     this.problemShow = true;
                 } else {
                     this.problemShow = false;
                 }
             } else if (this.formSelections.buildingSelection === "Carver"){
-                this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                 this.problemShow = true;
             } else if (this.formSelections.buildingSelection === "Rankin"){
                 if (this.formSelections.roomSelection == 101){
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                     this.problemShow = true;
                 } else if(this.formSelections.roomSelection == 201){
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV", "Smart Board"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
                     this.problemShow = true;
                 }
             } else if (this.formSelections.buildingSelection === "Library"){
                 if (this.formSelections.roomSelection === "Crismon Hall"){
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection === "Curriculum Lab"){
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV", "Smart Board"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection === "Mullins Room"){
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.probOptions = ["", "TV", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                     this.problemShow = true;
                 }
             } else if (this.formSelections.buildingSelection === "Cooke"){
                 if (this.formSelections.roomSelection == 8 ||
                     this.formSelections.roomSelection == 221 ||
                     this.formSelections.roomSelection == 224){
-                        this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                        this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                         this.problemShow = true;
                 } else if(this.formSelections.roomSelection === "CCRH"){
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV", "Smart Board"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
                     this.problemShow = true;
                 } else if(this.formSelections.roomSelection === "IRH"){
-                    this.probOptions = ["", "Projector", "Video", "Audio", "Apple TV"];
+                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection === "Heeren Hall"){
                     this.problemShow = false;
