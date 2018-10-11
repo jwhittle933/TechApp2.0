@@ -62,22 +62,23 @@ export default {
     },
     methods: {
         roomsAppear: function(){
-            this.problemShow = false;
             this.setBuildingChoice(this.formSelections.buildingSelection)
-            if(this.formSelections.buildingSelection == "Norton"){
-                this.roomOptions = ["", 11, 12, 13, 15, 16, 17, 20, 101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232]
+            let building = this.getFormBuilding
+            this.problemShow = false;
+            if(building == "Norton"){
+                this.roomOptions = this.nortonRooms
                 this.roomShow = true;
-            } else if(this.formSelections.buildingSelection == "Carver"){
-                this.roomOptions = ["", 108, 135]
+            } else if(building == "Carver"){
+                this.roomOptions = this.carverRooms
                 this.roomShow = true;
-            } else if(this.formSelections.buildingSelection == "Rankin"){
-                this.roomOptions = ["", 101, 201]
+            } else if(building == "Rankin"){
+                this.roomOptions = this.rankinRooms
                 this.roomShow = true;
-            } else if(this.formSelections.buildingSelection == "Library"){
-                this.roomOptions = ["", "Crismon Hall", "Curriculum Lab", "Mullins Room"]
+            } else if(building == "Library"){
+                this.roomOptions = this.libraryRooms
                 this.roomShow = true;
-            } else if(this.formSelections.buildingSelection == "Cooke"){
-                this.roomOptions = ["", 8, 221, 224, "CCRH", "IRH", "Heeren Hall"]
+            } else if(building == "Cooke"){
+                this.roomOptions = this.cookeRooms
                 this.roomShow = true;
             } else {
                 this.roomShow = false;
@@ -87,76 +88,67 @@ export default {
         problemsAppear: function(){
             this.problemShow = true;
             this.setRoomChoice(this.formSelections.roomSelection)
-            if (this.formSelections.buildingSelection === "Norton"){
-                if (this.formSelections.roomSelection == 11 ||
-                    this.formSelections.roomSelection == 15 ||
-                    this.formSelections.roomSelection == 17 ||
-                    this.formSelections.roomSelection == 20 ||
-                    this.formSelections.roomSelection == 207) {
-                        this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
-                        this.problemShow = true;
-                } else if (this.formSelections.roomSelection == 12 ||
-                           this.formSelections.roomSelection == 16 ||
-                           this.formSelections.roomSelection == 204 ||
-                           this.formSelections.roomSelection == 205) {
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Extron", "Power", "DVD", "Adapter", "Apple TV"];
-                    this.problemShow = true;
-                } else if (this.formSelections.roomSelection == 13) {
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
-                    this.problemShow = true;
-                } else if (this.formSelections.roomSelection == 101 ||
-                           this.formSelections.roomSelection == 102 ||
-                           this.formSelections.roomSelection == 103 ||
-                           this.formSelections.roomSelection == 104 ||
-                           this.formSelections.roomSelection == 105 ||
-                           this.formSelections.roomSelection == 201 ||
-                           this.formSelections.roomSelection == 202 ||
-                           this.formSelections.roomSelection == 206 ||
-                           this.formSelections.roomSelection == 209) {
-                                this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
-                                this.problemShow = true;
-                } else if (this.formSelections.roomSelection == 195) {
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
-                    this.problemShow = true;
-                } else if (this.formSelections.roomSelection == 232){
-                    this.probOptions = ["", "TV", "Computer","Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
-                    this.problemShow = true;
+            let building = this.getFormBuilding
+            let room = this.getFormRoom
+            if (building === "Norton"){
+                if (room == 11 || room == 15 || room == 17 || room == 20 ||
+                    room == 207) {
+                        this.probOptions = this.nortonProblems.room11
+                        this.problemShow = true
+                } else if (room == 12 || room == 16 || room == 204 ||
+                           room == 205) {
+                    this.probOptions = this.nortonProblems.room12
+                    this.problemShow = true
+                } else if (room == 13) {
+                    this.probOptions = this.nortonProblems.room13
+                    this.problemShow = true
+                } else if (room == 101 || room == 102 || room == 103 ||
+                           room == 104 || room == 105 || room == 201 ||
+                           room == 202 || room == 206 || room == 209) {
+                                this.probOptions = this.nortonProblems.room100200
+                                this.problemShow = true
+                } else if (room == 195) {
+                    this.probOptions = this.nortonProblems.room195
+                    this.problemShow = true
+                } else if (room == 232){
+                    this.probOptions = this.nortonProblems.room232
+                    this.problemShow = true
                 } else {
-                    this.problemShow = false;
+                    this.problemShow = false
                 }
             } else if (this.formSelections.buildingSelection === "Carver"){
-                this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
-                this.problemShow = true;
+                this.probOptions = this.carverProblems.room108
+                this.problemShow = true
             } else if (this.formSelections.buildingSelection === "Rankin"){
                 if (this.formSelections.roomSelection == 101){
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
-                    this.problemShow = true;
+                    this.probOptions = this.rankinProblems.room101
+                    this.problemShow = true
                 } else if(this.formSelections.roomSelection == 201){
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
-                    this.problemShow = true;
+                    this.probOptions = this.rankinProblems.room201
+                    this.problemShow = true
                 }
             } else if (this.formSelections.buildingSelection === "Library"){
                 if (this.formSelections.roomSelection === "Crismon Hall"){
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
+                    this.probOptions = this.libraryProblems.CrismonHall;
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection === "Curriculum Lab"){
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
+                    this.probOptions = this.libraryProblems.CurriculumLab;
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection === "Mullins Room"){
-                    this.probOptions = ["", "TV", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
+                    this.probOptions = this.libraryProblems.MullinsRoom;
                     this.problemShow = true;
                 }
             } else if (this.formSelections.buildingSelection === "Cooke"){
                 if (this.formSelections.roomSelection == 8 ||
                     this.formSelections.roomSelection == 221 ||
                     this.formSelections.roomSelection == 224){
-                        this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
-                        this.problemShow = true;
+                        this.probOptions = this.cookeProblems.room8
+                        this.problemShow = true
                 } else if(this.formSelections.roomSelection === "CCRH"){
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"];
-                    this.problemShow = true;
+                    this.probOptions = this.cookeProblems.CCRH
+                    this.problemShow = true
                 } else if(this.formSelections.roomSelection === "IRH"){
-                    this.probOptions = ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"];
+                    this.probOptions = this.cookeProblems.IRH;
                     this.problemShow = true;
                 } else if (this.formSelections.roomSelection === "Heeren Hall"){
                     this.problemShow = false;
@@ -179,13 +171,26 @@ export default {
             return this.$store.commit('setProblemChoice', payload)
         }
     },
-    computed: mapState({
-            nortonRooms: (state) => state.roomTech.Norton,
-            carverRooms: (state) => state.roomTech.Carver,
-            rankinRooms: (state) => state.roomTech.Rankin,
-            libraryRooms: (state) => state.roomTech.Library,
-            cookeRooms: (state) => state.roomTech.Cooke
-        })
+    computed: {
+        ...mapState({
+            nortonTech: (state) => state.roomTech.Norton,
+            carverTech: (state) => state.roomTech.Carver,
+            rankinTech: (state) => state.roomTech.Rankin,
+            libraryTech: (state) => state.roomTech.Library,
+            cookeTech: (state) => state.roomTech.Cooke,
+            nortonRooms: (state) => state.rooms.Norton,
+            carverRooms: (state) => state.rooms.Carver,
+            rankinRooms: (state) => state.rooms.Rankin,
+            libraryRooms: (state) => state.rooms.Library,
+            cookeRooms: (state) => state.rooms.Cooke,
+            nortonProblems: (state) => state.problems.Norton,
+            carverProblems: (state) => state.problems.Carver,
+            rankinProblems: (state) => state.problems.Rankin,
+            libraryProblems: (state) => state.problems.Library,
+            cookeProblems: (state) => state.problems.Cooke
+        }),
+        ...mapGetters(['getFormBuilding', 'getFormRoom', 'getFormProblem'])
+    }
 }
 </script>
 

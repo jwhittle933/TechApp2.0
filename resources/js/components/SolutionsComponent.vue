@@ -23,11 +23,11 @@ import { mapState, mapGetters } from 'vuex';
 
 export default {
     name: "SolutionsComponent",
-    props: {
-        buildingSelection: String,
-        roomSelection: String,
-        problemSelection: String
-    },
+    // props: {
+    //     buildingSelection: String,
+    //     roomSelection: String,
+    //     problemSelection: String
+    // },
     data: function() {
         return {
             roomDescriptionShow: false,
@@ -47,9 +47,7 @@ export default {
                 adapter: ["Does your computer plug straight in?"],
                 appleTV: ["Is it on but won't connect?", "Is your computer not detecting the device?"],
                 smartBoard: ["Have you powered it on?", "Is the USB plugged in?", "Is the HDMI plugged in?", "Have you connected via the mobile app?"]
-            },
-            tempRoomDescription: "This is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary textThis is temporary text"
-
+            }
         }
     },
     methods: {
@@ -220,60 +218,60 @@ export default {
                         return this.options
                     }
                 //L2 conditional Rooms 101/102/103/104/105/201/202/206/209
-                } else if (room === "101" || room === "102" || room === "103" ||
-                           room === "104" || room === "105" || room === "201" ||
+                } else if (room === "101" || room === "102" || room === "103"||
+                           room === "104" || room === "105" || room === "201"||
                            room === "202" || room === "206" || room === "209"){
                     //L3 conditional Norton 100200 Projector
-                    if (this.problemSelection === "Projector"){
+                    if (problem === "Projector"){
                         this.options = this.possibleOptions.projector
                         this.roomDescription = this.nortonRooms.room100200.Projector
                         return this.options
                     //L3 conditional Norton 100200 Computer
-                    } else if (this.problemSelection === "Computer"){
+                    } else if (problem === "Computer"){
                         this.options = this.possibleOptions.computer
                         this.roomDescription = this.nortonRooms.room100200.Computer
                         return this.options
                     //L3 conditional Norton 11/15/17/20 Video
-                    } else if (this.problemSelection === "Screen"){
+                    } else if (problem === "Screen"){
                         this.options = this.possibleOptions.screen
                         this.roomDescription = this.nortonRooms.room100200.Screen
                         return this.options
                     //L3 conditional Norton 11/15/17/20 Audio
-                    } else if (this.problemSelection === "Video"){
+                    } else if (problem === "Video"){
                         this.options = this.possibleOptions.video
                         this.roomDescription = this.nortonRooms.room100200.Video
                         return this.options
                     //L3 conditional Norton 100200 Audio
-                    } else if (this.problemSelection === "Audio"){
+                    } else if (problem === "Audio"){
                         this.options = this.possibleOptions.audio
                         this.roomDescription = this.nortonRooms.room100200.Audio
                         return this.options
                     //L3 conditional Norton 100200 Crestron
-                    } else if (this.problemSelection === "Crestron"){
+                    } else if (problem === "Crestron"){
                         this.options = this.possibleOptions.crestron
                         this.roomDescription = this.nortonRooms.room100200.Crestron
                         return this.options
                     //L3 conditional Norton 100200 Apple TV
-                    } else if (this.problemSelection === "Power"){
+                    } else if (problem === "Power"){
                         this.options = this.possibleOptions.power
                         this.roomDescription = this.nortonRooms.room100200.Power
                         return this.options
                     //L3 conditional Norton 11/15/17/20 Audio
-                    } else if (this.problemSelection === "DVD"){
+                    } else if (problem === "DVD"){
                         this.options = this.possibleOptions.playDisc
                         this.roomDescription = this.nortonRooms.room100200.DVD
                         return this.options
                     //L3 conditional Norton 11/15/17/20 Audio
-                    } else if (this.problemSelection === "Adapter"){
+                    } else if (problem === "Adapter"){
                         this.options = this.possibleOptions.adapter
                         this.roomDescription = this.nortonRooms.room100200.Adapter
                         return this.options
                     //L3 conditional Norton 11/15/17/20 Audio
-                    } else if(this.problemSelection === "Apple TV"){
+                    } else if(problem === "Apple TV"){
                         this.options = this.possibleOptions.appleTV
                         this.roomDescription = this.nortonRooms.room100200.AppleTV
                         return this.options
-                    } else if(this.problemSelection === "Smart Board"){
+                    } else if(problem === "Smart Board"){
                         this.options = this.possibleOptions.smartBoard
                         this.roomDescription = this.nortonRooms.room100200.SmartBoard
                         return this.options

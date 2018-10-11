@@ -245,6 +245,41 @@ export default new Vuex.Store ({
                 }
             }
         },
+        rooms: {
+            Norton: ["", 11, 12, 13, 15, 16, 17, 20, 101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232],
+            Carver: ["", 108, 135],
+            Rankin: ["", 101, 201],
+            Library: ["", "Crismon Hall", "Curriculum Lab", "Mullins Room"],
+            Cooke: ["", 8, 221, 224, "CCRH", "IRH", "Heeren Hall"]
+        },
+        problems: {
+            Norton:{
+                room11: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
+                room12: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Extron", "Power", "DVD", "Adapter", "Apple TV"],
+                room13: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
+                room100200: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
+                room195: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
+                room232: ["", "TV", "Computer","Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
+            },
+            Carver: {
+                room108: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
+            },
+            Rankin: {
+                room101: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
+                room201: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"]
+            },
+            Library: {
+                CrismonHall: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
+                CurriculumLab: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
+                MullinsRoom: ["", "TV", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
+            },
+            Cooke: {
+                room8: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
+                CCRH: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
+                IRH: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
+
+            }
+        },
         formSelections: {
             buildingSelection: "",
             roomSelection: "",
