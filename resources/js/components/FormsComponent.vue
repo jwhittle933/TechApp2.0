@@ -1,34 +1,37 @@
 <template>
     <form class="float-left">
         <form class="form">
-            <label for="buildop">{{ buildingLabel }}</label>
+            <label for="buildop">{{ buildingLabel }}
             <select id="buildop" name="buildop" v-model="formSelections.buildingSelection"                                                      @change="roomsAppear">
                 <option v-for="buildOption in buildOptions"  :key="buildOption">{{ buildOption }}</option>
             </select>
+            </label>
         </form>
         <form id = "roomform" class="form"  method="get" action="roompopulate.php"
           v-on:submit.prevent="populateProblemMenu"
           v-if="roomShow">
-            <label for="roomop">{{ roomLabel }}</label>
+            <label for="roomop">{{ roomLabel }}
             <select id="roomop" name="roomop"                                       v-model="formSelections.roomSelection"                              @change="problemsAppear">
                 <option v-for="roomOption in roomOptions" :key="roomOption">{{ roomOption }}</option>
             </select>
+            </label>
         </form>
         <form id="probform" class="form" method="post" action=""
             v-on:submit.prevent="populatesolutions"
             v-if="problemShow">
-             <label for="probop">{{ problemLabel }}</label>
+             <label for="probop">{{ problemLabel }}
             <select id="probop" name="probop" v-model="formSelections.problemSelection"
                                               @change="revealSolutions">
                 <option v-for="probOption in probOptions" :key="probOption">{{ probOption }}</option>
             </select>
+            </label>
         </form>
     </form>
 
 </template>
 
 <script>
-import Axios from 'axios';
+import { mapState, mapGetters} from 'vuex'
 
 export default {
     name: "FormsComponent",
@@ -175,7 +178,14 @@ export default {
         setProblemChoice(payload){
             return this.$store.commit('setProblemChoice', payload)
         }
-    }
+    },
+    computed: mapState({
+            nortonRooms: (state) => state.roomTech.Norton,
+            carverRooms: (state) => state.roomTech.Carver,
+            rankinRooms: (state) => state.roomTech.Rankin,
+            libraryRooms: (state) => state.roomTech.Library,
+            cookeRooms: (state) => state.roomTech.Cooke
+        })
 }
 </script>
 

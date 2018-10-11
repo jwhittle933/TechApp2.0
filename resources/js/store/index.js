@@ -15,7 +15,7 @@ export default new Vuex.Store ({
                     "Power": "This room does not support large-scale power usage. The plates on the wall are the only sources of power.",
                     "DVD": "There is no native disc playback in this room. If you'd like to play a DVD or Blu Ray disc, please contact Classroom Technology to borrow a Blu Ray player of Campus Technology for a loaner laptop. If your device has a DVD player built-in, connect to the Crestron system (preferably through the HDMI) and insert the disc.",
                     "Adapter": "This room has HDMI and VGA video inputs. If your device does not have built-in capabilities with these cables, please see Classroom Technology for an adapter.",
-                    "Apple TV": "The Apple TV in this room is mounted above the projector. The projector often will turn on and default to the Apple TV input. Follow the instructions on the screen to connect. If the Apple TV is unresponsive, uplug the power cord from the back, wait a few seconds, and reinsert."
+                    "AppleTV": "The Apple TV in this room is mounted above the projector. The projector often will turn on and default to the Apple TV input. Follow the instructions on the screen to connect. If the Apple TV is unresponsive, uplug the power cord from the back, wait a few seconds, and reinsert."
                 },
                 "room12": {
                     "Projector": "This room contains an Extron room control system. The touch panel on the lecturn controls the projector and inputs. To turn the projector on, select Room Controls on the touch screen and then select from the Apple TV or wall jack inputs. Selection of eiter should turn the projector on for you. The wall jack inputs are automatic and will detect your computer. If you are connected but there is no video, check the cable in the wall to make sure it's inserted completely.",
@@ -27,7 +27,7 @@ export default new Vuex.Store ({
                     "Power": "This room does not support large-scale power usage. The plates on the wall are the only sources of power.",
                     "DVD": "There is no native disc playback in this room. If you'd like to play a DVD or Blu Ray disc, please contact Classroom Technology to borrow a Blu Ray player of Campus Technology for a loaner laptop. If your device has a DVD player built-in, connect to the Crestron system (preferably through the HDMI) and insert the disc.",
                     "Adapter": "This room has HDMI and VGA video inputs. If your device does not have built-in capabilities with these cables, please see Classroom Technology for an adapter.",
-                    "Apple TV": "The Apple TV in this room is stored in the lecturn. Access to this Apple TV is the same as the other basement rooms of Norton. If the Apple TV is unresponsive, a technician will have to reset it."
+                    "AppleTV": "The Apple TV in this room is stored in the lecturn. Access to this Apple TV is the same as the other basement rooms of Norton. If the Apple TV is unresponsive, a technician will have to reset it."
                 },
                 "room13": {
                     "Projector": "Room 13 contains a short throw projector, situated right above the white board. You can connect to this projector the same way as many of the other rooms, by plugging your computer into the wall jack. If youa are plugged in and there is still no video (the screen will be blue), check the cable in the wall to make sure its plugged all the way in.",
@@ -38,7 +38,7 @@ export default new Vuex.Store ({
                     "Power": "This room does not support large-scale power usage. The plates on the wall are the only sources of power.",
                     "DVD": "There is no native disc playback in this room. If you'd like to play a DVD or Blu Ray disc, please contact Classroom Technology to borrow a Blu Ray player of Campus Technology for a loaner laptop. If your device has a DVD player built-in, connect to the Crestron system (preferably through the HDMI) and insert the disc.",
                     "Adapter": "This room has HDMI and VGA video inputs. If your device does not have built-in capabilities with these cables, please see Classroom Technology for an adapter.",
-                    "Apple TV": "The Apple TV in this room is mounted above the projector. The projector often will turn on and default to the Apple TV input. Follow the instructions on the screen to connect. If the Apple TV is unresponsive, uplug the power cord from the back, wait a few seconds, and reinsert."
+                    "AppleTV": "The Apple TV in this room is mounted above the projector. The projector often will turn on and default to the Apple TV input. Follow the instructions on the screen to connect. If the Apple TV is unresponsive, uplug the power cord from the back, wait a few seconds, and reinsert."
                 },
                 "room17": {
                     "Projector": "This room is like others in the basement of Norton, but unlike them this room does not have an HDMI input. If your computer does not have a VGA port built in, it will be necessary to check out an adapter. As well, VGA does not trasmit audio, so if you desire to play a video or any form of audio, make sure that the audio cable in the wall is plugged into your headphone jack.",
@@ -49,7 +49,7 @@ export default new Vuex.Store ({
                     "Power": "This room does not support large-scale power usage. The plates on the wall are the only sources of power.",
                     "DVD": "There is no native disc playback in this room. If you'd like to play a DVD or Blu Ray disc, please contact Classroom Technology to borrow a Blu Ray player of Campus Technology for a loaner laptop. If your device has a DVD player built-in, connect to the Crestron system (preferably through the HDMI) and insert the disc.",
                     "Adapter": "This room has HDMI and VGA video inputs. If your device does not have built-in capabilities with these cables, please see Classroom Technology for an adapter.",
-                    "Apple TV": "The Apple TV in this room is mounted above the projector. The projector often will turn on and default to the Apple TV input. Follow the instructions on the screen to connect. If the Apple TV is unresponsive, uplug the power cord from the back, wait a few seconds, and reinsert."
+                    "AppleTV": "The Apple TV in this room is mounted above the projector. The projector often will turn on and default to the Apple TV input. Follow the instructions on the screen to connect. If the Apple TV is unresponsive, uplug the power cord from the back, wait a few seconds, and reinsert."
                 },
                 "room100200": {
                     "Projector": "This room contains a Crestron room controller. The touch screen on the lecturn powers on the projector, so you will not find a projector remote. To start the system, just select which input you'd like to use (House PC, HDMI, or VGA), and plug in your device.",
@@ -58,10 +58,11 @@ export default new Vuex.Store ({
                     "Audio": "This room is equipped to handle audio playback. If you are playing audio with video, try to use the HDMI input if possible, as this cable transmits both audio and video. If you are just playing audio or are using the VGA, be sure to plug the audio cable into your headphone jack. The volume is controlled partly by your computer's output volume and partly by the volume on the Crestron touch screen. The touch screen will be muted by default. Ensure that mute is turned off and the volume is high.",
                     "Video": "This room is equipped with a Crestron room controller. Video options include HDMI, VGA, as well as a Mac Mini running Windows if you don't wish to bring your device. Select the input you desire from the touch screen and the projector will turn on automatically.",
                     "Power": "This room has power supplies built into the desks. If the power supplies are not working, please call or email Classroom Technology at extension 4007 or classroomtechnology@sbts.edu.",
+                    "Crestron": "The touch screen installed on the lecturn is made by Crestron and is the controller for the technology in the room.",
                     "DVD": "There is no native disc playback in this room. If you'd like to play a DVD or Blu Ray disc, please contact Classroom Technology to borrow a Blu Ray player of Campus Technology for a loaner laptop. If your device has a DVD player built-in, connect to the Crestron system (preferably through the HDMI) and insert the disc.",
                     "Adapter": "This room has HDMI and VGA video inputs. If your device does not have built-in capabilities with these cables, please see Classroom Technology for an adapter.",
                     "Apple TV": "There is no Apple TV in this room. To connect, use the HDMI or VGA inputs, or use the House PC mounted in the lecturn and accessible through the Crestron system.",
-                    "Smart Board": "The smart board in this room is connected to the House PC and can only be accessed by using that device. To use, login to the House PC with your SBTS credentials and open the White Board application from the Desktop. The smart board becomes the equivalent of a large mousepad and will register your touch, regardless of whether you use the accomanying plastic pens."
+                    "SmartBoard": "The smart board in this room is connected to the House PC and can only be accessed by using that device. To use, login to the House PC with your SBTS credentials and open the White Board application from the Desktop. The smart board becomes the equivalent of a large mousepad and will register your touch, regardless of whether you use the accomanying plastic pens."
                 },
                 "room195": {
                     "Projector": "This room contains two different projection systems. One is a Crestron, similar to the 100 classrooms in Norton. To start up, simply select the input you'd like from either HDMI or VGA (the touch screen includes House PC, but this is not functional). Selecting the input will turn the projectors on. Ensure that your computer is connected to one of the cables coming from the wooden lecturn and an image will appear after the projectors warm up. Unfortunately, this system does not have audio capability at this time. The other system projects direcly down the middle and includes audio. To start this system, plug your computer into the blue-tipped VGA cable coming from the metal cabinet and push the selector button until the light is on the side labeld Computer. For this system, you'll need the white projector remote to turn it on. The remote has two sections: one power button at the top to turn the speaker on and another section to power the projector.",
@@ -98,7 +99,7 @@ export default new Vuex.Store ({
                     "Smart Board": "The Smart Board in this room is different from the others, in that it is not connected to the PC. Instead, it can be accessed from the internet on any device. On the bottom right of the board is a link to a website that can be searched, and on the website will appear a canvas that displays whatever is written on the board."
                 },
                 "room232": {
-                    "Projector": "This room contains a TV with an HDMI cable for you to plug into.",
+                    "TV": "This room contains a TV with an HDMI cable for you to plug into.",
                     "Computer": "This room does not come equipped with a computer. If you are having trouble with your seminary issued computer, please contact the help desk at x4006 during working hours.",
                     "Screen": "The screens in every room descend by pushing the toggle switch down. It is located near one of the doors. If you cannot get your computer to display properly, please select Projector from the drop menu and read the room info.",
                     "Audio": "This room is equipped with a TV for playback of video and audio. All audio playback must go through this TV or portable speakers must be used. The TV is equipped with an HDMI cable.",
@@ -110,7 +111,7 @@ export default new Vuex.Store ({
                 }
             },
             Carver: {
-                "108": {
+                "room108": {
                     "Projector": "The projector system in this room has two inputs: HDMI(small and thin) and VGA(slightly larger). Check the wall jack to make sure that it has not been damaged. These rooms also reqire a remote to power on the projector. If one is not present, check the surrounding rooms as there is sure to be one present. Also, you may reach up and manually push the power button on the remote. The Campus Technology office is upstairs on the main hallway and if anyone is there, they may be able to help you.",
                     "Computer": "",
                     "Screen": "",
@@ -119,11 +120,11 @@ export default new Vuex.Store ({
                     "Power": "",
                     "DVD": "",
                     "Adapter": "",
-                    "Apple TV": "There is an Apple TV mounted on top of the projector. Press Source Search on the projector remote to select the HDMI input. On your Apple device, select airplay and the appropriate room number, then input the password that appears on the projector screen. Occationally, when an Apple TV sits idle for too long, it needs to be restarted. Remove the power cable from the back, wait a few seconds, and reinsert. The device should boot back up."
+                    "AppleTV": "There is an Apple TV mounted on top of the projector. Press Source Search on the projector remote to select the HDMI input. On your Apple device, select airplay and the appropriate room number, then input the password that appears on the projector screen. Occationally, when an Apple TV sits idle for too long, it needs to be restarted. Remove the power cable from the back, wait a few seconds, and reinsert. The device should boot back up."
                 }
             },
             Rankin: {
-                "101": {
+                "room101": {
                     "Projector": "",
                     "Computer": "",
                     "Screen": "",
@@ -135,7 +136,7 @@ export default new Vuex.Store ({
                     "Apple TV": "",
                     "Smart Board": ""
                 },
-                "201": {
+                "room201": {
                     "Projector": "",
                     "Computer": "",
                     "Screen": "",
@@ -149,7 +150,7 @@ export default new Vuex.Store ({
                 }
             },
             Library: {
-                "Crismon Hall": {
+                "CrismonHall": {
                     "Projector": "",
                     "Computer": "",
                     "Screen": "",
@@ -158,11 +159,9 @@ export default new Vuex.Store ({
                     "Power": "",
                     "DVD": "",
                     "Adapter": "",
-                    "Apple TV": "",
-                    "Smart Board": ""
+                    "AppleTV": ""
                 },
-                "Curriculum Lab": {
-                    "Projector": "",
+                "CurriculumLab": {
                     "Computer": "",
                     "Screen": "",
                     "Audio": "",
@@ -170,11 +169,11 @@ export default new Vuex.Store ({
                     "Power": "",
                     "DVD": "",
                     "Adapter": "",
-                    "Apple TV": "",
-                    "Smart Board": ""
+                    "AppleTV": "",
+                    "SmartBoard": ""
                 },
-                "Mullins Room": {
-                    "Projector": "",
+                "MullinsRoom": {
+                    "TV": "",
                     "Computer": "",
                     "Screen": "",
                     "Audio": "",
@@ -182,12 +181,22 @@ export default new Vuex.Store ({
                     "Power": "",
                     "DVD": "",
                     "Adapter": "",
-                    "Apple TV": "",
-                    "Smart Board": ""
+                    "AppleTV": ""
                 }
             },
             Cooke: {
-                "8": {
+                "room8": {
+                    "Projector": "",
+                    "Computer": "",
+                    "Screen": "",
+                    "Audio": "",
+                    "Video": "",
+                    "Power": "",
+                    "DVD": "",
+                    "Adapter": "",
+                    "AppleTV": ""
+                },
+                "room221": {
                     "Projector": "",
                     "Computer": "",
                     "Screen": "",
@@ -199,19 +208,7 @@ export default new Vuex.Store ({
                     "Apple TV": "",
                     "Smart Board": ""
                 },
-                "221": {
-                    "Projector": "",
-                    "Computer": "",
-                    "Screen": "",
-                    "Audio": "",
-                    "Video": "",
-                    "Power": "",
-                    "DVD": "",
-                    "Adapter": "",
-                    "Apple TV": "",
-                    "Smart Board": ""
-                },
-                "224": {
+                "room224": {
                     "Projector": "",
                     "Computer": "",
                     "Screen": "",
@@ -232,8 +229,8 @@ export default new Vuex.Store ({
                     "Power": "",
                     "DVD": "",
                     "Adapter": "",
-                    "Apple TV": "",
-                    "Smart Board": ""
+                    "AppleTV": "",
+                    "SmartBoard": ""
                 },
                 "IRH": {
                     "Projector": "",
@@ -244,8 +241,7 @@ export default new Vuex.Store ({
                     "Power": "",
                     "DVD": "",
                     "Adapter": "",
-                    "Apple TV": "",
-                    "Smart Board": ""
+                    "AppleTV": ""
                 }
             }
         },
@@ -260,17 +256,23 @@ export default new Vuex.Store ({
         getCarver: (state) => state.roomTech.Carver,
         getRankin: (state) => state.roomTech.Rankin,
         getLibrary: (state) => state.roomTech.Library,
-        getCooke: (state) => state.roomTech.Cooke
+        getCooke: (state) => state.roomTech.Cooke,
+        getFormBuilding: (state) => state.formSelections.buildingSelection,
+        getFormRoom: (state) => state.formSelections.roomSelection,
+        getFormProblem: (state) => state.formSelections.problemSelection
     },
     mutations: {
         setBuildingChoice(state, selection){
             state.formSelections.buildingSelection = selection;
-        }, //FormsComponent >>this.$store.commit('setBuildingChoice', payload)
+        },
         setRoomChoice(state, selection){
             state.formSelections.roomSelection = selection;
-        }, //FormsComponent >>this.$store.commit('setRoomChoice', payload)
+        },
         setProblemChoice(state, selection){
             state.formSelections.problemSelection = selection;
-        } //FormsComponent >>this.$store.commit('setProblemChoice', payload)
+        }
+    },
+    actions: {
+
     }
 })
