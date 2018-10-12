@@ -12,13 +12,17 @@
 */
 
 Route::get('/', function () {
+    $norton_rooms = DB::table('norton_rooms')->get();
+
     return view('index');
 });
 
 Route::get('/reportform', function () {
-    return view('reportform');
+    return view('reportform', [
+
+    ]);
 });
 
 Route::get('/login', function(){
-    return view('login');
+    return view('login')->with('name', 'World');
 });

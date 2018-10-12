@@ -6,10 +6,10 @@
             <p @click="toggleMenu" class="menu"><a href="#">{{ menu }}</a></p>
             </div>
             <div id="menu-items" v-if='show' class="menu-items-view">
-            <ul>
-                <li v-for="(text, index) in menuText" :key="index">
-                  <a :href="text.url">{{ text.words }}</a></li>
-            </ul>
+              <ul>
+                  <li v-for="(text, index) in menuText" :key="index">
+                    <a :href="text.url">{{ text.words }}</a></li>
+              </ul>
             </div>
         </div>
         <h1 id="item">{{ title }}</h1>
@@ -69,9 +69,9 @@ a {
 }
 .menu-items-view {
   background-color: #FFFDFA;
-  position: fixed;
-  left: 10px;
-  top: 75px;
+  position: absolute;
+  left: 5px;
+  top: 65px;
   width: 30%;
   border: solid 2px #6DB3BF;
   z-index: 1;
