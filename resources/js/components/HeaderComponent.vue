@@ -7,7 +7,8 @@
             </div>
             <div id="menu-items" v-if='show' class="menu-items-view">
             <ul>
-                <li v-for="(text, index) in menuText" :key="index">{{ text.words }}</li>
+                <li v-for="(text, index) in menuText" :key="index">
+                  <a :href="text.url">{{ text.words }}</a></li>
             </ul>
             </div>
         </div>

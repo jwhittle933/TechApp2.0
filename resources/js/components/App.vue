@@ -3,10 +3,7 @@
         <header-component />
         <div class="flex-box">
             <forms-component @show-solutions="showSolutions"/>
-            <solutions-component v-if="solutionsShow"
-                                :building-selection="form.buildingSelection"
-                                :room-selection="form.roomSelection"
-                                :problem-selection="form.problemSelection"/>
+            <solutions-component v-if="solutionsShow"/>
         </div>
         <footer-component />
     </div>
@@ -25,7 +22,6 @@ export default {
     data: function(){
         return {
             solutionsShow: false,
-            form: "",
         }
     },
     components: {
@@ -35,8 +31,7 @@ export default {
         FooterComponent
     },
     methods: {
-        showSolutions: function($event){
-            this.form = $event;
+        showSolutions: function(){
             this.solutionsShow = true;
         }
     }

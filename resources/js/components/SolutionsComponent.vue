@@ -23,11 +23,6 @@ import { mapState, mapGetters } from 'vuex';
 
 export default {
     name: "SolutionsComponent",
-    // props: {
-    //     buildingSelection: String,
-    //     roomSelection: String,
-    //     problemSelection: String
-    // },
     data: function() {
         return {
             roomDescriptionShow: false,
@@ -47,7 +42,8 @@ export default {
                 adapter: ["Does your computer plug straight in?"],
                 appleTV: ["Is it on but won't connect?", "Is your computer not detecting the device?"],
                 smartBoard: ["Have you powered it on?", "Is the USB plugged in?", "Is the HDMI plugged in?", "Have you connected via the mobile app?"]
-            }
+            },
+            reportFormUrl: "/reportform"
         }
     },
     methods: {

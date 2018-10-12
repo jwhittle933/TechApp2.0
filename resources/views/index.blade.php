@@ -12,6 +12,7 @@
   <body>
     <div id="app">
     </div>
-  <script src="{{ asset('js/app.js') }}"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>

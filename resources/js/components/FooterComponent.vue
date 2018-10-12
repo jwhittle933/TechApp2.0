@@ -6,6 +6,9 @@
           </ul>
         </div>
         <div id='droptest'></div>
+        <div>
+          <a class="twitter-timeline" data-width="600" data-height="300" data-theme="dark" href="https://twitter.com/sbtstech?ref_src=twsrc%5Etfw">Tweets by sbtstech</a>
+        </div>
     </footer>
 </template>
 
@@ -33,6 +36,7 @@ footer {
   height:auto;
   border: solid 5px #3C5D5E;
   clear: both;
+  display: flex;
 }
 #southern-links {
   width: 50%;

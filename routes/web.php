@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/reportform', function () {
-//     return view('reportform');
-// });
+Route::get('/reportform', function () {
+    return view('reportform');
+});
 
-// Routes::get('/login', function(){
-//     return view('login');
-// });
+Route::get('/login', function(){
+    return view('login');
+});
