@@ -6,12 +6,14 @@
       <link rel="stylesheet" href="styles/index.css">
       <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cinzel|Lobster" rel="stylesheet">
-      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
-    <div id="app">
-    </div>
+
+
+    <div id="app"></div>
+
+
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="{{ asset('js/app.js') }}"></script>
   </body>
