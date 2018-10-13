@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Form Submit</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Cinzel|Lobster" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+@extends ('layouts.master')
+
+
+  @section ('style')
   <style>
-    h1 {font-family: Cinzel;font-size: 4.5em;} a {text-decoration: none;color: inherit;}footer {background-color: #325D7F;color: #E7F2EA;height:auto;border: solid 5px #3C5D5E;} .signup {width: auto; border: 2px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444; margin-left: auto; margin-right: auto; margin-top: 50px;margin-bottom: 50px;} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} header {margin-top: 0;display: inline-flex;width: 100%;border-bottom: solid 2px #223351;flex-wrap: wrap;justify-content: space-between;background-image: linear-gradient(to right, #fff, #6DB3BF);} header p {font-family: Sawarabi Mincho;} svg {height: 80px;width: 20px;margin-right: 7px;} ul {padding-left: 0;}.rotate {transform: rotate(90deg);transition: .5s;}.rotate-reset {transform: rotate(0deg);transition: .5s;} #menu {background-image: linear-gradient(to right, #fff, #6DB3BF);}#menu-div {display: flex;font-family: Lobster;font-size: 1.5em;margin-bottom: 0;background-image: linear-gradient(to right, #fff, #6DB3BF);}#menu-div p {flex-grow: 2}#menu-div svg:hover{cursor: pointer;}.menu-items {display: none;}#menu-items li {color: black;list-style: none;font-family: Montserrat;font-size: 1.25em;margin-left: 4px;padding: 2px;}.menu-items-view {display: none;background-color: #FFFDFA;position: sticky;left: 5px;top: 75px;width: 30%;border: solid 2px #6DB3BF;z-index: 1;box-shadow: 5px 5px 5px #67696E;}#item {flex: 2 0 75%;align-self: flex-end;margin-bottom: 15px;margin-top: 0;}
+    h1 {font-family: Cinzel;font-size: 4.5em;} a {text-decoration: none;color: inherit;}footer {background-color: #325D7F;color: #E7F2EA;height:auto;border: solid 5px #3C5D5E;} .signup {width: auto; border: 2px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444; margin-left: auto; margin-right: auto; margin-top: 50px;margin-bottom: 50px;} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} header {margin-top: 0;display: inline-flex;width: 100%;border-bottom: solid 2px #223351;flex-wrap: wrap;justify-content: space-between;background-image: linear-gradient(to right, #fff, #6DB3BF);} header p {font-family: Sawarabi Mincho;} svg {height: 80px;width: 20px;margin-right: 7px;} ul {padding-left: 0;}.rotate {transform: rotate(90deg);transition: .5s;}.rotate-reset {transform: rotate(0deg);transition: .5s;} #menu {background-image: linear-gradient(to right, #fff, #6DB3BF);}#menu-div {display: flex;font-family: Lobster;font-size: 1.5em;margin-bottom: 0;background-image: linear-gradient(to right, #fff, #6DB3BF);}#menu-div p {flex-grow: 2}#menu-div svg:hover{cursor: pointer;}.menu-items {display: none;}#menu-items li {color: black;list-style: none;font-family: Montserrat;font-size: 1.25em;margin-left: 4px;padding: 2px;}.menu-items-view {display: none;background-color: #FFFDFA;position: absolute;left: 5px;top: 75px;width: 30%;border: solid 2px #6DB3BF;z-index: 1;box-shadow: 5px 5px 5px #67696E;}#item {flex: 2 0 75%;align-self: flex-end;margin-bottom: 15px;margin-top: 0;}
   </style>
-</head>
+  @endsection
+
+  @section('title', 'TechHelp Report Form')
+
+  @section ('content')
   <body>
       <div id="menu-div">
           <svg class=" svg rotate-reset"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" version="1.1" width="120px" height="120px">
@@ -23,7 +22,7 @@
           <path style=" fill:#4788C7;" d="M 38 28 L 38 32 L 2 32 L 2 28 L 38 28 M 39 27 L 1 27 L 1 33 L 39 33 Z "></svg>
           <p>Menu</p>
       </div>
-      
+
         <div id="menu">
           <div id="menu-items" class="menu-items-view">
             <ul>
@@ -75,14 +74,14 @@
         </ul>
       </div>
     </footer>
-    <script> 
+    <script>
       $('svg').click(function(){
         $('.menu-items-view').slideToggle(800);
     })//end toggle click handler
     $('#menu-div svg').on("click", function (event) {
         $('.svg').toggleClass('rotate');
         $('.svg').toggleClass('rotate-reset');
-    });//end animation click handler 
+    });//end animation click handler
     </script>
   </body>
-</html>
+  @endsection
