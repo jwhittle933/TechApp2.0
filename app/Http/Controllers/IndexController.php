@@ -8,7 +8,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $norton_rooms = Buildings::all();
+        // $norton_rooms = Buildings::all();
          return view('index');
     }
 }
