@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 {
     public function index()
     {
-        $norton_rooms = DB::table('norton_rooms')->get();
+        $user = User::all();
         return view('login');
     }
 }
