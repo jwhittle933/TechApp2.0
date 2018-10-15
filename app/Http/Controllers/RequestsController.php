@@ -52,19 +52,26 @@ class RequestsController extends Controller
         $view .= "<b>Updated At: </b>" . $request->updated_at . "<br>";
         $view .= "</div>";
         echo $view;
-        return view('/show');
+        return view('/show', [
+            'id' => $request->id,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'building' => $request->building,
+            'room' => $request->room,
+            'problem' => $request->problem,
+            'email' => $request->email,
+        ]);
     }
 
-    public function destroy(Requests $request)
+    public function destroy($id)
     {
-        $id = $requests->id;
-        DB::table('requests')->where('id', '=', $id)->delete();
+        Requests::where('id', $id)->delete();
         return redirect('/requestmanager');
     }
 
     public function update (Requests $request)
     {
-        $view = $request->toArray();
-        dd($view);
+        Requests::where('id', '=', $id)->update('', '');
+        return redirect('/requestmanager');
     }
 }
