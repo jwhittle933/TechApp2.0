@@ -36,7 +36,6 @@ class RequestsController extends Controller
         $requests->email = request('email');
 
         $requests->save();
-
         return redirect('/requestmanager');
     }
 
