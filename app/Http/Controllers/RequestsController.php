@@ -26,24 +26,21 @@ class RequestsController extends Controller
         echo "</div>";
     }
 
-    public function submit()
+    public function store()
     {
-
-        $requests = new Requests;
-        $requests->first_name = request('first_name');
-        $requests->last_name = request('last_name');
-        $requests->building = request('building');
-        $requests->room = request('room');
-        $requests->problem = request('problem');
-        $requests->email = request('email');
-
-        $requests->save();
+        Requests::create([
+            'first_name' => request('first_name'),
+            'last_name' => request('last_name'),
+            'building' => request('building'),
+            'room' => request('room'),
+            'problem' => request('problem'),
+            'email' => request('email'),
+        ]);
         return redirect('/requestmanager');
     }
 
     public function show(Requests $request)
     {
-        $id = $request->id;
         $view = "<div class='entry'><b>ID: </b>" . $request->id . "<br>";
         $view .= "<b>First Name: </b>" . $request->first_name . "<br>";
         $view .= "<b>Last Name: </b>" . $request->last_name . "<br>";
@@ -58,11 +55,11 @@ class RequestsController extends Controller
         return view('/show');
     }
 
-    public function delete(Requests $request)
+    public function destroy(Requests $request)
     {
-        $view = $request->id;
-        dd($view);
-
+        $id = $requests->id;
+        DB::table('requests')->where('id', '=', $id)->delete();
+        return redirect('/requestmanager');
     }
 
     public function update (Requests $request)

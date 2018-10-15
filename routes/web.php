@@ -9,8 +9,8 @@ Route::get('/login', 'LoginController@index');
 
 Route::get('/requestmanager', 'RequestsController@index');
 Route::get('/requestmanager/{request}', 'RequestsController@show');
-Route::delete('/requestmanager/delete', 'RequestsController@delete');
-Route::patch('/requestmanager/update', 'RequestsController@update');
-Route::post('/requestmanager', 'RequestsController@submit');
+Route::patch('/requestmanager', 'RequestsController@update');
+Route::delete('/requestmanager', 'RequestsController@destroy');
+Route::post('/requestmanager', 'RequestsController@store');
 
 

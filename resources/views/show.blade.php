@@ -8,8 +8,14 @@
 
 @section('content')
 <div>
-    <a href="/requestmanager/delete">Delete this request</a><br>
-    <a href="/requestmanager/update">Update this request</a>
+    <form action="/requestmanager/{request}" method="delete">
+        {{ csrf_field() }}
+        <button type="submit" value="delete">Delete this request</button>
+    </form>
+    <form action="/requestmanager/{request}" method="patch">
+        {{ csrf_field() }}
+        <button type="submit" value="delete">Update this request</button>
+    </form>
 </div>
 @endsection
 
