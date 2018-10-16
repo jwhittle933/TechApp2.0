@@ -8,22 +8,23 @@
 @endsection
 
 @section ('content')
+@include('layouts.nav')
 <div id='request-form'>
     <form action='/requestmanager' method='POST'>
         {{ csrf_field() }}
         <table>
             <tr><td><label for='first_name'>First Name: </label></td>
-            <td><input type='text' name='first_name' required></td></tr>
+            <td><input type='text' name='first_name' ></td></tr>
             <tr><td><label for='last_name'>Last Name: </label></td>
-            <td><input type='text' name='last_name' required></td></tr>
+            <td><input type='text' name='last_name' ></td></tr>
             <tr><td><label for='building'>Building: </label></td>
-            <td><input type='text' name='building' required></td></tr>
+            <td><input type='text' name='building' ></td></tr>
             <tr><td><label for='room'>Room: </label></td>
-            <td><input type='text' name='room' required></td></tr>
+            <td><input type='text' name='room' ></td></tr>
             <tr><td><label for='problem'>Problem: </label></td>
-            <td><textarea type='text' name='problem' required></textarea></td></tr>
+            <td><textarea type='text' name='problem' ></textarea></td></tr>
             <tr><td><label for='email'>Email: </label></td>
-            <td><input type='email' name='email' required></td></tr>
+            <td><input type='email' name='email' ></td></tr>
             <tr><td><input class="btn btn-outline-primary" type='submit' value='SUBMIT'></td></tr>
         </table>
 
@@ -40,8 +41,5 @@
         @endif
 
     </form>
-</div>
-<div id="requests">
-
 </div>
 @endsection

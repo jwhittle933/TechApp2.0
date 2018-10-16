@@ -29,7 +29,12 @@ class RequestsController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'first_name' => 'required|'
+            'first_name' => 'required|min:2',
+            'last_name' => 'required|min:2',
+            'building' => 'required',
+            'room' => 'required',
+            'problem' => 'required|min:10',
+            'email' => 'required|e-mail',
         ]);
         Requests::create([
             'first_name' => request('first_name'),
