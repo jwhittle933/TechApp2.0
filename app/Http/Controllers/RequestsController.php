@@ -12,7 +12,7 @@ class RequestsController extends Controller
         echo view('requestmanager');
         echo "<div class='flex-requests'>";
         foreach ($requests as $request){
-            echo "<div class='entry'><b>ID: </b>" . $request->id . "<br>";
+            echo "<div class='entry' id='$request->id'><a href='/requestmanager/$request->id'><b>ID: </b>" . $request->id . "<br>";
             echo "<b>First Name: </b>" . $request->first_name . "<br>";
             echo "<b>Last Name: </b>" . $request->last_name . "<br>";
             echo "<b>Building: </b>" . $request->building . "<br>";
@@ -21,13 +21,16 @@ class RequestsController extends Controller
             echo "<b>Email: </b>" . $request->email . "<br>";
             echo "<b>Created At: </b>" . $request->created_at . "<br>";
             echo "<b>Updated At: </b>" . $request->updated_at . "<br>";
-            echo "</div>";
+            echo "</a></div>";
         }
         echo "</div>";
     }
 
     public function store()
     {
+        $this->validate(request(), [
+            'first_name' => 'required|'
+        ]);
         Requests::create([
             'first_name' => request('first_name'),
             'last_name' => request('last_name'),
@@ -69,9 +72,15 @@ class RequestsController extends Controller
         return redirect('/requestmanager');
     }
 
-    public function update (Requests $request)
+    public function update ($id)
     {
-        Requests::where('id', '=', $id)->update('', '');
+        Requests::where('id', '=', $id)
+            ->update(['first_name' => ''])
+            ->update(['last_name' => ''])
+            ->update(['building' => ''])
+            ->update(['room' => ''])
+            ->update(['problem' => ''])
+            ->update(['email' => '']);
         return redirect('/requestmanager');
     }
 }

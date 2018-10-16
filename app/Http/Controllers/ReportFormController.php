@@ -13,15 +13,14 @@ class ReportFormController extends Controller
     }
     public function submit()
     {
-        $requests = new Requests;
-        $requests->first_name = request('first_name');
-        $requests->last_name = request('last_name');
-        $requests->building = request('building');
-        $requests->room = request('room');
-        $requests->problem = request('problem');
-        $requests->email = request('email');
-
-        $requests->save();
+        Requests::create([
+            'first_name' => request('first_name'),
+            'last_name' => request('last_name'),
+            'building' => request('building'),
+            'room' => request('room'),
+            'problem' => request('problem'),
+            'email' => request('email'),
+        ]);
         return redirect('/reportform');
     }
 }
