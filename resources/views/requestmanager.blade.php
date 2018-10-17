@@ -9,6 +9,11 @@
 
 @section ('content')
 @include('layouts.nav')
+@if(Session::has('first_name'))
+    <div class="alert alert-success" role="alert">
+        Your submission has been added!
+    </div>
+@endif
 <div id='request-form'>
     <form action='/requestmanager' method='POST'>
         {{ csrf_field() }}
@@ -31,11 +36,11 @@
         @if (count($errors))
         <div class="form-group">
             <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         </div>
         @endif

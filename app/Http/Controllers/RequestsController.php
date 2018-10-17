@@ -44,7 +44,7 @@ class RequestsController extends Controller
             'problem' => request('problem'),
             'email' => request('email'),
         ]);
-        return redirect('/requestmanager');
+        return redirect('/requestmanager')->with('first_name', request('first_name'));
     }
 
     public function show(Requests $request)
