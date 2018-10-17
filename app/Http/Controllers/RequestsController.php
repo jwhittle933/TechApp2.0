@@ -9,21 +9,9 @@ class RequestsController extends Controller
     public function index()
     {
         $requests = Requests::all();
-        echo view('requestmanager');
-        echo "<div class='flex-requests'>";
-        foreach ($requests as $request){
-            echo "<div class='entry' id='$request->id'><a href='/requestmanager/$request->id'><b>ID: </b>" . $request->id . "<br>";
-            echo "<b>First Name: </b>" . $request->first_name . "<br>";
-            echo "<b>Last Name: </b>" . $request->last_name . "<br>";
-            echo "<b>Building: </b>" . $request->building . "<br>";
-            echo "<b>Room: </b>" . $request->room . "<br>";
-            echo "<b>Problem: </b>" . $request->problem . "<br>";
-            echo "<b>Email: </b>" . $request->email . "<br>";
-            echo "<b>Created At: </b>" . $request->created_at . "<br>";
-            echo "<b>Updated At: </b>" . $request->updated_at . "<br>";
-            echo "</a></div>";
-        }
-        echo "</div>";
+        return view('requestmanager', [
+            'requests' => $requests,
+        ]);
     }
 
     public function store()
