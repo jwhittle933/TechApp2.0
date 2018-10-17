@@ -49,17 +49,6 @@ class RequestsController extends Controller
 
     public function show(Requests $request)
     {
-        $view = "<div class='entry'><b>ID: </b>" . $request->id . "<br>";
-        $view .= "<b>First Name: </b>" . $request->first_name . "<br>";
-        $view .= "<b>Last Name: </b>" . $request->last_name . "<br>";
-        $view .= "<b>Building: </b>" . $request->building . "<br>";
-        $view .= "<b>Room: </b>" . $request->room . "<br>";
-        $view .= "<b>Problem: </b>" . $request->problem . "<br>";
-        $view .= "<b>Email: </b>" . $request->email . "<br>";
-        $view .= "<b>Created At: </b>" . $request->created_at . "<br>";
-        $view .= "<b>Updated At: </b>" . $request->updated_at . "<br>";
-        $view .= "</div>";
-        echo $view;
         return view('/show', [
             'id' => $request->id,
             'first_name' => $request->first_name,
@@ -68,6 +57,8 @@ class RequestsController extends Controller
             'room' => $request->room,
             'problem' => $request->problem,
             'email' => $request->email,
+            'created_at' => $request->created_at,
+            'updated_at' => $request->updated_at,
         ]);
     }
 
@@ -75,6 +66,11 @@ class RequestsController extends Controller
     {
         Requests::where('id', $id)->delete();
         return redirect('/requestmanager');
+    }
+
+    public function edit(Requests $request)
+    {
+        return view('edit', []);
     }
 
     public function update ($id)

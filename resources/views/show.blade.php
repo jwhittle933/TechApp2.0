@@ -4,13 +4,23 @@
 
 @section('style')
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<style> .entry { margin: 15px; padding: 5px; width: 30%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1.25em; } .controls {margin-top: 50px; padding: 15px; border-top: 2px solid black} </style>
+<style> .entry { margin: 15px; padding: 5px; width: 30%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1.25em; } .controls {margin-top: 50px; padding: 15px; } </style>
 @endsection
 
+@include ('layouts.nav')
 
 @section('content')
-
-
+<div class='entry'>
+    <b>ID: </b>{{ $id }}<br>
+    <b>First Name: </b>{{ $first_name }}<br>
+    <b>Last Name: </b>{{ $last_name }}<br>
+    <b>Building: </b> {{ $building }}<br>
+    <b>Room: </b> {{ $room }}<br>
+    <b>Problem: </b> {{ $problem }}<br>
+    <b>Email: </b> {{ $email }}<br>
+    <b>Created At: </b> {{ $created_at }}<br>
+    <b>Updated At: </b> {{ $updated_at }}<br>
+</div>
 <div class="controls">
     <form action="{{ url('/requestmanager', ['id' => $id]) }}" method="POST">
         {{ method_field('DELETE') }}
@@ -23,7 +33,5 @@
         <button type="submit" class="btn btn-secondary">Update this request</button>
     </form>
 </div>
-
-
 @endsection
 
