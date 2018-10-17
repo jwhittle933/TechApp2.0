@@ -6,7 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Lobster" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('js/bootstrap.js') }}">
     @yield('style')
 </head>
 <body>

@@ -7,9 +7,10 @@
 <style> .entry { margin: 15px; padding: 5px; width: 30%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1.25em; } .controls {margin-top: 50px; padding: 15px; } </style>
 @endsection
 
-@include ('layouts.nav')
 
 @section('content')
+@include ('layouts.nav')
+<hr>
 <div class='entry'>
     <b>ID: </b>{{ $id }}<br>
     <b>First Name: </b>{{ $first_name }}<br>
@@ -25,13 +26,16 @@
     <form action="{{ url('/requestmanager', ['id' => $id]) }}" method="POST">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}
-        <button type="submit" class="btn btn-danger">Delete this request</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
     </form>
     <form action="{{ url('/requestmanager', ['id' => $id]) }}" method="POST">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
-        <button type="submit" class="btn btn-secondary">Update this request</button>
+        <button type="submit" class="btn btn-secondary">Update</button>
     </form>
 </div>
+
+@include ('layouts.footer')
 @endsection
+
 

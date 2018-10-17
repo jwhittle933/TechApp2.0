@@ -45,8 +45,8 @@ class RequestsController extends Controller
             'room' => $request->room,
             'problem' => $request->problem,
             'email' => $request->email,
-            'created_at' => $request->created_at,
-            'updated_at' => $request->updated_at,
+            'created_at' => $request->created_at->toDayDateTimeString(),
+            'updated_at' => $request->updated_at->toDayDateTimeString(),
         ]);
     }
 
