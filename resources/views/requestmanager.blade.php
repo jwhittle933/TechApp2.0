@@ -11,9 +11,23 @@
 @include('layouts.nav')
 <hr>
 
-@if(Session::has('first_name'))
+@if(Session::has('store'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Your submission has been added!
+        Request Added!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@elseif (Session::has('destroy'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Request Deleted!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@elseif (Session::has('update'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      Update Success!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

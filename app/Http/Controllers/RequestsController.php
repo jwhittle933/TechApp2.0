@@ -17,6 +17,7 @@ class RequestsController extends Controller
 
     public function store()
     {
+        $store = true;
         $this->validate(request(), [
             'first_name' => 'required|min:2',
             'last_name' => 'required|min:2',
@@ -33,7 +34,7 @@ class RequestsController extends Controller
             'problem' => request('problem'),
             'email' => request('email'),
         ]);
-        return redirect('/requestmanager')->with('first_name', request('first_name'));
+        return redirect('/requestmanager')->with('store', $store);
     }
 
     public function show(Requests $request)
@@ -53,12 +54,14 @@ class RequestsController extends Controller
 
     public function destroy($id)
     {
+        $destroy = true;
         Requests::where('id', $id)->delete();
-        return redirect('/requestmanager');
+        return redirect('/requestmanager')->with('destroy', $destroy);
     }
 
     public function update($id)
     {
+      $update = true;
       $timeOfUpdate = Carbon::now();
       Requests::where('id', request('id'))
         ->update(['first_name' => request('first_name'),
@@ -69,6 +72,6 @@ class RequestsController extends Controller
                   'email' => request('email'),
                   'updated_at' => $timeOfUpdate
                 ]);
-      return redirect("/requestmanager");
+      return redirect("/requestmanager")->with('update', $update);
     }
 }
