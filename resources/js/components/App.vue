@@ -43,4 +43,7 @@ export default {
 #main-div{
     margin-bottom: 100px;
 }
+.flex-box{
+height: 400px;
+}
 </style>

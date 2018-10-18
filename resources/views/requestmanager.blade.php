@@ -3,6 +3,7 @@
 @section('title', 'Request Manager')
 
 @section ('style')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <style> table {border: 2px solid black; margin: 15px;} #request-form {width: auto;} input{justify-content: flex-end;} .flex-requests{ display:flex; flex-wrap: wrap;} .entry { margin: 15px; padding: 5px; width: 30%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1em; } .entry:hover { margin: 10px; box-shadow: 5px 5px grey;} a{ text-decoration:none; color: black} a:visited{ color:black} a:hover{ text-decoration: none}</style>
 @endsection
 
@@ -11,8 +12,11 @@
 <hr>
 
 @if(Session::has('first_name'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
         Your submission has been added!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif
 
@@ -67,4 +71,9 @@
 
 </div>
 @include('layouts.footer')
+@endsection
+
+@section('script')
+<script></script>
+
 @endsection

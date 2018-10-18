@@ -31,7 +31,7 @@
                     { words: "What do I need?", url: ""},
                     { words: "Campus Technology Home", url: "http://www.sbts.edu/services/campus-technology/"},
                     { words: "SBTS Home", url: "http://www.sbts.edu"},
-                    { words: "Request Manager", url: "/login"}
+                    { words: "Request Manager", url: "/requestmanager"}
                 ],
                 show: false
             }
@@ -105,4 +105,3 @@ h1 {
     font-size: 4.5em;
 }
 </style>
-

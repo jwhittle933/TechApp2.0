@@ -12,8 +12,3 @@ Route::post('/requestmanager', 'RequestsController@store');
 Route::get('/requestmanager/{request}', 'RequestsController@show');
 Route::delete('/requestmanager/{id}', 'RequestsController@destroy');
 Route::patch('/requestmanager/{id}', 'RequestsController@update');
-Route::get('/edit', 'RequestsController@edit');
-
-
-
-

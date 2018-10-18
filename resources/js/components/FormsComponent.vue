@@ -1,30 +1,27 @@
 <template>
     <form class="float-left">
         <form class="form">
-            <label for="buildop">{{ buildingLabel }}
+            <label for="buildop">{{ buildingLabel }}</label>
             <select id="buildop" name="buildop" v-model="formSelections.buildingSelection"                                                      @change="roomsAppear">
                 <option v-for="buildOption in buildOptions"  :key="buildOption">{{ buildOption }}</option>
             </select>
-            </label>
         </form>
         <form id = "roomform" class="form"  method="get" action="roompopulate.php"
           v-on:submit.prevent="populateProblemMenu"
           v-if="roomShow">
-            <label for="roomop">{{ roomLabel }}
+            <label for="roomop">{{ roomLabel }}</label>
             <select id="roomop" name="roomop"                                       v-model="formSelections.roomSelection"                              @change="problemsAppear">
                 <option v-for="roomOption in roomOptions" :key="roomOption">{{ roomOption }}</option>
             </select>
-            </label>
         </form>
         <form id="probform" class="form" method="post" action=""
             v-on:submit.prevent="populatesolutions"
             v-if="problemShow">
-             <label for="probop">{{ problemLabel }}
+             <label for="probop">{{ problemLabel }}</label>
             <select id="probop" name="probop" v-model="formSelections.problemSelection"
                                               @change="revealSolutions">
                 <option v-for="probOption in probOptions" :key="probOption">{{ probOption }}</option>
             </select>
-            </label>
         </form>
     </form>
 
@@ -206,15 +203,14 @@ select {
   width: 100px;
   margin: 5px;
 }
- .float-left{
+.float-left{
      float: left;
      width: 40%;
-     height: 300px;
- }
+}
  button {
      border-radius: 10px;
      margin-top: 15px;
-     background-color:lightblue;
+     background-color: lightblue;
      font-family: Lobster;
      font-size: 1.1em;
      height: 25px;

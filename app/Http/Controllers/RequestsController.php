@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Requests;
+use Carbon\Carbon;
 
 class RequestsController extends Controller
 {
@@ -56,20 +57,18 @@ class RequestsController extends Controller
         return redirect('/requestmanager');
     }
 
-    public function edit(Requests $request)
+    public function update($id)
     {
-        return view('edit', []);
-    }
-
-    public function update ($id)
-    {
-        Requests::where('id', '=', $id)
-            ->update(['first_name' => ''])
-            ->update(['last_name' => ''])
-            ->update(['building' => ''])
-            ->update(['room' => ''])
-            ->update(['problem' => ''])
-            ->update(['email' => '']);
-        return redirect('/requestmanager');
+      $timeOfUpdate = Carbon::now();
+      Requests::where('id', request('id'))
+        ->update(['first_name' => request('first_name'),
+                  'last_name' => request('last_name'),
+                  'building' => request('building'),
+                  'room' => request('room'),
+                  'problem' => request('problem'),
+                  'email' => request('email'),
+                  'updated_at' => $timeOfUpdate
+                ]);
+      return redirect("/requestmanager");
     }
 }
