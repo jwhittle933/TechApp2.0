@@ -16,7 +16,7 @@
     </header>
 
 
-    <table class = "login" border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+    <table class="login" border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
       <th colspan="2" align="center"><h2>Login</h2></th>
       <form method="post" action="">
         <tr><td>Username</td>

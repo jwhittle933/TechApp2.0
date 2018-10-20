@@ -76,8 +76,8 @@
                 <b>Room: </b> {{ $request->room }} <br>
                 <b>Problem: </b> {{ $request->problem }} <br>
                 <b>Email: </b> {{ $request->email }} <br>
-                <b>Created At: </b> {{ $request->created_at->toDayDateTimeString() }} <br>
-                <b>Updated At: </b> {{ $request->updated_at->toDayDateTimeString() }}<br>
+                <b>Created At: </b> {{ $request->created_at->diffForHumans() }} <br>
+                <b>Updated At: </b> {{ $request->updated_at->diffForHumans() }}<br>
                 <a href="/requestmanager/{{ $request->id }}" class="badge badge-info">View</a>
         </div>
         @endforeach
