@@ -42,7 +42,10 @@ class RequestsPolicy
      */
     public function update(User $user, Requests $requests)
     {
-        //
+        //User should be logged in
+        //Check to see if user is logged in to give update access
+        //If not logged in or login timed out, redirect to login page
+        return $user->id === $requests->user_id;
     }
 
     /**
@@ -79,5 +82,11 @@ class RequestsPolicy
     public function forceDelete(User $user, Requests $requests)
     {
         //
+    }
+
+    public function before($user, $ability){
+        if ($user->isSuperAdmin()){
+            return true;
+        }
     }
 }

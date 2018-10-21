@@ -10,7 +10,7 @@ class RequestsController extends Controller
     public function index()
     {
         $requests = Requests::all();
-        return view('requestmanager', [
+        return view('/requestmanager', [
             'requests' => $requests,
         ]);
     }
@@ -61,17 +61,17 @@ class RequestsController extends Controller
 
     public function update($id)
     {
-      $update = true;
-      $timeOfUpdate = Carbon::now();
-      Requests::where('id', request('id'))
+        $update = true;
+        $timeOfUpdate = Carbon::now();
+        Requests::where('id', request('id'))
         ->update(['first_name' => request('first_name'),
-                  'last_name' => request('last_name'),
-                  'building' => request('building'),
-                  'room' => request('room'),
-                  'problem' => request('problem'),
-                  'email' => request('email'),
-                  'updated_at' => $timeOfUpdate
+                    'last_name' => request('last_name'),
+                    'building' => request('building'),
+                    'room' => request('room'),
+                    'problem' => request('problem'),
+                    'email' => request('email'),
+                    'updated_at' => $timeOfUpdate
                 ]);
-      return redirect("/requestmanager")->with('update', $update);
-    }
+        return redirect("/requestmanager")->with('update', $update);
+        }
 }

@@ -3,6 +3,7 @@
 @section('title', "Request")
 
 @section('style')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <style> .entry { margin: 15px; padding: 5px; width: 45%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1.25em; } .controls {margin-top: 50px; padding: 15px; display: flex} .update {margin: 15px; padding: 5px; font-family: Menlo;} label {display:inline-block; float:left; clear:left; text-align-right;} input {display:inline-block; float: right;}</style>
 @endsection
 

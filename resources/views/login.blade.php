@@ -18,7 +18,8 @@
 
     <table class="login" border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
       <th colspan="2" align="center"><h2>Login</h2></th>
-      <form method="post" action="">
+      <form method="POST" action="/login">
+        {{ csrf_field() }}
         <tr><td>Username</td>
           <td><input type="email" maxlength="32" name="username" required></td></tr>
         <tr><td>Password</td>
@@ -26,6 +27,19 @@
         </tr><td><input class="subbutton" type="submit" name="submit" value="Login"></td></tr>
       </form>
     </table>
+
+    @if (count($errors))
+      <div class="form-group">
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      </div>
+    @endif
+
 
 
     @endsection
