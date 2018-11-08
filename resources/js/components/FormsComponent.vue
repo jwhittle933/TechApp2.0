@@ -1,30 +1,34 @@
 <template>
-    <form class="float-left">
-        <form class="form">
-            <label for="buildop">{{ buildingLabel }}</label>
-            <select id="buildop" name="buildop" v-model="formSelections.buildingSelection"                                                      @change="roomsAppear">
-                <option v-for="buildOption in buildOptions"  :key="buildOption">{{ buildOption }}</option>
+    <form class="form-sidebar">
+        <div class="form">
+            <label for="buildop">{{ buildingLabel }}</label><br />
+            <select name="buildop" v-model="formSelections.buildingSelection"       @change="roomsAppear">
+                <option v-for="buildOption in buildOptions"
+                        :key="buildOption">
+                    {{ buildOption }}
+                </option>
             </select>
-        </form>
-        <form id = "roomform" class="form"  method="get" action="roompopulate.php"
-          v-on:submit.prevent="populateProblemMenu"
-          v-if="roomShow">
-            <label for="roomop">{{ roomLabel }}</label>
-            <select id="roomop" name="roomop"                                       v-model="formSelections.roomSelection"                              @change="problemsAppear">
-                <option v-for="roomOption in roomOptions" :key="roomOption">{{ roomOption }}</option>
+        </div>
+        <div class="form" v-if="roomShow">
+            <label for="roomop">{{ roomLabel }}</label><br />
+            <select name="roomop"                                                        v-model="formSelections.roomSelection"                               @change="problemsAppear">
+                <option v-for="roomOption in roomOptions"
+                        :key="roomOption">
+                    {{ roomOption }}
+                </option>
             </select>
-        </form>
-        <form id="probform" class="form" method="post" action=""
-            v-on:submit.prevent="populatesolutions"
-            v-if="problemShow">
-             <label for="probop">{{ problemLabel }}</label>
-            <select id="probop" name="probop" v-model="formSelections.problemSelection"
-                                              @change="revealSolutions">
-                <option v-for="probOption in probOptions" :key="probOption">{{ probOption }}</option>
+        </div>
+        <div class="form" v-if="problemShow">
+             <label for="probop">{{ problemLabel }}</label><br />
+            <select name="probop"                                                        v-model="formSelections.problemSelection"
+                    @change="revealSolutions">
+                <option v-for="probOption in probOptions"
+                        :key="probOption">
+                    {{ probOption }}
+                </option>
             </select>
-        </form>
+        </div>
     </form>
-
 </template>
 
 <script>
@@ -45,8 +49,8 @@ export default {
             buildOptions: ["", "Norton", "Carver", "Rankin", "Library", "Cooke"],
             roomOptions: [],
             probOptions: [],
-            roomShow: false,
-            problemShow: false
+            roomShow: true,
+            problemShow: true
         }
     },
     watch: {
@@ -61,26 +65,12 @@ export default {
         roomsAppear: function(){
             this.setBuildingChoice(this.formSelections.buildingSelection)
             let building = this.getFormBuilding
-            this.problemShow = false;
-            if(building == "Norton"){
-                this.roomOptions = this.nortonRooms
-                this.roomShow = true;
-            } else if(building == "Carver"){
-                this.roomOptions = this.carverRooms
-                this.roomShow = true;
-            } else if(building == "Rankin"){
-                this.roomOptions = this.rankinRooms
-                this.roomShow = true;
-            } else if(building == "Library"){
-                this.roomOptions = this.libraryRooms
-                this.roomShow = true;
-            } else if(building == "Cooke"){
-                this.roomOptions = this.cookeRooms
-                this.roomShow = true;
-            } else {
-                this.roomShow = false;
-                this.problemShow = false;
-            }
+            (building == "Norton") ? (this.roomOptions = this.nortonRooms) :
+            (building == "Carver") ? (this.roomOptions = this.carverRooms) :
+            (building == "Rankin") ? (this.roomOptions = this.rankinRooms) :
+            (building == "Library") ? (this.roomOptions = this.libraryRooms) :
+            (building == "Cooke") ? (this.roomOptions = this.cookeRooms) :
+            this.roomOptions = []
         },
         problemsAppear: function(){
             this.problemShow = true;
@@ -192,28 +182,32 @@ export default {
 </script>
 
 <style scoped>
-form {
-  margin-top: 25px;
-}
-label {
-  font-family: Montserrat;
-  font-size: 1.5em;
-}
-select {
-  width: 100px;
-  margin: 5px;
-}
-.float-left{
-     float: left;
-     width: 40%;
-}
- button {
-     border-radius: 10px;
-     margin-top: 15px;
-     background-color: lightblue;
-     font-family: Lobster;
-     font-size: 1.1em;
-     height: 25px;
-     width: auto;
+@media screen and (min-width: 768px) {
+    label {
+        font-family: Montserrat;
+        font-size: 1em;
+    }
+    select {
+        width: 100px;
+        margin: 5px;
+    }
+    .form {
+        margin: 3vh;
+    }
+    .form-sidebar {
+        max-width: 22vw;
+        height: 60vh;
+        padding: 15px;
+        border-right: 2px solid black;
+    }
+    button {
+        border-radius: 10px;
+        margin-top: 15px;
+        background-color: lightblue;
+        font-family: Lobster;
+        font-size: 1.1em;
+        height: 25px;
+        width: auto;
+    }
  }
 </style>

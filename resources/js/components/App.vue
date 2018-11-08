@@ -1,9 +1,10 @@
 <template>
     <div id="main-div">
         <header-component />
-        <div class="flex-box">
+        <div class="inner-content">
             <forms-component @show-solutions="showSolutions"/>
-            <solutions-component v-if="solutionsShow"/>
+            <suggestions-component :solutionsShow="solutionsShow"/>
+            <solutions-component />
         </div>
         <footer-component />
     </div>
@@ -13,6 +14,7 @@
 
 import HeaderComponent from './HeaderComponent.vue'
 import FormsComponent from './FormsComponent.vue'
+import SuggestionsComponent from './SuggestionsComponent.vue'
 import SolutionsComponent from './SolutionsComponent.vue'
 import FooterComponent from './FooterComponent.vue'
 
@@ -27,6 +29,7 @@ export default {
     components: {
         HeaderComponent,
         FormsComponent,
+        SuggestionsComponent,
         SolutionsComponent,
         FooterComponent
     },
@@ -39,11 +42,22 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 #main-div{
     margin-bottom: 100px;
+    top: 0;
 }
-.flex-box{
-height: 400px;
+.inner-content{
+    display: flex;
+    min-height: 80vh;
+    width: 100vw;
 }
 </style>

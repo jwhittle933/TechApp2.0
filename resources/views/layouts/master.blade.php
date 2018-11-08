@@ -3,6 +3,7 @@
 <head>
     <title>@yield('title')</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Lobster" rel="stylesheet">

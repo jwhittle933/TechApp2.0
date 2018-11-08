@@ -1,7 +1,7 @@
 require('./bootstrap')
 
 import Vue from 'vue'
-import Vuex from'vuex'
+import Vuex from 'vuex'
 
 import App from './components/App.vue'
 import store from './store'
