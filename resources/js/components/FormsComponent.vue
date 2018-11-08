@@ -2,26 +2,26 @@
     <form class="form-sidebar">
         <div class="form">
             <label for="buildop">{{ buildingLabel }}</label><br />
-            <select name="buildop" v-model="formSelections.buildingSelection"       @change="roomsAppear">
+            <select name="buildop" v-model="formSelections.buildingSelection"                   @change="setBuilding">
                 <option v-for="buildOption in buildOptions"
                         :key="buildOption">
                     {{ buildOption }}
                 </option>
             </select>
         </div>
-        <div class="form" v-if="roomShow">
+        <div class="form">
             <label for="roomop">{{ roomLabel }}</label><br />
-            <select name="roomop"                                                        v-model="formSelections.roomSelection"                               @change="problemsAppear">
+            <select name="roomop"                                                        v-model="formSelections.roomSelection"                                      @change="setRoom">
                 <option v-for="roomOption in roomOptions"
                         :key="roomOption">
                     {{ roomOption }}
                 </option>
             </select>
         </div>
-        <div class="form" v-if="problemShow">
+        <div class="form">
              <label for="probop">{{ problemLabel }}</label><br />
             <select name="probop"                                                        v-model="formSelections.problemSelection"
-                    @change="revealSolutions">
+                    @change="setProblem">
                 <option v-for="probOption in probOptions"
                         :key="probOption">
                     {{ probOption }}
@@ -48,103 +48,49 @@ export default {
             },
             buildOptions: ["", "Norton", "Carver", "Rankin", "Library", "Cooke"],
             roomOptions: [],
-            probOptions: [],
-            roomShow: true,
-            problemShow: true
-        }
-    },
-    watch: {
-        solutionsAppear: function(){
-            if(buildingSelection && roomSelection && problemSelection){
-                setProblemChoice(this.formSelections.problemSelection)
-                this.$emit('revealSolutions')
-            }
+            probOptions: []
         }
     },
     methods: {
-        roomsAppear: function(){
+        setBuilding: function(){
             this.setBuildingChoice(this.formSelections.buildingSelection)
             let building = this.getFormBuilding
-            (building == "Norton") ? (this.roomOptions = this.nortonRooms) :
-            (building == "Carver") ? (this.roomOptions = this.carverRooms) :
-            (building == "Rankin") ? (this.roomOptions = this.rankinRooms) :
-            (building == "Library") ? (this.roomOptions = this.libraryRooms) :
-            (building == "Cooke") ? (this.roomOptions = this.cookeRooms) :
-            this.roomOptions = []
+            this.roomOptions = (building == "Norton") ? this.nortonRooms :
+            (building == "Carver") ? this.carverRooms :
+            (building == "Rankin") ? this.rankinRooms :
+            (building == "Library") ? this.libraryRooms :
+            (building == "Cooke") ? this.cookeRooms : []
         },
-        problemsAppear: function(){
-            this.problemShow = true;
+        setRoom: function(){
             this.setRoomChoice(this.formSelections.roomSelection)
             let building = this.getFormBuilding
             let room = this.getFormRoom
-            if (building === "Norton"){
-                if (room == 11 || room == 15 || room == 17 || room == 20 ||
-                    room == 207) {
-                        this.probOptions = this.nortonProblems.room11
-                        this.problemShow = true
-                } else if (room == 12 || room == 16 || room == 204 ||
-                           room == 205) {
-                    this.probOptions = this.nortonProblems.room12
-                    this.problemShow = true
-                } else if (room == 13) {
-                    this.probOptions = this.nortonProblems.room13
-                    this.problemShow = true
-                } else if (room == 101 || room == 102 || room == 103 ||
-                           room == 104 || room == 105 || room == 201 ||
-                           room == 202 || room == 206 || room == 209) {
-                                this.probOptions = this.nortonProblems.room100200
-                                this.problemShow = true
-                } else if (room == 195) {
-                    this.probOptions = this.nortonProblems.room195
-                    this.problemShow = true
-                } else if (room == 232){
-                    this.probOptions = this.nortonProblems.room232
-                    this.problemShow = true
-                } else {
-                    this.problemShow = false
-                }
-            } else if (this.formSelections.buildingSelection === "Carver"){
-                this.probOptions = this.carverProblems.room108
-                this.problemShow = true
-            } else if (this.formSelections.buildingSelection === "Rankin"){
-                if (this.formSelections.roomSelection == 101){
-                    this.probOptions = this.rankinProblems.room101
-                    this.problemShow = true
-                } else if(this.formSelections.roomSelection == 201){
-                    this.probOptions = this.rankinProblems.room201
-                    this.problemShow = true
-                }
-            } else if (this.formSelections.buildingSelection === "Library"){
-                if (this.formSelections.roomSelection === "Crismon Hall"){
-                    this.probOptions = this.libraryProblems.CrismonHall;
-                    this.problemShow = true;
-                } else if (this.formSelections.roomSelection === "Curriculum Lab"){
-                    this.probOptions = this.libraryProblems.CurriculumLab;
-                    this.problemShow = true;
-                } else if (this.formSelections.roomSelection === "Mullins Room"){
-                    this.probOptions = this.libraryProblems.MullinsRoom;
-                    this.problemShow = true;
-                }
-            } else if (this.formSelections.buildingSelection === "Cooke"){
-                if (this.formSelections.roomSelection == 8 ||
-                    this.formSelections.roomSelection == 221 ||
-                    this.formSelections.roomSelection == 224){
-                        this.probOptions = this.cookeProblems.room8
-                        this.problemShow = true
-                } else if(this.formSelections.roomSelection === "CCRH"){
-                    this.probOptions = this.cookeProblems.CCRH
-                    this.problemShow = true
-                } else if(this.formSelections.roomSelection === "IRH"){
-                    this.probOptions = this.cookeProblems.IRH;
-                    this.problemShow = true;
-                } else if (this.formSelections.roomSelection === "Heeren Hall"){
-                    this.problemShow = false;
-                    window.alert("We do not service Heeren Hall. Please contact Event Media.");
-                }
-            }
+            this.probOptions =
+            (building === "Norton") ?
+                ((room == 11 || room == 15 || room == 17 || room == 20 ||
+                    room == 207) ? this.nortonProblems.room11 :
+                (room == 12 || room == 16 || room == 204 || room == 205) ?                                  this.nortonProblems.room12 :
+                (room == 13) ? this.nortonProblems.room13 :
+                (room == 101 || room == 102 || room == 103 || room == 104 ||
+                    room == 105 || room == 201 || room == 202 || room == 206 ||
+                    room == 209) ? this.nortonProblems.room100200 :
+                (room == 195) ? this.nortonProblems.room195 :
+                (room == 232) ? this.nortonProblems.room232 : "Invalid") :
+            (building === "Carver") ? this.carverProblems.room108 :
+            (building === "Rankin") ?
+                ((room == 101) ? this.rankinProblems.room101 :
+                (room == 201) ? this.rankinProblems.room201 : "Invalid") :
+            (building === "Library") ?
+                ((room === "Crismon Hall") ? this.libraryProblems.CrismonHall :
+                (room === "Curriculum Lab") ? this.libraryProblems.CurriculumLab :
+                (room === "Mullins Room") ? this.libraryProblems.MullinsRoom : "Invalid") :
+            (building === "Cooke") ?
+                ((room == 8 || room == 221 || room == 224) ? this.cookeProblems.room8 :
+                (room === "CCRH") ? this.cookeProblems.CCRH :
+                (room === "IRH") ? this.cookeProblems.IRH : "Invalid") : []
         },
-        revealSolutions: function(){
-            this.$emit('show-solutions', this.formSelections)
+        setProblem: function(){
+            this.$emit('show-suggestions', this.formSelections)
             this.setProblemChoice(this.formSelections.problemSelection)
         },
         //Mutations

@@ -2,9 +2,16 @@
     <div id="main-div">
         <header-component />
         <div class="inner-content">
-            <forms-component @show-solutions="showSolutions"/>
-            <suggestions-component :solutionsShow="solutionsShow"/>
-            <solutions-component />
+            <forms-component
+                @show-suggestions="showSuggestions"
+            />
+            <suggestions-component
+                :suggestionsShow="suggestionsShow"
+                @open-solutions="openSolutions"
+            />
+            <solutions-component
+                :solutionsShow="solutionsShow"
+            />
         </div>
         <footer-component />
     </div>
@@ -23,7 +30,8 @@ export default {
     name: "App",
     data: function(){
         return {
-            solutionsShow: false,
+            suggestionsShow: false,
+            solutionsShow: false
         }
     },
     components: {
@@ -34,7 +42,10 @@ export default {
         FooterComponent
     },
     methods: {
-        showSolutions: function(){
+        showSuggestions(){
+            this.suggestionsShow = true;
+        },
+        openSolutions(){
             this.solutionsShow = true;
         }
     }

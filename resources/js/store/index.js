@@ -301,6 +301,8 @@ export default new Vuex.Store ({
         }
     },
     actions: {
+        setBuildingChoice({ state }, selection){
 
+        }
     }
 })
