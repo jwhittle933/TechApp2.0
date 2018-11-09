@@ -5,8 +5,8 @@
                     <h2>Suggestions:</h2>
                     <ul id="suggestion-ul">
                         <div v-for="(option, index) in fillOptions" :key="index"            class="clickable"
-                            @click="openSolutions">
-                            <li>{{ option }}</li>
+                            @click="openSolutions(index, option)">
+                            <li :id="index">{{ option }}</li>
                         </div>
                     </ul>
                 </div>
@@ -24,9 +24,9 @@ export default {
         return {
             roomDescriptionShow: false,
             possibleOptions: {
-                projector: ["Is the light green?", "Is there a blue screen?", "Is the projector on?"],
-                tv: ["Is it powered on?", "Is it on the correct input?", "Is your device plugged in?"],
-                computer: ["Is it a seminary issued laptop?", "Is it powered on?", "Can't connect to the internet?"],
+                projector: ["Is the light green?", "Is there a blue screen?", "Is the projector on?", "Have you pressed 'Source-Search'", "Plugged in?"],
+                tv: ["Is it powered on?", "Is it on the correct input?", "Is your device plugged in?", "Is the TV plugged in?", "Remote batteries dead?"],
+                computer: ["Is it a seminary issued laptop?", "Is it powered on?", "Can't connect to the internet?", "Is it the house pc?", "Software update?"],
                 screen: ["Is your computer plugged in?", "Is the screen blue?"],
                 audio: ["Is the cable plugged in?", "Is your computer muted?", "Is the Crestron muted?"],
                 video: ["Is the projector on?", "Are you plugged in?"],
@@ -41,8 +41,16 @@ export default {
         }
     },
     methods: {
-        openSolutions() {
-            this.$emit('open-solutions')
+        openSolutions: function(id, text) {
+            let item = id
+            let choice = text
+            let payload = [id, text]
+            this.$emit('open-solutions', payload)
+            this.setSuggestion(payload[1])
+        },
+        //Mutations
+        setSuggestion: function(payload){
+            return this.$store.commit('setSuggestionChoice', payload)
         }
     },
     computed: {
@@ -436,11 +444,11 @@ export default {
             }//close Cooke rooms
         },
         ...mapState({
-            nortonRooms: (state) => state.roomTech.Norton,
-            carverRooms: (state) => state.roomTech.Carver,
-            rankinRooms: (state) => state.roomTech.Rankin,
-            libraryRooms: (state) => state.roomTech.Library,
-            cookeRooms: (state) => state.roomTech.Cooke
+            nortonRooms: state => state.roomTech.Norton,
+            carverRooms: state => state.roomTech.Carver,
+            rankinRooms: state => state.roomTech.Rankin,
+            libraryRooms: state => state.roomTech.Library,
+            cookeRooms: state => state.roomTech.Cooke
         }),
         ...mapGetters(['getFormBuilding', 'getFormRoom', 'getFormProblem'])
     }

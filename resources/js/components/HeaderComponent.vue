@@ -89,7 +89,7 @@
   }
   h1 {
     font-size: 1.5em;
-    font-family: Calibri, light;
+    font-family: Montserrat;
     text-align: center;
     flex-grow: 2;
     animation: letter-space 1s ease-out forwards;

@@ -277,7 +277,8 @@ export default new Vuex.Store ({
             buildingSelection: "",
             roomSelection: "",
             problemSelection: ""
-        }
+        },
+        suggestionChoice: ""
     },
     getters: {
         getNorton: (state) => state.roomTech.Norton,
@@ -287,17 +288,21 @@ export default new Vuex.Store ({
         getCooke: (state) => state.roomTech.Cooke,
         getFormBuilding: (state) => state.formSelections.buildingSelection,
         getFormRoom: (state) => state.formSelections.roomSelection,
-        getFormProblem: (state) => state.formSelections.problemSelection
+        getFormProblem: (state) => state.formSelections.problemSelection,
+        getSuggestionChoice: (state) => state.suggestionChoice
     },
     mutations: {
         setBuildingChoice(state, selection){
-            state.formSelections.buildingSelection = selection;
+            state.formSelections.buildingSelection = selection
         },
         setRoomChoice(state, selection){
-            state.formSelections.roomSelection = selection;
+            state.formSelections.roomSelection = selection
         },
         setProblemChoice(state, selection){
-            state.formSelections.problemSelection = selection;
+            state.formSelections.problemSelection = selection
+        },
+        setSuggestionChoice(state, selection){
+            state.suggestionChoice = selection
         }
     },
     actions: {

@@ -11,6 +11,7 @@
             />
             <solutions-component
                 :solutionsShow="solutionsShow"
+                :selection="clicked"
             />
         </div>
         <footer-component />
@@ -25,13 +26,16 @@ import SuggestionsComponent from './SuggestionsComponent.vue'
 import SolutionsComponent from './SolutionsComponent.vue'
 import FooterComponent from './FooterComponent.vue'
 
+import { mapState } from 'vuex'
 
 export default {
     name: "App",
     data: function(){
         return {
             suggestionsShow: false,
-            solutionsShow: false
+            solutionsShow: false,
+            clicked: this.suggestionChoice,
+            formSelections: {}
         }
     },
     components: {
@@ -42,12 +46,19 @@ export default {
         FooterComponent
     },
     methods: {
-        showSuggestions(){
-            this.suggestionsShow = true;
+        showSuggestions($event){
+            this.formSelections = $event
+            this.suggestionsShow = true
         },
-        openSolutions(){
-            this.solutionsShow = true;
+        openSolutions($event){
+            this.clicked = $event[1]
+            this.solutionsShow = true
         }
+    },
+    updated: {
+        ...mapState({
+            getSuggestionChoice: state => state.suggestionChoice
+        })
     }
 }
 
