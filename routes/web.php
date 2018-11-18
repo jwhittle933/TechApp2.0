@@ -1,5 +1,6 @@
 <?php
 Route::get('/', 'IndexController@index');
+// Route::post('/', 'IndexController@index');
 
 Route::get('/reportform', 'ReportFormController@index');
 Route::post('/reportform', 'ReportFormController@submit');

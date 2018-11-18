@@ -1,6 +1,12 @@
 <template>
     <div id="solution-content-div" v-if="solutionsShow">
         <div class="slate">
+            <!--
+                |****************
+                | Keep suggestion text in $store, retrive based on key:value pairs
+                | "solution text": "suggestion text".
+                |****************
+             -->
             <h2>{{ selection }}</h2>
             <p> {{ `You selected '${selection}'` }} </p>
             <p> {{ roomDescription }} </p>

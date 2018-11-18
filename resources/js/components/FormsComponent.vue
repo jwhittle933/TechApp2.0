@@ -1,38 +1,40 @@
 <template>
-    <form class="form-sidebar">
-        <div class="form">
+    <div class="form-sidebar">
+        <form class="form" action="" method="POST">
             <label for="buildop">{{ buildingLabel }}</label><br />
-            <select name="buildop" v-model="formSelections.buildingSelection"                   @change="setBuilding">
+            <select name="buildop"
+                v-model="formSelections.buildingSelection"                   @change="setBuilding">
                 <option v-for="buildOption in buildOptions"
                         :key="buildOption">
                     {{ buildOption }}
                 </option>
             </select>
-        </div>
-        <div class="form">
+        </form>
+        <form class="form" action="" method="POST">
             <label for="roomop">{{ roomLabel }}</label><br />
-            <select name="roomop"                                                        v-model="formSelections.roomSelection"                                      @change="setRoom">
+            <select name="roomop"                                                               v-model="formSelections.roomSelection"                                         @change="setRoom">
                 <option v-for="roomOption in roomOptions"
                         :key="roomOption">
                     {{ roomOption }}
                 </option>
             </select>
-        </div>
-        <div class="form">
+        </form>
+        <form class="form" action="" method="POST">
              <label for="probop">{{ problemLabel }}</label><br />
-            <select name="probop"                                                        v-model="formSelections.problemSelection"
-                    @change="setProblem">
+            <select name="probop"                                                              v-model="formSelections.problemSelection"
+                @change="setProblem">
                 <option v-for="probOption in probOptions"
                         :key="probOption">
                     {{ probOption }}
                 </option>
             </select>
-        </div>
-    </form>
+        </form>
+    </div>
 </template>
 
 <script>
 import { mapState, mapGetters} from 'vuex'
+import axios from 'axios'
 
 export default {
     name: "FormsComponent",
@@ -52,44 +54,23 @@ export default {
         }
     },
     methods: {
-        setBuilding: function(){
+        setBuilding(){
             this.setBuildingChoice(this.formSelections.buildingSelection)
             let building = this.getFormBuilding
-            this.roomOptions = (building == "Norton") ? this.nortonRooms :
-            (building == "Carver") ? this.carverRooms :
-            (building == "Rankin") ? this.rankinRooms :
-            (building == "Library") ? this.libraryRooms :
-            (building == "Cooke") ? this.cookeRooms : []
+            axios.get("/api/rooms", { params: { building: building } })
+                 .then(response => this.roomOptions = response.data)
+                 .catch(e => { console.error(e) })
         },
-        setRoom: function(){
+        setRoom(){
             this.setRoomChoice(this.formSelections.roomSelection)
             let building = this.getFormBuilding
             let room = this.getFormRoom
-            this.probOptions =
-            (building === "Norton") ?
-                ((room == 11 || room == 15 || room == 17 || room == 20 ||
-                    room == 207) ? this.nortonProblems.room11 :
-                (room == 12 || room == 16 || room == 204 || room == 205) ?                                  this.nortonProblems.room12 :
-                (room == 13) ? this.nortonProblems.room13 :
-                (room == 101 || room == 102 || room == 103 || room == 104 ||
-                    room == 105 || room == 201 || room == 202 || room == 206 ||
-                    room == 209) ? this.nortonProblems.room100200 :
-                (room == 195) ? this.nortonProblems.room195 :
-                (room == 232) ? this.nortonProblems.room232 : "Invalid") :
-            (building === "Carver") ? this.carverProblems.room108 :
-            (building === "Rankin") ?
-                ((room == 101) ? this.rankinProblems.room101 :
-                (room == 201) ? this.rankinProblems.room201 : "Invalid") :
-            (building === "Library") ?
-                ((room === "Crismon Hall") ? this.libraryProblems.CrismonHall :
-                (room === "Curriculum Lab") ? this.libraryProblems.CurriculumLab :
-                (room === "Mullins Room") ? this.libraryProblems.MullinsRoom : "Invalid") :
-            (building === "Cooke") ?
-                ((room == 8 || room == 221 || room == 224) ? this.cookeProblems.room8 :
-                (room === "CCRH") ? this.cookeProblems.CCRH :
-                (room === "IRH") ? this.cookeProblems.IRH : "Invalid") : []
+            axios.get("/api/problems", { params: { room: room, building: building } })
+                .then(response => this.probOptions = response.data)
+                .catch(e => { console.error(e) })
+
         },
-        setProblem: function(){
+        setProblem(){
             this.$emit('show-suggestions', this.formSelections)
             this.setProblemChoice(this.formSelections.problemSelection)
         },

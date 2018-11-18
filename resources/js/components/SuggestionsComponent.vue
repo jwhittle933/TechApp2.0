@@ -41,6 +41,11 @@ export default {
         }
     },
     methods: {
+        /*
+        |----------------
+        | openSolutions: probably better to use id to find text from the $store
+        |---------------
+        */
         openSolutions: function(id, text) {
             let item = id
             let choice = text
