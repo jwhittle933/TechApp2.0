@@ -10,6 +10,8 @@ class RoomsController extends Controller
     {
         if ($_GET['building']){
             $building = $_GET["building"];
+        } elseif (!$_GET['building']){
+            return ["Please select a building"];
         }
 
         if ($building === "Norton"){
@@ -23,6 +25,6 @@ class RoomsController extends Controller
         } elseif ($building === "Cooke"){
             $rooms = ["", 8, 221, 224, "CCRH", "IRH", "Heeren Hall"];
         }
-        return json_encode($rooms);
+        return $rooms;
     }
 }

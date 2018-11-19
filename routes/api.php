@@ -11,3 +11,6 @@ Route::resource('/rooms', 'RoomsController',[
 Route::resource('/problems', 'ProblemsController', [
     'except' => ['edit', 'show', 'store', 'create']
 ]);
+Route::resource('/suggestions', 'SuggestionsController', [
+    'except' => ['edit', 'show', 'store', 'create']
+]);

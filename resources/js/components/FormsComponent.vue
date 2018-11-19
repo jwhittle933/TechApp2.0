@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters} from 'vuex'
+import { mapGetters} from 'vuex'
 import axios from 'axios'
 
 export default {
@@ -59,7 +59,7 @@ export default {
             let building = this.getFormBuilding
             axios.get("/api/rooms", { params: { building: building } })
                  .then(response => this.roomOptions = response.data)
-                 .catch(e => { console.error(e) })
+                 .catch(e => console.error(e) )
         },
         setRoom(){
             this.setRoomChoice(this.formSelections.roomSelection)
@@ -67,7 +67,7 @@ export default {
             let room = this.getFormRoom
             axios.get("/api/problems", { params: { room: room, building: building } })
                 .then(response => this.probOptions = response.data)
-                .catch(e => { console.error(e) })
+                .catch(e => console.error(e) )
 
         },
         setProblem(){
@@ -86,23 +86,6 @@ export default {
         }
     },
     computed: {
-        ...mapState({
-            nortonTech: (state) => state.roomTech.Norton,
-            carverTech: (state) => state.roomTech.Carver,
-            rankinTech: (state) => state.roomTech.Rankin,
-            libraryTech: (state) => state.roomTech.Library,
-            cookeTech: (state) => state.roomTech.Cooke,
-            nortonRooms: (state) => state.rooms.Norton,
-            carverRooms: (state) => state.rooms.Carver,
-            rankinRooms: (state) => state.rooms.Rankin,
-            libraryRooms: (state) => state.rooms.Library,
-            cookeRooms: (state) => state.rooms.Cooke,
-            nortonProblems: (state) => state.problems.Norton,
-            carverProblems: (state) => state.problems.Carver,
-            rankinProblems: (state) => state.problems.Rankin,
-            libraryProblems: (state) => state.problems.Library,
-            cookeProblems: (state) => state.problems.Cooke
-        }),
         ...mapGetters(['getFormBuilding', 'getFormRoom', 'getFormProblem'])
     }
 }

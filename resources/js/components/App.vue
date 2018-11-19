@@ -7,6 +7,7 @@
             />
             <suggestions-component
                 :suggestionsShow="suggestionsShow"
+                :suggestionsOptions="suggestionOptions"
                 @open-solutions="openSolutions"
             />
             <solutions-component
@@ -33,8 +34,9 @@ export default {
     data: function(){
         return {
             suggestionsShow: false,
+            suggestionOptions: [],
             solutionsShow: false,
-            clicked: this.suggestionChoice,
+            clicked: this.getSuggestionChoice,
             formSelections: {}
         }
     },
@@ -49,15 +51,29 @@ export default {
         showSuggestions($event){
             this.formSelections = $event
             this.suggestionsShow = true
+            let building = this.formSelections.buildingSelection
+            let room = this.formSelections.roomSelection
+            let problem = this.formSelections.problemSelection
+            axios.get('api/suggestions', {
+                params: {
+                    building: building,
+                    room: room,
+                    problem: problem
+                }
+            }).then(response => this.suggestionOptions = response.data)
+            .catch(e => console.error(e))
         },
         openSolutions($event){
             this.clicked = $event[1]
             this.solutionsShow = true
         }
     },
-    updated: {
+    computed: {
         ...mapState({
-            getSuggestionChoice: state => state.suggestionChoice
+            getSuggestionChoice: state => state.suggestionChoice,
+            getBuilding: state => state.formSelections.buildingSelection,
+            getRoom: state => state.formSelections.roomSelection,
+            getProblem: state => state.formSelections.problemSelection
         })
     }
 }

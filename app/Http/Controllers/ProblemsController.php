@@ -11,7 +11,9 @@ class ProblemsController extends Controller
         if ( $_GET["room"] && $_GET["building"]){
             $room = $_GET["room"];
             $building = $_GET["building"];
-        };
+        } elseif ( !$_GET["room"] || !$_GET["building"]){
+            return ["Error. Data incomplete"];
+        }
 
         if($building === "Norton"){
             if ($room == 11 || $room == 15 || $room == 17 || $room == 20 || $room == 203 ||

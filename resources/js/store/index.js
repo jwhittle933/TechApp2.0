@@ -21,7 +21,7 @@ export default new Vuex.Store ({
                     Projector: "This room contains an Extron room control system. The touch panel on the lecturn controls the projector and inputs. To turn the projector on, select Room Controls on the touch screen and then select from the Apple TV or wall jack inputs. Selection of eiter should turn the projector on for you. The wall jack inputs are automatic and will detect your computer. If you are connected but there is no video, check the cable in the wall to make sure it's inserted completely.",
                     Computer: "This room does not come equipped with a computer. If you are having trouble with your seminary issued computer, please contact the help desk at x4006 during working hours.",
                     Screen: "The screens in every room descend by pushing the toggle switch down. It is located near one of the doors. If you cannot get your computer to display properly, please select Projector from the drop menu and read the room info.",
-                    Extron: "",
+                    Extron: "This room comes with an Extron room controll system. To use the HDMI or VGA input, select room controls and touch the image that looks like the wall plate. The system will auto-detect which input you've chosen. If you would like to use the Apple TV, select the image that looks like an Apple TV.",
                     Audio: "This room is equipped to handle audio playback. The volume is controlled by the Extron touch screen on the lecturn and the volume on your computer. If you are playing audio along with video, be sure that you are using the HDMI input. If you are just playing audio or are using the VGA cable, be sure to connect the accompanying audio cable.",
                     Video: "This room is equipped with an Extron room control system. To display video, select either the HDMI or VGA inputs from the wall and select the wall plate icon in the Room Controls menu on the touch screen, or select the Apple TV icon and connect to the Apple TV.",
                     Power: "This room does not support large-scale power usage. The plates on the wall are the only sources of power.",
@@ -238,41 +238,6 @@ export default new Vuex.Store ({
                 }
             }
         },
-        rooms: {
-            Norton: ["", 11, 12, 13, 15, 16, 17, 20, 101, 102, 103, 104, 105, 195, 201, 202, 203, 204, 205, 206, 207, 208, 209, 232],
-            Carver: ["", 108, 135],
-            Rankin: ["", 101, 201],
-            Library: ["", "Crismon Hall", "Curriculum Lab", "Mullins Room"],
-            Cooke: ["", 8, 221, 224, "CCRH", "IRH", "Heeren Hall"]
-        },
-        problems: {
-            Norton:{
-                room11: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
-                room12: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Extron", "Power", "DVD", "Adapter", "Apple TV"],
-                room13: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
-                room100200: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
-                room195: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Crestron", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
-                room232: ["", "TV", "Computer","Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
-            },
-            Carver: {
-                room108: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
-            },
-            Rankin: {
-                room101: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
-                room201: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"]
-            },
-            Library: {
-                CrismonHall: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
-                CurriculumLab: ["", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
-                MullinsRoom: ["", "TV","Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
-            },
-            Cooke: {
-                room8: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"],
-                CCRH: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV", "Smart Board"],
-                IRH: ["", "Projector", "Computer", "Screen", "Video", "Audio", "Power", "DVD", "Adapter", "Apple TV"]
-
-            }
-        },
         formSelections: {
             buildingSelection: "",
             roomSelection: "",
@@ -281,15 +246,15 @@ export default new Vuex.Store ({
         suggestionChoice: ""
     },
     getters: {
-        getNorton: (state) => state.roomTech.Norton,
-        getCarver: (state) => state.roomTech.Carver,
-        getRankin: (state) => state.roomTech.Rankin,
-        getLibrary: (state) => state.roomTech.Library,
-        getCooke: (state) => state.roomTech.Cooke,
-        getFormBuilding: (state) => state.formSelections.buildingSelection,
-        getFormRoom: (state) => state.formSelections.roomSelection,
-        getFormProblem: (state) => state.formSelections.problemSelection,
-        getSuggestionChoice: (state) => state.suggestionChoice
+        getNorton: state => state.roomTech.Norton,
+        getCarver: state => state.roomTech.Carver,
+        getRankin: state => state.roomTech.Rankin,
+        getLibrary: state => state.roomTech.Library,
+        getCooke: state => state.roomTech.Cooke,
+        getFormBuilding: state => state.formSelections.buildingSelection,
+        getFormRoom: state => state.formSelections.roomSelection,
+        getFormProblem: state => state.formSelections.problemSelection,
+        getSuggestionChoice: state => state.suggestionChoice
     },
     mutations: {
         setBuildingChoice(state, selection){
@@ -303,11 +268,6 @@ export default new Vuex.Store ({
         },
         setSuggestionChoice(state, selection){
             state.suggestionChoice = selection
-        }
-    },
-    actions: {
-        setBuildingChoice({ state }, selection){
-
         }
     }
 })
