@@ -13,6 +13,7 @@
             <solutions-component
                 :solutionsShow="solutionsShow"
                 :selection="clicked"
+                :suggestion="solutionText"
             />
         </div>
         <footer-component />
@@ -36,7 +37,8 @@ export default {
             suggestionsShow: false,
             suggestionOptions: [],
             solutionsShow: false,
-            clicked: this.getSuggestionChoice,
+            clicked: "",
+            suggestionText: "",
             formSelections: {}
         }
     },
@@ -54,6 +56,7 @@ export default {
             let building = this.formSelections.buildingSelection
             let room = this.formSelections.roomSelection
             let problem = this.formSelections.problemSelection
+            this.suggestionOptions = []
             axios.get('api/suggestions', {
                 params: {
                     building: building,
@@ -66,11 +69,20 @@ export default {
         openSolutions($event){
             this.clicked = $event[1]
             this.solutionsShow = true
+            let building = this.formSelections.buildingSelection
+            let room = this.formSelections.roomSelection
+            let problem = this.formSelections.problemSelection
+            axios.get('/api/solution', { params: {
+                building: building,
+                room: room,
+                problem: problem,
+                suggestion: this.clicked
+            } }).then(response => this.suggestionText = response.data)
+            .catch(e => console.error(e) )
         }
     },
     computed: {
         ...mapState({
-            getSuggestionChoice: state => state.suggestionChoice,
             getBuilding: state => state.formSelections.buildingSelection,
             getRoom: state => state.formSelections.roomSelection,
             getProblem: state => state.formSelections.problemSelection

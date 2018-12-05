@@ -76,9 +76,12 @@
     margin: 5px;
     font-family: Montserrat;
     font-size: .85em;
+    border-left: 0px solid white;
+    transition: border-left .06s linear;
   }
   li:hover {
     border-left: 2px solid white;
+    padding-left: 2px;
   }
   a {
     text-decoration: none;

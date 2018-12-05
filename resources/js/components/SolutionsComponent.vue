@@ -3,8 +3,7 @@
         <div class="slate">
             <!--
                 |****************
-                | Keep suggestion text in $store, retrive based on key:value pairs
-                | "solution text": "suggestion text".
+                | Fetch solution text from /api/solution
                 |****************
              -->
             <h2>{{ selection }}</h2>
@@ -21,6 +20,9 @@ export default {
             return {
                 roomDescription: "This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window.",
             }
+        },
+        computed: {
+
         }
 
 }

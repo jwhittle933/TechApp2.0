@@ -6,9 +6,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="/requestmanager">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/">TechApp</a>
-                <a class="nav-item nav-link" href="#">Log out</a>
+                    <a class="nav-item nav-link active" href="/requestmanager">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/">TechApp</a>
+                    <a class="nav-item nav-link" href="/api/logout">Log out</a>
                 </div>
             </div>
         </nav>

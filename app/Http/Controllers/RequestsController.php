@@ -3,20 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Requests;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class RequestsController extends Controller
 {
     public function index()
     {
+        $value = session('user');
+        if (!$value) return redirect('/login');
         $requests = Requests::all();
         return view('/requestmanager', [
             'requests' => $requests,
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $logout = $request->input('logout');
+        if ($logout){
+            $request->session()->forget('user');
+            return redirect('login');
+        };
         $store = true;
         $this->validate(request(), [
             'first_name' => 'required|min:2',
