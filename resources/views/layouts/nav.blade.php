@@ -8,7 +8,7 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="/requestmanager">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="/">TechApp</a>
-                    <a class="nav-item nav-link" href="/api/logout">Log out</a>
+                    <a class="nav-item nav-link" href="/logout">Log out</a>
                 </div>
             </div>
         </nav>

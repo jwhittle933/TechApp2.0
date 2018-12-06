@@ -17,6 +17,6 @@ Route::resource('/suggestions', 'SuggestionsController', [
 Route::resource('/solution', 'SolutionController',[
     'except' => ['edit', 'show', 'store', 'create']
 ]);
-Route::resource('/logout', 'LogOutController@logout',[
+Route::resource('/logout', 'LogOutController',[
     'except' => ['edit', 'show', 'store', 'create']
 ]);
