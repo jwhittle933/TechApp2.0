@@ -3,22 +3,22 @@
         <div class="slate">
             <!--
                 |****************
-                | Fetch solution text from /api/solution
+                | TODO: Fetch solution text from /api/solution
                 |****************
              -->
             <h2>{{ selection }}</h2>
             <p> {{ `You selected '${selection}'` }} </p>
-            <p> {{ roomDescription }} </p>
+            <p> {{ suggestion }} </p>
         </div>
     </div>
 </template>
 <script>
 export default {
         name: "SolutionsComponent",
-        props: ['solutionsShow', 'selection'],
+        props: ['solutionsShow', 'selection', 'suggestion'],
         data: () => {
             return {
-                roomDescription: "This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window. This is repeating text to test the room description window.",
+
             }
         },
         computed: {

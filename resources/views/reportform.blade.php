@@ -38,14 +38,3 @@
 @endsection
 
 
-@section ('script')
-<script>
-  $('svg').click(function(){
-      $('.menu-items-view').slideToggle(800);
-  })//end toggle click handler
-  $('#menu-div svg').on("click", function (event) {
-      $('.svg').toggleClass('rotate');
-      $('.svg').toggleClass('rotate-reset');
-  });//end animation click handler
-</script>
-@endsection

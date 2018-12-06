@@ -27,8 +27,6 @@ export default {
     },
     methods: {
         openSolutions: function(id, text) {
-            let item = id
-            let choice = text
             let payload = [id, text]
             this.$emit('open-solutions', payload)
             this.setSuggestion(payload[1])

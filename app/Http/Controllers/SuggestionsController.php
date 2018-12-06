@@ -15,7 +15,7 @@ class SuggestionsController extends Controller
         } elseif (!$_GET['building'] || !$_GET['room'] || !$_GET['problem']){
             return ["Error. Data incomplete"];
         }
-        $projector = ["Is the light green?", "Is there a blue screen?", "Is the projector on?", "Have you pressed 'Source-Search'", "Plugged in?"];
+        $projector = ["Is the light green?", "Is there a blue screen?", "Is the projector on?", "Pressed 'Source-Search'", "Plugged in?"];
         $tv = ["Is it powered on?", "Is it on the correct input?", "Is your device plugged in?", "Is the TV plugged in?", "Remote batteries dead?"];
         $computer = ["Is it a seminary issued laptop?", "Is it powered on?", "Can't connect to the internet?", "Is it the house pc?", "Software update?"];
         $screen = ["Is your computer plugged in?", "Is the screen blue?"];

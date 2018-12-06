@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class SolutionController extends Controller
 {
@@ -13,16 +15,17 @@ class SolutionController extends Controller
             $room = $_GET['room'];
             $problem = $_GET['problem'];
             $suggestion = $_GET['suggestion'];
+        } elseif (!$_GET['building'] || !$_GET['room'] || !$_GET['problem']){
+            return ["Error. Data incomplete"];
         }
 
-        $suggestion = DB::table('roomtech')
+        $data = DB::table('roomtech')
             ->where([
                 ['building', $building],
                 ['room', $room],
-                ['technology', $problem],
-                ['suggestion', $suggestion]
+                ['technology', $problem]
             ])->get();
 
-        return $suggestion;
+        return $data;
     }
 }

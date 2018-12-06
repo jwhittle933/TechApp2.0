@@ -6,7 +6,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel|Lobster" rel="stylesheet">
     {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
     @yield('style')
 </head>

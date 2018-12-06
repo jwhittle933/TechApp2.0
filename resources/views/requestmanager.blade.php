@@ -3,8 +3,8 @@
 @section('title', 'Request Manager')
 
 @section ('style')
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<style> table {border: 2px solid black; margin: 15px;} #request-form {width: auto;} input{justify-content: flex-end;} .flex-requests{ display:flex; flex-wrap: wrap;} .entry { margin: 15px; padding: 5px; width: 30%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1em; } .entry:hover { margin: 10px; box-shadow: 5px 5px grey;} a{ text-decoration:none; color: black} a:visited{ color:black} a:hover{ text-decoration: none}</style>
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+<style> table {border: 2px solid black; margin: 15px;} #request-form {width: auto;} input{justify-content: flex-end;} .flex-requests{ display:flex; flex-wrap: wrap;} .entry { margin: 15px; padding: 5px; width: 30%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1em; } a{ text-decoration:none; color: black} a:visited{ color:black} a:hover{ text-decoration: none}</style>
 @endsection
 
 @section ('content')
@@ -66,20 +66,21 @@
         @endif
 
     </form>
+
     <div class='flex-requests'>
         @foreach ($requests as $request)
-        <div class='entry' id={{$request->id}}>
-                <b>ID: </b> {{ $request->id }} <br>
-                <b>First Name: </b> {{ $request->first_name }} <br>
-                <b>Last Name: </b> {{ $request->last_name }} <br>
-                <b>Building: </b> {{ $request->building }} <br>
-                <b>Room: </b> {{ $request->room }} <br>
-                <b>Problem: </b> {{ $request->problem }} <br>
-                <b>Email: </b> {{ $request->email }} <br>
-                <b>Created At: </b> {{ $request->created_at->diffForHumans() }} <br>
-                <b>Updated At: </b> {{ $request->updated_at->diffForHumans() }}<br>
-                <a href="/requestmanager/{{ $request->id }}" class="badge badge-info">View</a>
-        </div>
+            <div class='entry' id={{$request->id}}>
+                    <b>ID: </b> {{ $request->id }} <br>
+                    <b>First Name: </b> {{ $request->first_name }} <br>
+                    <b>Last Name: </b> {{ $request->last_name }} <br>
+                    <b>Building: </b> {{ $request->building }} <br>
+                    <b>Room: </b> {{ $request->room }} <br>
+                    <b>Problem: </b> {{ $request->problem }} <br>
+                    <b>Email: </b> {{ $request->email }} <br>
+                    <b>Created At: </b> {{ $request->created_at->diffForHumans() }} <br>
+                    <b>Updated At: </b> {{ $request->updated_at->diffForHumans() }}<br>
+                    <a href="/requestmanager/{{ $request->id }}" class="badge badge-info">View</a>
+            </div>
         @endforeach
     </div>
 
@@ -88,6 +89,4 @@
 @endsection
 
 @section('script')
-<script></script>
-
 @endsection

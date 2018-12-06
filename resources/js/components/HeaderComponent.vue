@@ -3,7 +3,7 @@
         <div id="menubar">
             <div id="click-menu">
               <svg @click="toggleMenu" id="svg" height="25px" width="25px" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg>
-              <h1>{{ title }}</h1>
+              <p class="title">{{ title }}</p>
             </div>
             <transition name="menu">
               <div id="menu-items" v-if='show' class="menu-items-view">
@@ -90,9 +90,9 @@
   a:visited {
     color: inherit;
   }
-  h1 {
-    font-size: 1.5em;
-    font-family: Montserrat;
+  .title {
+    font-size: 1.75em;
+    font-family: "Cinzel Light";
     text-align: center;
     flex-grow: 2;
     animation: letter-space 1s ease-out forwards;
@@ -106,6 +106,7 @@
   #click-menu {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 10vh;
     background-color: #222D3f;
     color: white;

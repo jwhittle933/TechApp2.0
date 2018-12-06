@@ -57,7 +57,7 @@ export default {
             let room = this.formSelections.roomSelection
             let problem = this.formSelections.problemSelection
             this.suggestionOptions = []
-            axios.get('api/suggestions', {
+            axios.get('/api/suggestions', {
                 params: {
                     building: building,
                     room: room,
@@ -72,12 +72,13 @@ export default {
             let building = this.formSelections.buildingSelection
             let room = this.formSelections.roomSelection
             let problem = this.formSelections.problemSelection
-            axios.get('/api/solution', { params: {
-                building: building,
-                room: room,
-                problem: problem,
-                suggestion: this.clicked
-            } }).then(response => this.suggestionText = response.data)
+            axios.get('/api/solution', {
+                params: {
+                    building: building,
+                    room: room,
+                    problem: problem,
+                    suggestion: this.clicked
+            } }).then(response => this.suggestionText = response.data[0].description)
             .catch(e => console.error(e) )
         }
     },
