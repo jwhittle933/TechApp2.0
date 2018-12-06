@@ -29,7 +29,8 @@ class LoginController extends Controller
             $request->session()->put('user', $loginUser);
             return redirect('/requestmanager');
         } else {
-            return view('/login');
+            $error = true;
+            return redirect('/login')->with('error', $error);
         }
     }
 

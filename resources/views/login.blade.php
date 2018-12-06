@@ -1,10 +1,9 @@
 @extends ('layouts.master')
 
-
   @section ('title', 'Problems Manager')
   @section ('style')
     <style>
-    header { text-align: center;}h1 {font-family: Montserrat;} h2 {font: normal 1.5em Montserrat;} .signup {width: auto; border: 1px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} table {width: auto; text-align: center; margin-left: auto;margin-right: auto;margin-top: 100px; }
+      header { text-align: center;}h1 {font-family: Montserrat;} h2 {font: normal 1.5em Montserrat;} .signup {width: auto; border: 1px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} table {width: auto; text-align: center; margin-left: auto;margin-right: auto;margin-top: 100px;} .error { color: red; margin: 0 auto;  }
     </style>
   @endsection
 
@@ -28,6 +27,12 @@
       </form>
     </table>
 
+    @if(Session::has('error'))
+      <div class="error">
+        <h4>Those credentials are not recognized. Please try again</h4>
+      </div>
+    @endif
+
     @if (count($errors))
       <div class="form-group">
           <div class="alert alert-danger">
@@ -44,7 +49,3 @@
 
     @endsection
 
-
-
-  </body>
-</html>
