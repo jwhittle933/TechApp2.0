@@ -72,6 +72,13 @@ export default {
             let building = this.formSelections.buildingSelection
             let room = this.formSelections.roomSelection
             let problem = this.formSelections.problemSelection
+            /**
+            * Fetches data from DB through SolutionsController
+            *
+            * Isses: Doesn't update when form selection changes,
+            * need to update database model to match suggestion
+            * options and cull relevant data.
+            */
             axios.get('/api/solution', {
                 params: {
                     building: building,
