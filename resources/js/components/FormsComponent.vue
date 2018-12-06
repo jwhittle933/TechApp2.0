@@ -3,7 +3,8 @@
         <form class="form" action="" method="POST">
             <label for="buildop">{{ buildingLabel }}</label><br />
             <select name="buildop"
-                v-model="formSelections.buildingSelection"                   @change="setBuilding">
+                v-model="formSelections.buildingSelection"
+                @change="setBuilding">
                 <option v-for="buildOption in buildOptions"
                         :key="buildOption">
                     {{ buildOption }}

@@ -13,7 +13,7 @@
             <solutions-component
                 :solutionsShow="solutionsShow"
                 :selection="clicked"
-                :suggestion="solutionText"
+                :suggestion="suggestionText"
             />
         </div>
         <footer-component />
