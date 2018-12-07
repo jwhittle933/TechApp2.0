@@ -8,9 +8,12 @@
             </svg>
           </li>
         </ul> -->
-        <svg viewbox="0 0 40 40" class="Icon2">
-          <path d="M0 30 L20 20 L40 30" ></path>
-        </svg>
+        <!--Create hidden footer that opens on click to reveal links, etc. -->
+        <div class="flex">
+          <svg viewbox="0 0 40 40" class="Icon2">
+            <path d="M0 30 L20 20 L40 30" ></path>
+          </svg>
+        </div>
     </footer>
 </template>
 
@@ -85,13 +88,16 @@ a:hover + .Icon{
   transform: translateX(0);
   opacity: 1;
 }
+.flex {
+  display: flex;
+}
 .Icon2 {
   width: 2.5em;
   height: 2.5em;
 }
 .Icon2 path {
   stroke: black;
-  stroke-width: 2px;
+  stroke-width: 2.5px;
   fill: none;
 }
 </style>

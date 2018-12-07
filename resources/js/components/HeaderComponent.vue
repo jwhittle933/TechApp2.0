@@ -49,7 +49,7 @@
     margin-bottom: 1em;
     border-radius: 3px;
     fill: white;
-    background-color: #88C5FF;
+    background-color: #1ab394;
     padding: 5px;
   }
   svg:hover {
@@ -62,7 +62,7 @@
   -webkit-box-shadow: inset 0 0 10px #000000;
   }
   p {
-    margin: 1em;
+    margin: 1.2em;
     padding: .5em;
     font-family: Calibri, light;
   }
@@ -72,11 +72,12 @@
   }
   li {
     list-style: none;
-    margin: 5px;
+    /* margin: 5px; */
     font-family: Montserrat;
     font-size: .85em;
     border-left: 0px solid white;
     transition: border-left .06s linear;
+    margin-bottom: 1.5vh;
   }
   li:hover {
     border-left: 2px solid white;
@@ -107,19 +108,20 @@
     justify-content: center;
     align-items: center;
     height: 10vh;
-    background-color: #222D3f;
+    background-color: #2f4050;
     color: white;
   }
   #menu-items {
     position: absolute;
     z-index: 4;
     top: 10vh ;
-    left: 3em;
+    left: 1vw;
     width: 20vw;
     height: 23vh;
     padding: .5em;
     overflow: hidden;
-    background-color: #222D3f;
+    background-color: #2f4050;
+    opacity: .9;
     border-radius: 0  0 5px 5px;
     box-shadow: 5px 5px 8px 0px rgba(7, 7, 7, 0.5);
     color: white;

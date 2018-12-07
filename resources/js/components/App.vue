@@ -110,6 +110,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #f0f4f7;
 }
 #main-div{
     margin-bottom: 100px;
