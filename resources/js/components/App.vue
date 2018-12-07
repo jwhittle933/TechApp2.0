@@ -75,7 +75,9 @@ export default {
             /**
             * Fetches data from DB through SolutionsController
             *
-            * Isses: Doesn't update when form selection changes,
+            * Isses:
+            *
+            * TypeError – some properties for search are undefined,
             * need to update database model to match suggestion
             * options and cull relevant data.
             */

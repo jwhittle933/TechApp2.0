@@ -1,13 +1,13 @@
 <template>
     <footer id="footer">
-        <div id="southern-links">
-          <ul>
-            <li v-for="(link, index) in links" :key="index">
-              <a :href="link.url">{{ link.text }}</a>
-            </li>
-          </ul>
-        </div>
-        <div id='droptest'></div>
+        <ul>
+          <li v-for="(link, index) in links" :key="index">
+            <a :href="link.url">{{ link.text }}</a>
+            <svg viewbox="0 0 20 20" class="Icon">
+              <path d="M0 0 L10 10 L0 20" ></path>
+            </svg>
+          </li>
+        </ul>
     </footer>
 </template>
 
@@ -17,10 +17,10 @@
         data: function(){
           return {
             links: [
-              {text: "SBTS |", url: "http://www.sbts.edu/"},
-              {text: "Canvas |", url: "http://www.sbts.instructure.com"},
-              {text: "MySBTS |", url: "http://www.my.sbts.edu"},
-              {text: "AlberMohler.com |", url: "http://www.albermohler.com"},
+              {text: "SBTS ", url: "http://www.sbts.edu/"},
+              {text: "Canvas ", url: "http://www.sbts.instructure.com"},
+              {text: "MySBTS ", url: "http://www.my.sbts.edu"},
+              {text: "AlberMohler.com ", url: "http://www.albermohler.com"},
               {text: "Campus Technology", url: "http://www.sbts.edu/services/campus-technology/"}
             ]
           }
@@ -29,42 +29,49 @@
 </script>
 
 <style scoped>
-li {
-  display: inline;
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-a:hover {
-  text-decoration: underline;
-}
 footer {
   position: fixed;
   bottom: 0;
   width: 100vw;
   background-color: #325D7F;
   color: #E7F2EA;
-  height: 15vh;
-  border: solid 5px #3C5D5E;
+  height: 8vh;
+  border: solid 2px rgb(124, 130, 131);
   clear: both;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#southern-links ul {
-  margin-top: 50px;
+ul {
+  display: flex;
+  justify-content: space-around;
 }
-#southern-links li {
+li {
   list-style: none;
-  font-family: Cinzel;
-  font-size: 1.75em;
+  padding: 3vw;
+  display: flex;
 }
-#southern-links a:visited {
-  color: black;
+a {
+  text-decoration: none;
+  color: white;
+  font-family:cursive;
+  font-size: 1.5em;
 }
-#other-links {
-  width: 50%;
+.Icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0;
+  order: -1;
+  transition: all 0.2s;
+  transform: translateX(-100%)
 }
-#other-links li {
-  list-style: none;
+.Icon path{
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+a:hover + .Icon{
+  transform: translateX(0);
+  opacity: 1;
 }
 </style>
