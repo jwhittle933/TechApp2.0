@@ -1,13 +1,16 @@
 <template>
     <footer id="footer">
-        <ul>
+        <!-- <ul>
           <li v-for="(link, index) in links" :key="index">
             <a :href="link.url">{{ link.text }}</a>
-            <svg viewbox="0 0 20 20" class="Icon">
-              <path d="M0 0 L10 10 L0 20" ></path>
+            <svg viewbox="0 0 10 10" class="Icon">
+              <path d="M0 0 L5 5 L0 10" ></path>
             </svg>
           </li>
-        </ul>
+        </ul> -->
+        <svg viewbox="0 0 40 40" class="Icon2">
+          <path d="M0 30 L20 20 L40 30" ></path>
+        </svg>
     </footer>
 </template>
 
@@ -16,6 +19,7 @@
         name: "FooterComponent",
         data: function(){
           return {
+            footerShow: false,
             links: [
               {text: "SBTS ", url: "http://www.sbts.edu/"},
               {text: "Canvas ", url: "http://www.sbts.instructure.com"},
@@ -23,6 +27,11 @@
               {text: "AlberMohler.com ", url: "http://www.albermohler.com"},
               {text: "Campus Technology", url: "http://www.sbts.edu/services/campus-technology/"}
             ]
+          }
+        },
+        methods: {
+          toggleFooterMenu() {
+
           }
         }
     }
@@ -35,7 +44,7 @@ footer {
   width: 100vw;
   background-color: #325D7F;
   color: #E7F2EA;
-  height: 8vh;
+  height: 10vh;
   border: solid 2px rgb(124, 130, 131);
   clear: both;
   display: flex;
@@ -48,8 +57,9 @@ ul {
 }
 li {
   list-style: none;
-  padding: 3vw;
+  padding: 1vw;
   display: flex;
+  align-items: center;
 }
 a {
   text-decoration: none;
@@ -69,9 +79,19 @@ a {
   fill: none;
   stroke: white;
   stroke-width: 2px;
+  margin-bottom: 0;
 }
 a:hover + .Icon{
   transform: translateX(0);
   opacity: 1;
+}
+.Icon2 {
+  width: 2.5em;
+  height: 2.5em;
+}
+.Icon2 path {
+  stroke: black;
+  stroke-width: 2px;
+  fill: none;
 }
 </style>

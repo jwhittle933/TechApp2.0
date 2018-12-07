@@ -43,7 +43,6 @@
 </script>
 
 <style scoped>
-@media screen and (min-width: 768px) {
   svg {
     margin-top: 1em;
     margin-left: 1em;
@@ -177,7 +176,7 @@
       opacity: 1;
     }
   }
-}
+
 
 
 
