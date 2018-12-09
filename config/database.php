@@ -38,9 +38,8 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
         /**
-         * Uncomment this code for AWS EC2 Bundle
+         * Uncomment for AWS Deployment
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('RDS_HOSTNAME', '127.0.0.1'),
@@ -56,7 +55,6 @@ return [
             'engine' => null,
         ],
         */
-
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
