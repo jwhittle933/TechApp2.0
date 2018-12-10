@@ -25,7 +25,7 @@
 
       <form method="POST" action="/login">
         {{ csrf_field() }}
-        <tr><td>Username</td>
+        <tr><td>Email</td>
           <td><input type="email" maxlength="32" name="username" required></td></tr>
         <tr><td>Password</td>
           <td><input type="password" maxlength="32" name="password" required></td>

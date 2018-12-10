@@ -33,14 +33,19 @@
           {{ method_field('PATCH') }}
           {{ csrf_field() }}
           <label><b>ID: </b></label>{{ $id }}<br>
-          <label><b>First Name: </label></b><input name="first_name" value="{{ $first_name }}"><br>
-          <label><b>Last Name: </label></b><input name="last_name" value="{{ $last_name }}"><br>
-          <label><b>Building: </label></b><input name="building" value="{{ $building }}"><br>
-          <label><b>Room: </label></b><input name="room" value="{{ $room }}"><br>
-          <label><b>Problem: </label></b><input name="problem" value="{{ $problem }}"><br>
-          <label><b>Email: </label></b><input name="email" value="{{ $email }}"><br>
+          <label><b>First Name: </label></b>
+          <input name="first_name" value="{{ $first_name }}"><br>
+          <label><b>Last Name: </label></b>
+          <input name="last_name" value="{{ $last_name }}"><br>
+          <label><b>Building: </label></b>
+          <input name="building" value="{{ $building }}"><br>
+          <label><b>Room: </label></b>
+          <input name="room" value="{{ $room }}"><br>
+          <label><b>Problem: </label></b>
+          <textarea name="problem">{{ $problem }}</textarea><br>
+          <label><b>Email: </label></b>
+          <input name="email" value="{{ $email }}"><br>
           <input type="hidden" name="id" value="{{$id}}">
-
           <button type="submit" class="btn btn-secondary">Update</button>
       </form>
   </div>

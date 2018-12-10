@@ -5,6 +5,7 @@
 @section ('style')
 <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/reportform.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @endsection
 
 @section ('content')

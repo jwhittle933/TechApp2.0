@@ -26,16 +26,12 @@ class LoginController extends Controller
         $users = Users::all();
         if (($loginUser === $users[0]->email && Hash::check($loginPassword, $users[0]->password))
         || ($loginUser === $users[1]->email && Hash::check($loginPassword, $users[1]->password))){
-            $request->session()->put('user', $loginUser);
+            $user = Users::where('email', $loginUser)->value('name');
+            $request->session()->put('user', $user);
             return redirect('/requestmanager');
         } else {
             $error = true;
             return redirect('/login')->with('error', $error);
         }
-    }
-
-    public function logout(Request $request)
-    {
-
     }
 }
