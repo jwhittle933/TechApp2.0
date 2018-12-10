@@ -25,7 +25,7 @@
       <form action="{{ url('/requestmanager', ['id' => $id]) }}" method="POST">
           {{ method_field('DELETE') }}
           {{ csrf_field() }}
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="submit" class="btn btn-outline-danger">Delete</button>
       </form>
   </div>
   <div class='form-group update'>
@@ -46,7 +46,7 @@
           <label for="email"><b>Email: </label></b>
           <input name="email" class="form-control" value="{{ $email }}"><br>
           <input type="hidden" name="id" value="{{$id}}">
-          <button type="submit" class="btn btn-secondary">Update</button>
+          <button type="submit" class="btn btn-outline-secondary">Update</button>
       </form>
   </div>
 </div>

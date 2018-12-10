@@ -1,14 +1,11 @@
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <a class="navbar-brand text-light">Request Portal</a>
+        <a class="navbar-brand text-light" href="/requestmanager">Request Portal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-info" href="/requestmanager">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link text-info" href="/">TroubleShooter</a>
                 </li>
@@ -18,7 +15,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Classroom Info</a>
+                        <a class="dropdown-item" href="#">New User</a>
                     </div>
                 </li>
                 <li class="nav-item">

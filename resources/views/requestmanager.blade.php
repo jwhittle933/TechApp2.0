@@ -4,13 +4,12 @@
 
 @section ('style')
 <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('css/reportform.css') }}" rel="stylesheet">
+<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @endsection
 
 @section ('content')
 @include('layouts.nav')
-<hr>
 
 @if(Session::has('store'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -36,6 +35,7 @@
 @endif
 
 <div class='request-form form-group'>
+    <h1 class="lead ml-3">Submit a new request</h1>
     <form action='/requestmanager' method='POST'>
         {{ csrf_field() }}
         <table>
@@ -80,7 +80,7 @@
                     <b>Email: </b> {{ $request->email }} <br>
                     <b>Created At: </b> {{ $request->created_at->diffForHumans() }} <br>
                     <b>Updated At: </b> {{ $request->updated_at->diffForHumans() }}<br>
-                    <a href="/requestmanager/{{ $request->id }}" class="badge badge-info">View</a>
+                    <a href="/requestmanager/{{ $request->id }}" class="btn btn-outline-info btn-sm">View</a>
             </div>
         @endforeach
     </div>

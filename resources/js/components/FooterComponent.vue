@@ -48,7 +48,6 @@ footer {
   background-color: #325D7F;
   color: #E7F2EA;
   height: 10vh;
-  border: solid 2px rgb(124, 130, 131);
   clear: both;
   display: flex;
   align-items: center;

@@ -9,7 +9,7 @@
     @section ('content')
 
     <header>
-      <h1>Requests Portal</h1>
+      <h1>Dashboard</h1>
       <p>Please login to continue or return to the <a href="/">main page<a/></p>
     </header>
 
@@ -17,7 +17,7 @@
       <h2>Login</h2>
 
       @if(Session::has('error'))
-        <p class="alert alert-danger">*Those credentials are not recognized. Please try again</p>
+        <p class="alert alert-danger">*The email or password are incorrect.</p>
       @endif
 
       <div class="form-group">
@@ -34,7 +34,7 @@
 
     <div class="container-fluid request">
       <h2>Request Access</h2>
-      <p>If you are granted access, a user account will be created for you.</p>
+      <p>If you are granted access, a user account will be created for you and you will be emailed the credentials</p>
       <div class="form-group">
           <form method="POST" action="/login">
             {{ csrf_field() }}

@@ -9,7 +9,7 @@
               <div id="menu-items" v-if='show' class="menu-items-view">
                 <ul>
                     <li v-for="(text, index) in menuText" :key="index">
-                      <a :href="text.url">{{ text.words }}</a></li>
+                      <a :href="text.url" target="_blank">{{ text.words }}</a></li>
                 </ul>
               </div>
             </transition>
@@ -29,7 +29,7 @@
                     { words: "What do I need?", url: ""},
                     { words: "Campus Technology Home", url: "http://www.sbts.edu/services/campus-technology/"},
                     { words: "SBTS Home", url: "http://www.sbts.edu"},
-                    { words: "Request Manager", url: "/requestmanager"}
+                    { words: "Dashboard", url: "/requestmanager"}
                 ],
                 show: false
             }
