@@ -3,9 +3,7 @@
   @section ('title', 'Problems Manager')
   @section ('style')
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-  <style>
-    header { text-align: center;}h1 {font-family: Montserrat;} h2 {font: normal 1.5em Montserrat;} .signup {width: auto; border: 1px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} table {width: auto; text-align: center; margin-left: auto;margin-right: auto;margin-top: 100px;} .error { color: red; margin: 0 auto;  }
-  </style>
+  <link href="{{ asset('css/login.css') }}" rel="stylesheet">
   @endsection
 
     @section ('content')
@@ -15,23 +13,41 @@
       <p>Please login to continue or return to the <a href="/">main page<a/></p>
     </header>
 
+    <div class="container-fluid login">
+      <h2>Login</h2>
 
-    <table class="login" border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
-      <th colspan="2" align="center"><h2>Login</h2></th>
+      @if(Session::has('error'))
+        <p class="alert alert-danger">*Those credentials are not recognized. Please try again</p>
+      @endif
 
-        @if(Session::has('error'))
-          <p class="error">*Those credentials are not recognized. Please try again</p>
-        @endif
+      <div class="form-group">
+        <form method="POST" action="/login">
+          {{ csrf_field() }}
+          <p>Email</p>
+          <input class="form-control w-75" type="email" maxlength="32" name="username" required>
+          <p>Password</p>
+          <input class="form-control w-75" type="password" maxlength="32" name="password" required>
+          <input class="btn btn-outline-primary" type="submit" name="submit" value="Login">
+        </form>
+      </div>
+    </div>
 
-      <form method="POST" action="/login">
-        {{ csrf_field() }}
-        <tr><td>Email</td>
-          <td><input type="email" maxlength="32" name="username" required></td></tr>
-        <tr><td>Password</td>
-          <td><input type="password" maxlength="32" name="password" required></td>
-        </tr><td><input class="subbutton" type="submit" name="submit" value="Login"></td></tr>
-      </form>
-    </table>
+    <div class="container-fluid request">
+      <h2>Request Access</h2>
+      <p>If you are granted access, a user account will be created for you.</p>
+      <div class="form-group">
+          <form method="POST" action="/login">
+            {{ csrf_field() }}
+            <p>First Name</p>
+            <input class="form-control w-75" type="email" maxlength="32" name="username" required>
+            <p>Last Name</p>
+            <input class="form-control w-75" type="email" maxlength="32" name="username" required>
+            <p>Email</p>
+            <input class="form-control w-75" type="email" maxlength="32" name="username" required>
+            <input class="btn btn-outline-primary" type="submit" name="submit" value="Submit">
+          </form>
+        </div>
+    </div>
 
 
     @if (count($errors))
