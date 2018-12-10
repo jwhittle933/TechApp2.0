@@ -29,7 +29,7 @@
                     { words: "What do I need?", url: ""},
                     { words: "Campus Technology Home", url: "http://www.sbts.edu/services/campus-technology/"},
                     { words: "SBTS Home", url: "http://www.sbts.edu"},
-                    { words: "Dashboard", url: "/requestmanager"}
+                    { words: "Dashboard", url: "/dashboard"}
                 ],
                 show: false
             }

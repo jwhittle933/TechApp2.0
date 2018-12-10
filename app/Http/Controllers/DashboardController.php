@@ -6,14 +6,14 @@ use App\Requests;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class RequestsController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
         $value = session('user');
         if (!$value) return redirect('/login');
         $requests = Requests::all();
-        return view('/requestmanager', [
+        return view('/dashboard', [
             'requests' => $requests,
         ]);
     }
@@ -42,7 +42,7 @@ class RequestsController extends Controller
             'problem' => request('problem'),
             'email' => request('email'),
         ]);
-        return redirect('/requestmanager')->with('store', $store);
+        return redirect('/dashboard')->with('store', $store);
     }
 
     public function show(Requests $request)
@@ -64,7 +64,7 @@ class RequestsController extends Controller
     {
         $destroy = true;
         Requests::where('id', $id)->delete();
-        return redirect('/requestmanager')->with('destroy', $destroy);
+        return redirect('/dashboard')->with('destroy', $destroy);
     }
 
     public function update($id)
@@ -80,6 +80,6 @@ class RequestsController extends Controller
                     'email' => request('email'),
                     'updated_at' => $timeOfUpdate
                 ]);
-        return redirect("/requestmanager")->with('update', $update);
+        return redirect("/dashboard")->with('update', $update);
         }
 }

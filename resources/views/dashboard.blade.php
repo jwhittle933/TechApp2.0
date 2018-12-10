@@ -36,7 +36,7 @@
 
 <div class='request-form form-group'>
     <h1 class="lead ml-3">Submit a new request</h1>
-    <form action='/requestmanager' method='POST'>
+    <form action='/dashboard' method='POST'>
         {{ csrf_field() }}
         <table>
             <tr><td><label for='first_name'>First Name: </label></td>
@@ -80,7 +80,7 @@
                     <b>Email: </b> {{ $request->email }} <br>
                     <b>Created At: </b> {{ $request->created_at->diffForHumans() }} <br>
                     <b>Updated At: </b> {{ $request->updated_at->diffForHumans() }}<br>
-                    <a href="/requestmanager/{{ $request->id }}" class="btn btn-outline-info btn-sm">View</a>
+                    <a href="/dashboard/{{ $request->id }}" class="btn btn-outline-info btn-sm">View</a>
             </div>
         @endforeach
     </div>

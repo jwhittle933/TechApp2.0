@@ -22,14 +22,14 @@
       <p><b>Email: </b> {{ $email }}<br></p>
       <p><b>Created At: </b> {{ $created_at }}<br></p>
       <p><b>Updated At: </b> {{ $updated_at }}<br></p>
-      <form action="{{ url('/requestmanager', ['id' => $id]) }}" method="POST">
+      <form action="{{ url('/dashboard', ['id' => $id]) }}" method="POST">
           {{ method_field('DELETE') }}
           {{ csrf_field() }}
           <button type="submit" class="btn btn-outline-danger">Delete</button>
       </form>
   </div>
   <div class='form-group update'>
-      <form class="container form" action="{{ url('/requestmanager', ['id' => $id]) }}" method="POST">
+      <form class="container form" action="{{ url('/dashboard', ['id' => $id]) }}" method="POST">
           {{ method_field('PATCH') }}
           {{ csrf_field() }}
           <p><b>ID: </b></label>{{ $id }}<br></p>

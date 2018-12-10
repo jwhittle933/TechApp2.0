@@ -1,6 +1,6 @@
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <a class="navbar-brand text-light" href="/requestmanager">Request Portal</a>
+        <a class="navbar-brand text-light" href="/dashboard">Request Portal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,9 +14,9 @@
                         Console
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Classroom Info</a>
-                        <a class="dropdown-item" href="#">New User</a>
+                        <a class="dropdown-item" href="/profile">Profile</a>
+                        <a class="dropdown-item" href="/classroominfo">Classroom Info</a>
+                        <a class="dropdown-item" href="/newuser">New User</a>
                     </div>
                 </li>
                 <li class="nav-item">
