@@ -4,7 +4,7 @@
 
 @section('style')
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<style> .entry { margin: 15px; padding: 5px; width: 45%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1.25em; } .controls {margin-top: 50px; padding: 15px; display: flex} .update {margin: 15px; padding: 5px; font-family: Menlo;} label {display:inline-block; float:left; clear:left; text-align-right;} input {display:inline-block; float: right;}</style>
+<link href="{{ asset('css/show.css') }}" rel="stylesheet">
 @endsection
 
 
@@ -40,6 +40,7 @@
           <label><b>Problem: </label></b><input name="problem" value="{{ $problem }}"><br>
           <label><b>Email: </label></b><input name="email" value="{{ $email }}"><br>
           <input type="hidden" name="id" value="{{$id}}">
+
           <button type="submit" class="btn btn-secondary">Update</button>
       </form>
   </div>

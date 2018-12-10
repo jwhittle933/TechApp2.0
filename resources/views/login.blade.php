@@ -2,21 +2,27 @@
 
   @section ('title', 'Problems Manager')
   @section ('style')
-    <style>
-      header { text-align: center;}h1 {font-family: Montserrat;} h2 {font: normal 1.5em Montserrat;} .signup {width: auto; border: 1px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} table {width: auto; text-align: center; margin-left: auto;margin-right: auto;margin-top: 100px;} .error { color: red; margin: 0 auto;  }
-    </style>
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <style>
+    header { text-align: center;}h1 {font-family: Montserrat;} h2 {font: normal 1.5em Montserrat;} .signup {width: auto; border: 1px solid #999999; font: normal 1.5em Sawarabi Mincho; color: #444444} .subbutton {font-family: Helvetica; font-size: 1em; width:auto;} table {width: auto; text-align: center; margin-left: auto;margin-right: auto;margin-top: 100px;} .error { color: red; margin: 0 auto;  }
+  </style>
   @endsection
 
     @section ('content')
 
     <header>
-      <h1>Tech Help Requests Portal</h1>
-      <p>Please login to continue</p>
+      <h1>Requests Portal</h1>
+      <p>Please login to continue or return to the <a href="/">main page<a/></p>
     </header>
 
 
     <table class="login" border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
       <th colspan="2" align="center"><h2>Login</h2></th>
+
+        @if(Session::has('error'))
+          <p class="error">*Those credentials are not recognized. Please try again</p>
+        @endif
+
       <form method="POST" action="/login">
         {{ csrf_field() }}
         <tr><td>Username</td>
@@ -27,11 +33,6 @@
       </form>
     </table>
 
-    @if(Session::has('error'))
-      <div class="error">
-        <h4>Those credentials are not recognized. Please try again</h4>
-      </div>
-    @endif
 
     @if (count($errors))
       <div class="form-group">

@@ -4,7 +4,7 @@
 
 @section ('style')
 <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-<style> table {border: 2px solid black; margin: 15px;} #request-form {width: auto;} input{justify-content: flex-end;} .flex-requests{ display:flex; flex-wrap: wrap;} .entry { margin: 15px; padding: 5px; width: 30%; border: 2px solid lightblue; box-shadow: 5px 5px grey; font-family: Menlo; font-size: 1em; } a{ text-decoration:none; color: black} a:visited{ color:black} a:hover{ text-decoration: none}</style>
+<link href="{{ asset('css/reportform.css') }}" rel="stylesheet">
 @endsection
 
 @section ('content')

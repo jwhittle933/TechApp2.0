@@ -6,12 +6,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
-    {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     @yield('style')
 </head>
 <body>
       @yield('content')
 
     @yield('script')
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
 </html>
