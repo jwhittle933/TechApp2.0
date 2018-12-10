@@ -77,6 +77,8 @@ export default {
             *
             * Isses:
             *
+            * Norton 195 Projector Text doesn't fit the suggestion pane
+            *
             * TypeError – some properties for search are undefined,
             * need to update database model to match suggestion
             * options and cull relevant data.

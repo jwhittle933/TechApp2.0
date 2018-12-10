@@ -35,7 +35,7 @@
     </div>
 @endif
 
-<div id='request-form'>
+<div class='request-form'>
     <form action='/requestmanager' method='POST'>
         {{ csrf_field() }}
         <table>
