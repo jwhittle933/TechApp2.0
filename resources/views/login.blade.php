@@ -39,11 +39,11 @@
           <form method="POST" action="/login">
             {{ csrf_field() }}
             <p>First Name</p>
-            <input class="form-control w-75" type="email" maxlength="32" name="username" required>
+            <input class="form-control w-75" type="email" maxlength="32" name="firstname" required>
             <p>Last Name</p>
-            <input class="form-control w-75" type="email" maxlength="32" name="username" required>
+            <input class="form-control w-75" type="email" maxlength="32" name="lastname" required>
             <p>Email</p>
-            <input class="form-control w-75" type="email" maxlength="32" name="username" required>
+            <input class="form-control w-75" type="email" maxlength="32" name="email" required>
             <input class="btn btn-outline-primary" type="submit" name="submit" value="Submit">
           </form>
         </div>

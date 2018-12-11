@@ -2,9 +2,9 @@
 Route::get('/', 'IndexController@index');
 Route::get('/reportform', 'ReportFormController@index');
 Route::post('/reportform', 'ReportFormController@submit');
-Route::auth();
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
+Route::post('/login/access', 'LoginController@access');
 Route::get('/logout', 'LogOutController@logout');
 Route::get('/dashboard', 'DashboardController@index');
 Route::post('/dashboard', 'DashboardController@store');

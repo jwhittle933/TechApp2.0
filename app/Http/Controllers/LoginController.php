@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -33,5 +34,26 @@ class LoginController extends Controller
             $error = true;
             return redirect('/login')->with('error', $error);
         }
+    }
+
+    public function access()
+    {
+        $this->validate(request(), [
+            'firstname' => 'required|min:2',
+            'lastname' => 'required|min:2',
+            'email' => 'required|e-mail'
+        ]);
+        $first = request('firsname');
+        $last = request('lastname');
+        $email = ruquest('email');
+
+        //Either keep DB facade or create Access model
+        DB::table('access_requests')->insert(
+            ['firstname' => $first,
+            'lastname' => $last,
+            'email' => $email]
+        );
+
+        return view('access');
     }
 }

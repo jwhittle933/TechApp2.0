@@ -44,7 +44,7 @@
           <label for="problem"><b>Problem: </label></b>
           <textarea name="problem" class="form-control">{{ $problem }}</textarea><br>
           <label for="email"><b>Email: </label></b>
-          <input name="email" class="form-control" value="{{ $email }}"><br>
+          <input name="email" type="email" class="form-control" value="{{ $email }}"><br>
           <input type="hidden" name="id" value="{{$id}}">
           <button type="submit" class="btn btn-outline-secondary">Update</button>
       </form>

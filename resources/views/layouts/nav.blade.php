@@ -11,10 +11,10 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Console
+                        Actions
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/profile">Profile</a>
+                        <a class="dropdown-item" href="/profile">Edit Profile</a>
                         <a class="dropdown-item" href="/classroominfo">Classroom Info</a>
                         <a class="dropdown-item" href="/newuser">New User</a>
                     </div>
