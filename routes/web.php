@@ -4,6 +4,7 @@ Route::get('/reportform', 'ReportFormController@index');
 Route::post('/reportform', 'ReportFormController@submit');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
+Route::get('login/access', function(){ abort(404); });
 Route::post('/login/access', 'LoginController@access');
 Route::get('/logout', 'LogOutController@logout');
 Route::get('/dashboard', 'DashboardController@index');

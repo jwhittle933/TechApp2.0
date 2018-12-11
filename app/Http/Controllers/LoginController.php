@@ -43,9 +43,9 @@ class LoginController extends Controller
             'lastname' => 'required|min:2',
             'email' => 'required|e-mail'
         ]);
-        $first = request('firsname');
+        $first = request('firstname');
         $last = request('lastname');
-        $email = ruquest('email');
+        $email = request('email');
 
         //Either keep DB facade or create Access model
         DB::table('access_requests')->insert(
