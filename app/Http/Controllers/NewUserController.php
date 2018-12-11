@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewUserController extends Controller
 {
@@ -10,6 +11,13 @@ class NewUserController extends Controller
     {
         $value = session('user');
         if (!$value) return redirect('login');
-        return view('newuser');
+
+        $newUsers = DB::table('access_requests')->get();
+        return view('newuser')->with('newusers', $newUsers);
+    }
+
+    public function add()
+    {
+        return redirect('newuser');
     }
 }

@@ -1,1 +1,3 @@
-<h1>This is the footer</h1>
+<div>
+    <h5 class="ml-3">&copy; Jonathan Whittle 2018</h5>
+</div>

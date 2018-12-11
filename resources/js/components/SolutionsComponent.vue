@@ -1,11 +1,6 @@
 <template>
     <div id="solution-content-div" v-if="solutionsShow">
         <div class="slate">
-            <!--
-                |****************
-                | TODO: Fetch solution text from /api/solution
-                |****************
-             -->
             <h2>{{ selection }}</h2>
             <p> {{ `You selected '${selection}'` }} </p>
             <p> {{ suggestion }} </p>
@@ -16,14 +11,6 @@
 export default {
         name: "SolutionsComponent",
         props: ['solutionsShow', 'selection', 'suggestion'],
-        data: () => {
-            return {
-
-            }
-        },
-        computed: {
-
-        }
 
 }
 </script>

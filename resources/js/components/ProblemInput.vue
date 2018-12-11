@@ -10,8 +10,6 @@
 
 <script>
 export default {
-    name: "ProblemInput",
-    props: [],
     data: function (){
         return {
             text: "What's the problem?",

@@ -15,3 +15,4 @@ Route::patch('/dashboard/{id}', 'DashboardController@update');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/classroominfo', 'ClassroomInfoController@index');
 Route::get('/newuser', 'NewUserController@index');
+Route::post('/newuser', 'NewUserController@add');

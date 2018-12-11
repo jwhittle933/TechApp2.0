@@ -12,7 +12,7 @@
 @include('layouts.nav')
 
 <div class=' form-group newuser'>
-    <form class="container form"  method="POST">
+    <form class="container form" action="/newuser" method="POST">
         <h1 class="display-4 mt-5">Add a new user</h1><br>
         {{ csrf_field() }}
         <label for="first_name"><b>First Name:</label></b>
@@ -27,6 +27,21 @@
         <input name="password" class="form-control" required><br>
         <button type="submit" class="btn btn-outline-secondary">Submit</button>
     </form>
+</div>
+<div class="jumbotron container">
+    <h1 class="display-5 mb-5">Grant Access</h1>
+    @foreach($newusers as $newuser)
+    <form action="/newuser" method="POST">
+        <div class="container">
+            <h3>{{ $newuser->firstname }} {{ $newuser->lastname }}</h3>
+            <p>{{ $newuser->email }}</p>
+            <div class="btn-group mb-3" role="group">
+                <button type="submit" class="btn btn-info">Add</button>
+                <button type="submit" class="btn btn-info">Delete</button>
+            </div>
+        </div>
+    </form>
+    @endforeach
 </div>
 
 

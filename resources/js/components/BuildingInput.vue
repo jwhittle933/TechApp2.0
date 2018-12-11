@@ -10,7 +10,6 @@
 <script>
 export default {
     name: "BuildingInput",
-    props: [],
     data: function(){
       return{
         text: "What building are you in?",
@@ -20,7 +19,7 @@ export default {
     },
     methods: {
       populateRooms: function(){
-        
+
       }
     }
 }

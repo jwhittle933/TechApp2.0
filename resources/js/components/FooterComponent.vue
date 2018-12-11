@@ -31,11 +31,6 @@
               {text: "Campus Technology", url: "http://www.sbts.edu/services/campus-technology/"}
             ]
           }
-        },
-        methods: {
-          toggleFooterMenu() {
-
-          }
         }
     }
 </script>
