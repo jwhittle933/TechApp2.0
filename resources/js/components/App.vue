@@ -79,6 +79,10 @@ export default {
             *
             * Norton 195 Projector Text doesn't fit the suggestion pane
             *
+            * Norton rooms 101-209 won't retrieve database descriptions because
+            * the search field is for specific room  #s (i.e., 1XX), but the
+            * database stores them as 100200
+            *
             * TypeError – some properties for search are undefined,
             * need to update database model to match suggestion
             * options and cull relevant data.
