@@ -28,7 +28,7 @@ class LoginController extends Controller
         || ($loginUser === $users[1]->email && Hash::check($loginPassword, $users[1]->password))){
             $user = Users::where('email', $loginUser)->value('name');
             $request->session()->put('user', $user);
-            return redirect('/requestmanager');
+            return redirect('/dashboard');
         } else {
             $error = true;
             return redirect('/login')->with('error', $error);
