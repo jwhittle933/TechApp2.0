@@ -8,6 +8,7 @@
   @section ('content')
   <div class="jumbotron mt-5">
     <h1>Your priviledges are under review and you will be notified if access is granted.</h1>
+    <p><a href="/login">Go back</a></p>
   </div>
 
   @endsection

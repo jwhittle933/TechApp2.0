@@ -1,7 +1,7 @@
 <template>
     <div class="form-sidebar">
         <form class="form" action="" method="POST">
-            <label for="buildop">{{ buildingLabel }}</label><br />
+            <label for="buildop">What building are you in?</label><br />
             <select name="buildop"
                 v-model="formSelections.buildingSelection"
                 @change="setBuilding">
@@ -12,7 +12,7 @@
             </select>
         </form>
         <form class="form" action="" method="POST">
-            <label for="roomop">{{ roomLabel }}</label><br />
+            <label for="roomop">What room are you in?</label><br />
             <select name="roomop"                                                               v-model="formSelections.roomSelection"                                         @change="setRoom">
                 <option v-for="roomOption in roomOptions"
                         :key="roomOption">
@@ -21,7 +21,7 @@
             </select>
         </form>
         <form class="form" action="" method="POST">
-             <label for="probop">{{ problemLabel }}</label><br />
+             <label for="probop">What's the problem?</label><br />
             <select name="probop"                                                              v-model="formSelections.problemSelection"
                 @change="setProblem">
                 <option v-for="probOption in probOptions"
@@ -41,9 +41,6 @@ export default {
     name: "FormsComponent",
     data: function(){
         return {
-            buildingLabel: "What building are you in?",
-            roomLabel: "What room are you in?",
-            problemLabel: "What's the problem?",
             formSelections: {
                 buildingSelection: "",
                 roomSelection: "",
@@ -102,15 +99,6 @@ export default {
         width: 100px;
         margin: 5px;
     }
-    .form {
-        margin: 3vh;
-    }
-    .form-sidebar {
-        max-width: 22vw;
-        height: 60vh;
-        padding: 15px;
-        border-right: 2px solid black;
-    }
     button {
         border-radius: 10px;
         margin-top: 15px;
@@ -119,6 +107,15 @@ export default {
         font-size: 1.1em;
         height: 25px;
         width: auto;
+    }
+    .form {
+        margin: 3vh;
+    }
+    .form-sidebar {
+        max-width: 22vw;
+        height: 60vh;
+        padding: 15px;
+        border-right: 2px solid black;
     }
  }
 </style>

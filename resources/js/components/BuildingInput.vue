@@ -1,6 +1,6 @@
 <template>
     <form class="form">
-      <label for="buildop">{{ text }}</label>
+      <label for="buildop">What building are you in?</label>
       <select id="buildop" name="buildop" v-model="value" @change="$emit('buildingData', value)">
         <option v-for="option in options"  :key="option">{{ option }}</option>
       </select>
@@ -12,14 +12,8 @@ export default {
     name: "BuildingInput",
     data: function(){
       return{
-        text: "What building are you in?",
         options: ["", "Norton", "Carver", "Rankin", "Library", "Cooke"],
         value: ""
-      }
-    },
-    methods: {
-      populateRooms: function(){
-
       }
     }
 }

@@ -10,7 +10,6 @@
 
 @section('content')
 @include ('layouts.nav')
-<hr>
 <div class="controls form-group">
   <div class='entry'>
       <label><b>ID: </b>{{ $id }}<br></label>

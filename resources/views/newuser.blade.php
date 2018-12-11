@@ -13,32 +13,32 @@
 
 <div class=' form-group newuser'>
     <form class="container form" action="/newuser" method="POST">
-        <h1 class="display-4 mt-5">Add a new user</h1><br>
+        <h1 class="display-4 mt-5">Add a New User</h1><br>
         {{ csrf_field() }}
-        <label for="first_name"><b>First Name:</label></b>
-        <input name="first_name" class="form-control" required><br>
-        <label for="last_name"><b>Last Name:</label></b>
-        <input name="last_name" class="form-control" required><br>
+        <label for="name"><b>Name:</label></b>
+        <input name="name" class="form-control w-75" required><br>
         <label for="email"><b>Email:</label></b>
-        <input name="email" type="email" class="form-control" required><br>
-        <label for="adminstrator"><b>Administrator: (True/False)</label></b>
-        <input name="administrator" class="form-control" required><br>
+        <input name="email" type="email" class="form-control w-75" required><br>
+        <label for="administrator"><b>Administrator (Check if True):</label></b>
+        <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
         <label for="password"><b>Password:</label></b>
-        <input name="password" class="form-control" required><br>
+        <input name="password" class="form-control w-75" required><br>
         <button type="submit" class="btn btn-outline-secondary">Submit</button>
     </form>
 </div>
 <div class="jumbotron container">
-    <h1 class="display-5 mb-5">Grant Access</h1>
+    <h1 class="display-5 mb-5">Users Requesting Access</h1>
     @foreach($newusers as $newuser)
-    <form action="/newuser" method="POST">
+    <form action="/newuser/accept" method="POST">
         <div class="container">
             <h3>{{ $newuser->firstname }} {{ $newuser->lastname }}</h3>
             <p>{{ $newuser->email }}</p>
-            <div class="btn-group mb-3" role="group">
-                <button type="submit" class="btn btn-info">Add</button>
-                <button type="submit" class="btn btn-info">Delete</button>
-            </div>
+            <input type="hidden" name="firstname" value="{{ $newuser->firstname }}">
+            <input type="hidden" name="lastname" value="{{ $newuser->lastname }}">
+            <input type="hidden" name="email" value="{{ $newuser->email }}">
+            <hr>
+            <button type="submit" class="btn btn-success mb-5">Add</button>
+            <button type="submit" class="btn btn-danger mb-5">Delete</button>
         </div>
     </form>
     @endforeach
