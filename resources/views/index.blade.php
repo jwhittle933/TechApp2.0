@@ -8,5 +8,5 @@
   @endsection
 
   @section ('script')
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/troubleshooter.js') }}"></script>
   @endsection

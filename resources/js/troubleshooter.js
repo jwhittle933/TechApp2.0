@@ -8,7 +8,7 @@ import store from './store'
 
 Vue.use(Vuex)
 
-const app = new Vue({
+const troubleshooter = new Vue({
     el: '#troubleshooter',
     store,
     render: h => h(Troubleshooter)

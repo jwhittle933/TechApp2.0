@@ -26,8 +26,8 @@ class NewUserController extends Controller
         $password =  bcrypt($password);
         $authorize = DB::table('users')->where('name', $user)->value('administrator');
 
-        if(!request('administrator') == null){
-            $adminstrator = request('administrator');
+        if(!$request->administrator == null){
+            $adminstrator = $request->administrator;
         } else {
             $adminstrator = 'False';
         }

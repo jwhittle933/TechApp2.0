@@ -36,29 +36,30 @@
         <input name="name" class="form-control w-75" required><br>
         <label for="email"><b>Email:</label></b>
         <input name="email" type="email" class="form-control w-75" required><br>
-        <label for="administrator"><b>Administrator Priviledges:</label></b>
-        <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
         <label for="password"><b>Password:</label></b>
         <input name="password" type="password" class="form-control w-75" required><br>
+        <label for="administrator"><b>Grant Administrator Priviledges:</label></b>
+        <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
         <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
 </div>
 <div class="jumbotron container">
     <h1 class="display-5 mb-5">Requesting Access</h1>
+    <div id="useraccess"></div>
     @foreach($newusers as $newuser)
     <form action="/newuser/admin" method="POST">
         <div class="container">
             <h3>{{ $newuser->firstname }} {{ $newuser->lastname }}</h3>
             <p>Access ID: {{ $newuser->id }}</p>
             <p>Email: {{ $newuser->email }}</p>
-            <label for="administrator"><b>Administrator Priviledges:</label></b>
+            <label for="administrator"><b>Grant Administrator Priviledges:</label></b>
             <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
             <input type="hidden" name="name" value="{{ $newuser->firstname }} {{ $newuser->lastname }}">
             <input type="hidden" name="email" value="{{ $newuser->email }}">
-            <button type="submit" class="btn btn-success mb-5">Add</button>
+            <button type="submit" class="btn btn-success mb-2">Add</button>
             {{--  <input type="hidden" name="delete" value="delete">
             <input type="hidden" name="id" value="{{ $newuser->id }}">  --}}
-            <button type="submit" class="btn btn-danger mb-5">Delete</button>
+            <button type="submit" class="btn btn-danger mb-2">Delete</button>
             <hr>
         </div>
     </form>
@@ -70,4 +71,5 @@
 @endsection
 
 @section('script')
+<script src="{{ asset('js/access.js') }}"></script>
 @endsection
