@@ -24,14 +24,16 @@ class LoginController extends Controller
         $loginUser = request('username');
         $loginPassword = request('password');
 
-        $users = Users::all();
-        if (($loginUser === $users[0]->email && Hash::check($loginPassword, $users[0]->password))
-        || ($loginUser === $users[1]->email && Hash::check($loginPassword, $users[1]->password))){
-            $user = Users::where('email', $loginUser)->value('name');
-            $request->session()->put('user', $user);
+        $user = Users::where('email', $loginUser)->get(); //could also use ->first() instead of ->get()
+
+        if($user->isEmpty()){
+            $error = "Invalid username";
+            return redirect('/login')->with('error', $error);
+        } elseif (Hash::check($loginPassword, $user[0]->password)){
+            $request->session()->put('user', $user[0]->name);
             return redirect('/dashboard');
         } else {
-            $error = true;
+            $error = "Invalid password";
             return redirect('/login')->with('error', $error);
         }
     }
@@ -47,7 +49,7 @@ class LoginController extends Controller
         $last = request('lastname');
         $email = request('email');
 
-        //Either keep DB facade or create Access model
+        //Either keep DB facade or create Eloquent model
         DB::table('access_requests')->insert(
             ['firstname' => $first,
             'lastname' => $last,

@@ -17,7 +17,7 @@
       <h2>Login</h2>
 
       @if(Session::has('error'))
-        <p class="alert alert-danger">*The email or password are incorrect.</p>
+        <p class="alert alert-danger">*{{ Session::get('error') }}</p>
       @endif
 
       <div class="form-group">
