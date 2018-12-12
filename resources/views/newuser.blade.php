@@ -11,6 +11,23 @@
 @section ('content')
 @include('layouts.nav')
 
+
+@if(Session::has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        User Added!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@elseif (Session::has('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ Session::get('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
 <div class=' form-group newuser'>
     <form class="container form" action="/newuser" method="POST">
         <h1 class="display-4 mt-5">Add a New User</h1><br>
@@ -19,7 +36,7 @@
         <input name="name" class="form-control w-75" required><br>
         <label for="email"><b>Email:</label></b>
         <input name="email" type="email" class="form-control w-75" required><br>
-        <label for="administrator"><b>Administrator (Check if True):</label></b>
+        <label for="administrator"><b>Administrator Priv:</label></b>
         <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
         <label for="password"><b>Password:</label></b>
         <input name="password" type="password" class="form-control w-75" required><br>

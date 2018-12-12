@@ -17,12 +17,14 @@ class NewUserController extends Controller
         return view('newuser')->with('newusers', $newUsers);
     }
 
-    public function add()
+    public function add(Request $request)
     {
+        $user = $request->session()->get('user');
         $name = request('name');
         $email = request('email');
         $password = request('password');
         $password =  bcrypt($password);
+        $authorize = DB::table('users')->where('name', $user)->value('administrator');
 
         if(!request('administrator') == null){
             $adminstrator = request('administrator');
@@ -30,18 +32,21 @@ class NewUserController extends Controller
             $adminstrator = 'False';
         }
 
-        if($name && $email && $password){
+        if(($name && $email && $password) && $authorize === "True"){
             DB::table('users')->insert([
                 'name' => $name,
                 'email' => $email,
                 'password' => $password,
                 'administrator' => $adminstrator
             ]);
+        } elseif ($authorize === "False"){
+            $error = "You are not authorized to create a new user";
+            return redirect('newuser')->with('error', $error);
         } else {
-            $error = true;
-            return view('newuser')->with('error', $error);
+            $error = "It looks like you forgot to fill something out.";
+            return redirect('newuser')->with('error', $error);
         }
 
-        return redirect('newuser');
+        return redirect('newuser')->with('success', 'success');
     }
 }

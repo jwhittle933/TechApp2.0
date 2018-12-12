@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         $user = Users::where('email', $loginUser)->get(); //could also use ->first() instead of ->get()
 
-        if($user->isEmpty()){
+        if ($user->isEmpty()){
             $error = "Invalid username";
             return redirect('/login')->with('error', $error);
         } elseif (Hash::check($loginPassword, $user[0]->password)){
