@@ -3,7 +3,7 @@
 @section('title', 'Request Manager')
 
 @section ('style')
-<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+{{--  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">  --}}
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @endsection

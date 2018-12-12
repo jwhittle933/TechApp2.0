@@ -22,12 +22,12 @@
         <label for="administrator"><b>Administrator (Check if True):</label></b>
         <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
         <label for="password"><b>Password:</label></b>
-        <input name="password" class="form-control w-75" required><br>
-        <button type="submit" class="btn btn-outline-secondary">Submit</button>
+        <input name="password" type="password" class="form-control w-75" required><br>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
 </div>
 <div class="jumbotron container">
-    <h1 class="display-5 mb-5">Users Requesting Access</h1>
+    <h1 class="display-5 mb-5">Requesting Access</h1>
     @foreach($newusers as $newuser)
     <form action="/newuser/accept" method="POST">
         <div class="container">

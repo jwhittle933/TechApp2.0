@@ -17,7 +17,7 @@
                         <a class="dropdown-item" href="/profile">Edit Profile</a>
                         <a class="dropdown-item" href="/classroominfo">Classroom Info</a>
                         <a class="dropdown-item" href="/newuser">New User</a>
-                        <a class="dropdown-item" href="/newuser">Manage Users</a>
+                        <a class="dropdown-item" href="/manage">Manage Users</a>
                     </div>
                 </li>
                 <li class="nav-item">

@@ -22,16 +22,26 @@ class NewUserController extends Controller
         $name = request('name');
         $email = request('email');
         $password = request('password');
+        $password =  bcrypt($password);
 
-        if(!request('administrator') === 'null'){
+        if(!request('administrator') == null){
             $adminstrator = request('administrator');
         } else {
             $adminstrator = 'False';
         }
 
         if($name && $email && $password){
-            return;
+            DB::table('users')->insert([
+                'name' => $name,
+                'email' => $email,
+                'password' => $password,
+                'administrator' => $adminstrator
+            ]);
+        } else {
+            $error = true;
+            return view('newuser')->with('error', $error);
         }
+
         return redirect('newuser');
     }
 }
