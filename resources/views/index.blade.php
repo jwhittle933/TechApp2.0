@@ -4,7 +4,7 @@
   @section('title', 'TechHelp @ SBTS')
 
   @section ('content')
-    <div id="app"></div>
+    <div id="troubleshooter"></div>
   @endsection
 
   @section ('script')

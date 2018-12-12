@@ -20,9 +20,9 @@ class NewUserController extends Controller
     public function add(Request $request)
     {
         $user = $request->session()->get('user');
-        $name = request('name');
-        $email = request('email');
-        $password = request('password');
+        $name = $request->name;
+        $email = $request->email;
+        $password = $request->password;
         $password =  bcrypt($password);
         $authorize = DB::table('users')->where('name', $user)->value('administrator');
 

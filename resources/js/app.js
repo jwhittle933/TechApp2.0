@@ -3,13 +3,13 @@ require('./bootstrap')
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import App from './components/App.vue'
+import Troubleshooter from './components/Troubleshooter.vue'
 import store from './store'
 
 Vue.use(Vuex)
 
 const app = new Vue({
-    el: '#app',
+    el: '#troubleshooter',
     store,
-    render: h => h(App)
+    render: h => h(Troubleshooter)
 });

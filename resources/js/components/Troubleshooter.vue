@@ -22,17 +22,17 @@
 
 <script>
 
-import HeaderComponent from './HeaderComponent.vue'
-import FormsComponent from './FormsComponent.vue'
-import SuggestionsComponent from './SuggestionsComponent.vue'
-import SolutionsComponent from './SolutionsComponent.vue'
-import FooterComponent from './FooterComponent.vue'
+import HeaderComponent from './troubleshooter/HeaderComponent.vue'
+import FormsComponent from './troubleshooter/FormsComponent.vue'
+import SuggestionsComponent from './troubleshooter/SuggestionsComponent.vue'
+import SolutionsComponent from './troubleshooter/SolutionsComponent.vue'
+import FooterComponent from './troubleshooter/FooterComponent.vue'
 
 import { mapState } from 'vuex'
 
 export default {
     name: "App",
-    data: function(){
+    data(){
         return {
             suggestionsShow: false,
             suggestionOptions: [],
