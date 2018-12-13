@@ -4,7 +4,7 @@
             <h3 class="">{{ firstname }} {{ lastname }}</h3>
             <p>Access ID: {{ accessid }}</p>
             <p>Email: {{ email }}</p>
-            <button @click="openAdd" class="btn btn-success">Add User</button>
+            <button @click="openAdd" class="btn btn-info">Add User</button>
             <button @click="openDelete" class="btn btn-danger">Cancel Request</button>
         </div>
         <div>
