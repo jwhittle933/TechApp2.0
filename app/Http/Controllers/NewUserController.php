@@ -49,4 +49,9 @@ class NewUserController extends Controller
 
         return redirect('newuser')->with('success', 'success');
     }
+
+    public function delete()
+    {
+        return redirect('newuser');
+    }
 }

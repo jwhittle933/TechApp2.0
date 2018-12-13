@@ -1,19 +1,25 @@
 <template>
-    <div class="d-flex p-2 bd-highlight">
+    <div class="d-md-flex p-2 mb-5 bd-highlight">
         <div>
             <h3 class="">{{ firstname }} {{ lastname }}</h3>
             <p>Access ID: {{ accessid }}</p>
             <p>Email: {{ email }}</p>
             <button @click="openAdd" class="btn btn-success">Add</button>
             <button @click="openDelete" class="btn btn-danger">Delete</button>
-            <hr>
         </div>
         <div>
             <add-request
                 v-if="addShow"
+                :firstname="firstname"
+                :lastname="lastname"
+                :email="email"
             ></add-request>
             <delete-request
                 v-if="deleteShow"
+                :firstname="firstname"
+                :lastname="lastname"
+                :email="email"
+                :accessid="accessid"
             ></delete-request>
         </div>
     </div>
