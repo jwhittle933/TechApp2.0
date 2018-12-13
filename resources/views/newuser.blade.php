@@ -43,18 +43,17 @@
         <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
 </div>
-<div class="jumbotron container">
+<div id="accessrequests" class="jumbotron container">
     <h1 class="display-5 mb-5">Requesting Access</h1>
-    <div id="accessrequests">
-        @foreach($newusers as $newuser)
-            <access-request
-                firstname="{!! $newuser->firstname !!}"
-                lastname="{!! $newuser->lastname !!}"
-                accessid="{!! $newuser->id !!}"
-            >
-            </access-request>
-        @endforeach
-    </div>
+    @foreach($newusers as $newuser)
+        <access-request
+            :firstname="'{{ $newuser->firstname }}'"
+            :lastname="'{{ $newuser->lastname }}'"
+            :email="'{{ $newuser->email }}'"
+            :accessid="'{{ $newuser->id }}'"
+        >
+        </access-request>
+    @endforeach
 </div>
 
 
