@@ -39,6 +39,7 @@ class NewUserController extends Controller
                 'password' => $password,
                 'administrator' => $adminstrator
             ]);
+            DB::table('access_requests')->where('email', $email)->delete();
         } elseif ($authorize === "False"){
             $error = "You are not authorized to create a new user";
             return redirect('newuser')->with('error', $error);
