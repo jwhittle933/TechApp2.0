@@ -45,25 +45,16 @@
 </div>
 <div class="jumbotron container">
     <h1 class="display-5 mb-5">Requesting Access</h1>
-    <div id="useraccess"></div>
-    @foreach($newusers as $newuser)
-    <form action="/newuser/admin" method="POST">
-        <div class="container">
-            <h3>{{ $newuser->firstname }} {{ $newuser->lastname }}</h3>
-            <p>Access ID: {{ $newuser->id }}</p>
-            <p>Email: {{ $newuser->email }}</p>
-            <label for="administrator"><b>Grant Administrator Priviledges:</label></b>
-            <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
-            <input type="hidden" name="name" value="{{ $newuser->firstname }} {{ $newuser->lastname }}">
-            <input type="hidden" name="email" value="{{ $newuser->email }}">
-            <button type="submit" class="btn btn-success mb-2">Add</button>
-            {{--  <input type="hidden" name="delete" value="delete">
-            <input type="hidden" name="id" value="{{ $newuser->id }}">  --}}
-            <button type="submit" class="btn btn-danger mb-2">Delete</button>
-            <hr>
-        </div>
-    </form>
-    @endforeach
+    <div id="accessrequests">
+        @foreach($newusers as $newuser)
+            <access-request
+                firstname="{!! $newuser->firstname !!}"
+                lastname="{!! $newuser->lastname !!}"
+                accessid="{!! $newuser->id !!}"
+            >
+            </access-request>
+        @endforeach
+    </div>
 </div>
 
 

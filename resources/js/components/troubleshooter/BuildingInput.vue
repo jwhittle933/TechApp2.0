@@ -10,7 +10,7 @@
 <script>
 export default {
     name: "BuildingInput",
-    data: function(){
+    data(){
       return{
         options: ["", "Norton", "Carver", "Rankin", "Library", "Cooke"],
         value: ""

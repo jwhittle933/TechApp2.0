@@ -2,10 +2,9 @@ require('./bootstrap')
 
 import Vue from 'vue'
 
-import UserAccess from './components/UserAccess.vue'
 
+Vue.component('access-request', require('./components/access/Access.vue'))
 
-const userAccess = new Vue({
-    el: '#useraccess',
-    render: h => h(UserAccess)
-});
+const accessRequests = new Vue({
+    el: '#accessrequests'
+})
