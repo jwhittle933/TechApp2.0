@@ -7,8 +7,9 @@
             </button>
         </div>
         <div class="form-group">
-            <form class="d-flex" action="">
+            <form class="d-flex" action="/newuser" method="POST">
                 <div class="">
+                    <input type="hidden" name="_token" :value="csrf">
                     <label for="name" class="m-1">Full Name</label>
                     <input class="form-control m-1" type="text" name="name" :value="firstname + ' ' + lastname">
                     <label for="email" class="m-1">Email</label>
@@ -20,7 +21,7 @@
                     <label class="m-1">Confirm Password</label>
                     <input class="form-control m-1" type="password" v-model="pwcheck" @input="equals">
                     <label class="m-1" for="administrator">Grant Administrator Priviledges:</label>
-                    <input type="checkbox" name="administrator">
+                    <input type="checkbox" name="administrator" value="True">
                     <button type="submit" class="btn btn-success m-2">Add</button>
                 </div>
             </form>
@@ -34,6 +35,7 @@ export default {
     props: ['firstname', 'lastname', 'email'],
     data(){
         return {
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             error: false,
             password: "",
             pwcheck: ""
