@@ -11,9 +11,14 @@
 @section ('content')
 @include('layouts.nav')
 
-<h1>this is the profile page.</h1>
 <div id="profile">
-    <profile></profile>
+    <profile
+        :userid="'{{ $currentUser->id }}'"
+        :name="'{{ $currentUser->name }}'"
+        :email="'{{ $currentUser->email }}'"
+        :administrator="'{{ $currentUser->administrator }}'"
+        :streetaddress="'{{ $currentUser->streetaddress }}'"
+    ></profile>
 </div>
 
 @include('layouts.footer')
