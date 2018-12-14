@@ -21,8 +21,8 @@ class LoginController extends Controller
             'password' => 'required|min:2'
         ]);
 
-        $loginUser = request('username');
-        $loginPassword = request('password');
+        $loginUser = $request->username;
+        $loginPassword = $request->password;
 
         $user = Users::where('email', $loginUser)->get(); //could also use ->first() instead of ->get()
 
@@ -38,16 +38,16 @@ class LoginController extends Controller
         }
     }
 
-    public function access()
+    public function access(Request $request)
     {
         $this->validate(request(), [
             'firstname' => 'required|min:2',
             'lastname' => 'required|min:2',
             'email' => 'required|e-mail'
         ]);
-        $first = request('firstname');
-        $last = request('lastname');
-        $email = request('email');
+        $first = $request->firstname;
+        $last = $request->lastname;
+        $email = $request->email;
 
         //Either keep DB facade or create Eloquent model
         DB::table('access_requests')->insert(

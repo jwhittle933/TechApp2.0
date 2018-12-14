@@ -11,16 +11,16 @@ class ReportFormController extends Controller
     {
         return view('reportform');
     }
-    public function submit()
+    public function submit(Request $request)
     {
         Requests::create([
-            'first_name' => request('first_name'),
-            'last_name' => request('last_name'),
-            'building' => request('building'),
-            'room' => request('room'),
-            'problem' => request('problem'),
-            'email' => request('email'),
-        ]);
-        return redirect('/reportform');
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'building' => $request->building,
+            'room' => $request->room,
+            'problem' => $request->problem,
+            'email' => $request->email,
+            ]);
+            return redirect('/reportform');
     }
 }

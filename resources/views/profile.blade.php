@@ -12,9 +12,13 @@
 @include('layouts.nav')
 
 <h1>this is the profile page.</h1>
+<div id="profile">
+    <profile></profile>
+</div>
 
 @include('layouts.footer')
 @endsection
 
 @section('script')
+<script src="{{ asset('js/profile.js') }}"></script>
 @endsection

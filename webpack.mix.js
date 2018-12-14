@@ -13,3 +13,4 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/troubleshooter.js', 'public/js');
 mix.js('resources/js/access.js', 'public/js');
+mix.js('resources/js/profile.js', 'public/js');
