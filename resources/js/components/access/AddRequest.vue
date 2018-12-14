@@ -20,7 +20,7 @@
                         <label for="password" class="m-1">Set Password</label>
                         <input class="form-control m-1" type="password" name="password" v-model="password">
                         <label class="m-1">Confirm Password</label>
-                        <input class="form-control m-1" type="password" v-model="pwcheck" @input="equals">
+                        <input class="form-control m-1" type="password" v-model="pwcheck" @input="check">
                         <label class="m-1" for="administrator">Grant Administrator Priviledges:</label>
                         <input type="checkbox" name="administrator" value="True">
                         <button type="submit" class="btn btn-success m-2">Add</button>
@@ -44,7 +44,7 @@ export default {
         }
     },
     methods: {
-        equals(){
+        check(){
             this.password === this.pwcheck ? this.error = false : this.error = true
         }
     }
@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 .add-enter-active, .add-leave-active {
-    transition: opacity .5s;
+    transition: opacity .2s;
 }
 .add-enter, .add-leave-to {
     opacity: 0;

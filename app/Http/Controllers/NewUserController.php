@@ -51,8 +51,15 @@ class NewUserController extends Controller
         return redirect('newuser')->with('success', 'success');
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
+        $firstname = $request->firstname;
+        $lastname = $request->lastname;
+        $email = $request->email;
+        $accessid = $request->accessid;
+
+        DB::table('access_requests')->where('id', $accessid)->delete();
+
         return redirect('newuser');
     }
 }

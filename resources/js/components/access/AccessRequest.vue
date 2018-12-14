@@ -1,11 +1,11 @@
 <template>
-    <div class="d-md-flex p-2 mb-5 bd-highlight">
+    <div class="d-md-flex p-4 mb-5 bd-highlight rounded shadow">
         <div>
             <h3 class="">{{ firstname }} {{ lastname }}</h3>
             <p>Access ID: {{ accessid }}</p>
             <p>Email: {{ email }}</p>
-            <button @click="openAdd" class="btn btn-info">Add User</button>
-            <button @click="openDelete" class="btn btn-danger">Cancel Request</button>
+            <button @click="openAdd" class="btn btn-info">Add {{ firstname }} {{ lastname }}</button>
+            <button @click="openDelete" class="btn btn-danger">Deny Request</button>
         </div>
         <div>
             <add-request

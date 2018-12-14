@@ -1,13 +1,14 @@
 <template>
     <transition name="delete">
         <div class="form-group border rounded shadow-sm p-3 ml-5">
-            <form action="/newuser/delete">
+            <form action="/newuser/delete" method="POST">
                 <h4 class="">Cancel {{ firstname}} {{ lastname }}'s request?</h4>
                 <input type="hidden" name="_token" :value="csrf">
-                <input type="hidden" name="name">
-                <input type="hidden" name="email">
-                <input type="hidden" name="accessid">
-                <button class="btn btn-danger mt-3">Delete</button>
+                <input type="hidden" name="firstname" :value="firstname">
+                <input type="hidden" name="lastname" :value="lastname">
+                <input type="hidden" name="email" :value="email">
+                <input type="hidden" name="accessid" :value="accessid">
+                <button type="submit" class="btn btn-danger mt-3">Delete</button>
             </form>
         </div>
     </transition>
@@ -27,7 +28,7 @@ export default {
 
 <style scoped>
 .delete-enter-active, .delete-leave-active {
-    transition: opacity .5s;
+    transition: opacity .2s;
 }
 .delete-enter, .delete-leave-to {
     opacity: 0;

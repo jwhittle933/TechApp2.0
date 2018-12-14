@@ -28,7 +28,7 @@
     </div>
 @endif
 
-<div class=' form-group newuser'>
+<div class=' form-group newuser mb-5'>
     <form class="container form" action="/newuser" method="POST">
         <h1 class="display-4 mt-5">Add a New User</h1><br>
         {{ csrf_field() }}
@@ -39,7 +39,7 @@
         <label for="password"><b>Password:</label></b>
         <input name="password" type="password" class="form-control w-75" required><br>
         <label for="administrator"><b>Grant Administrator Priviledges:</label></b>
-        <input name="administrator" type="checkbox" value="True" class="mb-5"><br>
+        <input name="administrator" type="checkbox" value="True" class="mb-4 ml-2"><br>
         <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
 </div>
