@@ -28,7 +28,7 @@
     </div>
 @endif
 
-<div class=' form-group newuser mb-5'>
+<div class='form-group newuser mb-5'>
     <form class="container form" action="/newuser" method="POST">
         <h1 class="display-4 mt-5">Add a New User</h1><br>
         {{ csrf_field() }}

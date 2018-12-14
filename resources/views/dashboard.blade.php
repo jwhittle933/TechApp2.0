@@ -68,7 +68,7 @@
 
     </form>
 
-    <div class='flex-requests container-fluid'>
+    <div class='flex-requests container-fluid position-relative'>
         @foreach ($requests as $request)
             <div class='entry' id={{$request->id}}>
                     <b>ID: </b> {{ $request->id }} <br>

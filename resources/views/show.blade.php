@@ -11,16 +11,15 @@
 @section('content')
 @include ('layouts.nav')
 <div class="controls form-group">
-  <div class='entry'>
-      <label><b>ID: </b>{{ $id }}<br></label>
-      <p><b>First Name: </b>{{ $first_name }}<br></p>
-      <p><b>Last Name: </b>{{ $last_name }}<br></p>
-      <p><b>Building: </b> {{ $building }}<br></p>
-      <p><b>Room: </b> {{ $room }}<br></p>
-      <p><b>Problem: </b> {{ $problem }}<br></p>
-      <p><b>Email: </b> {{ $email }}<br></p>
-      <p><b>Created At: </b> {{ $created_at }}<br></p>
-      <p><b>Updated At: </b> {{ $updated_at }}<br></p>
+  <div class='container jumbotron'>
+      <label class="lead">ID: {{ $id }}<br></label>
+      <p class="lead">Name: {{ $first_name }} {{ $last_name }}<br></p>
+      <p>Building: {{ $building }}<br></p>
+      <p >Room:  {{ $room }}<br></p>
+      <p>Problem:  {{ $problem }}<br></p>
+      <p>Email:  {{ $email }}<br></p>
+      <p>Created At: {{ $created_at }}<br></p>
+      <p>Updated At:  {{ $updated_at }}<br></p>
       <form action="{{ url('/dashboard', ['id' => $id]) }}" method="POST">
           {{ method_field('DELETE') }}
           {{ csrf_field() }}
@@ -41,7 +40,7 @@
           <label for="room"><b>Room: </label></b>
           <input name="room" class="form-control" value="{{ $room }}"><br>
           <label for="problem"><b>Problem: </label></b>
-          <textarea name="problem" class="form-control">{{ $problem }}</textarea><br>
+          <textarea name="problem" class="form-control" rows="10">{{ $problem }}</textarea><br>
           <label for="email"><b>Email: </label></b>
           <input name="email" type="email" class="form-control" value="{{ $email }}"><br>
           <input type="hidden" name="id" value="{{$id}}">

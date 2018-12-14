@@ -12,6 +12,7 @@ Route::get('/dashboard/{request}', 'DashboardController@show');
 Route::delete('/dashboard/{id}', 'DashboardController@destroy');
 Route::patch('/dashboard/{id}', 'DashboardController@update');
 Route::get('/profile', 'ProfileController@index');
+Route::patch('/profile', 'ProfileController@update');
 Route::get('/classroominfo', 'ClassroomInfoController@index');
 Route::get('/newuser', 'NewUserController@index');
 Route::post('/newuser', 'NewUserController@add');

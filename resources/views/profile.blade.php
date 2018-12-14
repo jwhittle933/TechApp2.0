@@ -18,6 +18,8 @@
         :email="'{{ $currentUser->email }}'"
         :administrator="'{{ $currentUser->administrator }}'"
         :streetaddress="'{{ $currentUser->streetaddress }}'"
+        :city="'{{ $currentUser->city }}'"
+        :state="'{{ $currentUser->state }}'"
     ></profile>
 </div>
 
