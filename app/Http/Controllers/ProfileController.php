@@ -28,13 +28,9 @@ class ProfileController extends Controller
         $city = $request->city;
         $state = $request->state;
 
-        if ($id &&
-            $name &&
-            $email &&
-            $password &&
-            $streetaddress &&
-            $city &&
-            $state){
+        if($id && $name &&
+            $email && $password &&
+            $streetaddress && $city && $state){
             DB::table('users')
                 ->where('id', $id)
                 ->update([

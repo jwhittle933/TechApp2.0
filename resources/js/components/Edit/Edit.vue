@@ -16,8 +16,10 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <label for="password" class="lead">Password:</label>
-            <input name="password" type="password" class="form-control w-75" v-model="password" required><br>
+            <label for="password" class="lead">Password: </label>
+            <button v-if="reveal" class="btn btn-outline-success btn-sm ml-3" @click.prevent="showPassword">Hide Password</button>
+            <button v-else class="btn btn-outline-danger btn-sm ml-3" @click.prevent="showPassword">Show Password</button>
+            <input id="password" name="password" :type="type" class="form-control w-75" v-model="password" required><br>
             <label for="pwcheck" class="lead">Re-type Password:</label>
             <input name="pwcheck" type="password" class="form-control w-75" v-model="pwcheck" @input="check" required><br>
             <label class="lead">Address:</label>
@@ -44,12 +46,18 @@ export default {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             error: false,
             password: "",
-            pwcheck: ""
+            pwcheck: "",
+            reveal: false,
+            type: "password"
         }
     },
     methods: {
         check(){
             this.password === this.pwcheck ? this.error = false : this.error = true
+        },
+        showPassword() {
+            this.reveal = !this.reveal
+            this.reveal === false ? this.type = "password" : this.type = "text"
         }
     }
 }

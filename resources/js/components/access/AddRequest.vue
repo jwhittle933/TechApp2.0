@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 .add-enter-active, .add-leave-active {
-    transition: opacity .2s;
+    transition: opacity .1s;
 }
 .add-enter, .add-leave-to {
     opacity: 0;

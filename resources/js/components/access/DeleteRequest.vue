@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .delete-enter-active, .delete-leave-active {
-    transition: opacity .2s;
+    transition: opacity .1s;
 }
 .delete-enter, .delete-leave-to {
     opacity: 0;
