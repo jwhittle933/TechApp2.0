@@ -11,7 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/troubleshooter.js', 'public/js');
-mix.js('resources/js/access.js', 'public/js');
-mix.js('resources/js/profile.js', 'public/js');
-mix.js('resources/js/404error.js', 'public/js');
+mix.js('resources/js/troubleshooter.js', 'public/js')
+    .js('resources/js/access.js', 'public/js')
+    .js('resources/js/profile.js', 'public/js')
+    .js('resources/js/404error.js', 'public/js')
+    .js('resources/js/manage.js', 'public/js');
+

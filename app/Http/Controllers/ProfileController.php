@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Users;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class ProfileController extends Controller
 {
@@ -13,9 +14,9 @@ class ProfileController extends Controller
         $value = session('user');
         if (!$value) return redirect('login');
 
-        $currentUser = DB::table('users')->where('name', $value)->get();
+        $currentUser = DB::table('users')->where('name', $value)->first();
 
-        return view('profile')->with('currentUser', $currentUser[0]);
+        return view('profile')->with('currentUser', $currentUser);
     }
 
     public function update(Request $request)
@@ -24,12 +25,15 @@ class ProfileController extends Controller
         $name = $request->name;
         $email = $request->email;
         $password = bcrypt($request->password);
+        $prphone = $request->prphone;
+        $secphone = $request->secphone;
         $streetaddress = $request->streetaddress;
         $city = $request->city;
         $state = $request->state;
 
         if($id && $name &&
             $email && $password &&
+            $prphone && $secphone &&
             $streetaddress && $city && $state){
             DB::table('users')
                 ->where('id', $id)
@@ -44,4 +48,5 @@ class ProfileController extends Controller
                 return redirect('profile');
         }
     }
+
 }

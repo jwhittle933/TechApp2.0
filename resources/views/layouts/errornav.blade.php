@@ -22,10 +22,19 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link text-info"  href="/logout">Log out – {{ Session::get('user') }}</a>
+                    <a class="nav-item nav-link text-info">{{ Session::get('user') }}</a>
                 </li>
                 @endif
             </ul>
+            @if(Session::has('user'))
+            <span class="navbar-text">
+                <a class="lead nav-item nav-link text-info"  href="/logout">Log out</a>
+            </span>
+            @else
+            <span class="navbar-text">
+                <a class="lead nav-item nav-link text-info"  href="/login">Login</a>
+            </span>
+            @endif
         </div>
     </nav>
 </div>

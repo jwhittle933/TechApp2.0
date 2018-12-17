@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link text-info" href="/">TroubleShooter</a>
                 </li>
@@ -21,9 +21,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link text-info"  href="/logout">Log out – {{ Session::get('user') }}</a>
+                    <a class="nav-item nav-link text-info">{{ Session::get('user') }}</a>
                 </li>
             </ul>
+            <span class="navbar-text">
+                <a class="lead nav-item nav-link text-info"  href="/logout">Log out</a>
+            </span>
         </div>
     </nav>
 </div>

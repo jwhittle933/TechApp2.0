@@ -8,11 +8,10 @@
 
 
 @section('content')
-{{--  {{ csrf_field() }}  --}}
 <div id="error">
     <error></error>
 </div>
-{{--  <h1>404 Not Found</h1>  --}}
+@include('layouts.footer')
 @endsection
 
 @section('script')

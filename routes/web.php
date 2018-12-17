@@ -17,3 +17,4 @@ Route::get('/classroominfo', 'ClassroomInfoController@index');
 Route::get('/newuser', 'NewUserController@index');
 Route::post('/newuser', 'NewUserController@add');
 Route::post('/newuser/delete', 'NewUserController@delete');
+Route::get('/manage', 'ManageController@index');
