@@ -20,6 +20,8 @@
         :streetaddress="'{{ $currentUser->streetaddress }}'"
         :city="'{{ $currentUser->city }}'"
         :state="'{{ $currentUser->state }}'"
+        :primaryphone="'{{ $currentUser->primaryphone }}'"
+        :alternatephone="'{{ $currentUser->alternatephone }}'"
     ></profile>
 </div>
 

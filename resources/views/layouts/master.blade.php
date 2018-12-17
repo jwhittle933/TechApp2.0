@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Sawarabi+Mincho" rel="stylesheet">
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    {{--  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>  --}}
     @yield('style')
 </head>
 <body>
