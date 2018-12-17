@@ -10,7 +10,7 @@
             <label for="name" class="lead">Name:</label>
             <div v-if="nameEdit === true" class="d-flex mb-3">
                 <input name="name" class="form-control w-50" v-model="userName" required>
-                <button class="btn btn-sm btn-outline-success ml-2" @click.prevent="submit($event)">Accept</button>
+                <button class="btn btn-sm btn-outline-success ml-2" @click.prevent="submit($event)">Update</button>
                 <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit">Cancel</button>
             </div>
             <p v-else class="w-25" @click="input">{{ userName }}</p>
@@ -99,14 +99,13 @@ export default {
         submit(e) {
             let columnName = e.target.previousElementSibling.name
             let columnValue = e.target.previousElementSibling.value
-            axios.patch('/api/update/' + $userid, {
-                params: {
+            axios.patch('/api/userprofile/' + this.userid, {
                     userID: this.Id,
                     columnName: columnName,
-                    columnValue: columnValue
-                }
+                    columnValue: this.userName
             }).then(response => console.log(response.data))
             .catch(e => console.error(e.message))
+            this.nameEdit = !this.nameEdit
         }
     }
 }

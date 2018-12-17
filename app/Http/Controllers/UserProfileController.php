@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
 
 class UserProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * GET request to /userprofile
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,6 +23,8 @@ class UserProfileController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * GET request to /userprofile/create
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -28,6 +34,8 @@ class UserProfileController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * POST request to /userprofile
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -40,6 +48,8 @@ class UserProfileController extends Controller
     /**
      * Display the specified resource.
      *
+     * GET request to /userprofile/{user}
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -50,6 +60,8 @@ class UserProfileController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * GET request to userprofile/{user}/edit
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -62,6 +74,8 @@ class UserProfileController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * PUT/PATCH request to /userprofile/{user}
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -71,10 +85,22 @@ class UserProfileController extends Controller
         $userId = $id;
         $columnName =  $request->columnName;
         $columnValue = $request->columnValue;
+
+        // return "$userId, $columnName, $columnValue";
+        try {
+            DB::table('users')
+                    ->where('id', $userId)
+                    ->update([$columnName => $columnValue]);
+        } catch (QueryException $e) {
+            return $e;
+        }
+        return "Success! $columnName successfully changed to $columnValue";
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * DELETE request to /userprofile/{user}
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

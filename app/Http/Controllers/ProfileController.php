@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Users;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\QueryException;
+
 
 class ProfileController extends Controller
 {

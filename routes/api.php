@@ -10,4 +10,4 @@ Route::resource('/problems', 'ProblemsController');
 Route::resource('/suggestions', 'SuggestionsController');
 Route::resource('/solution', 'SolutionController');
 Route::resource('/logout', 'LogOutController');
-Route::resource('/update', 'UserProfileController');
+Route::resource('/userprofile', 'UserProfileController');
