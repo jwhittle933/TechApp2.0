@@ -92,6 +92,7 @@ class UserProfileController extends Controller
                     ->where('id', $userId)
                     ->update([$columnName => $columnValue]);
         } catch (QueryException $e) {
+            //create error log
             return $e;
         }
         $message = "Success! $columnName successfully changed to $columnValue";

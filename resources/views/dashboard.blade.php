@@ -71,16 +71,21 @@
     <div class='flex-requests container-fluid position-relative'>
         @foreach ($requests as $request)
             <div class='entry' id={{$request->id}}>
-                    <b>ID: </b> {{ $request->id }} <br>
-                    <b>First Name: </b> {{ $request->first_name }} <br>
-                    <b>Last Name: </b> {{ $request->last_name }} <br>
-                    <b>Building: </b> {{ $request->building }} <br>
-                    <b>Room: </b> {{ $request->room }} <br>
-                    <b>Problem: </b> {{ $request->problem }} <br>
-                    <b>Email: </b> {{ $request->email }} <br>
-                    <b>Created At: </b> {{ $request->created_at->diffForHumans() }} <br>
-                    <b>Updated At: </b> {{ $request->updated_at->diffForHumans() }}<br>
-                    <a href="/dashboard/{{ $request->id }}" class="btn btn-outline-info btn-sm">View</a>
+                    <b>ID: </b> {{ $request->id }}
+                    <br><b>First Name: </b> {{ $request->first_name }}
+                    <br><b>Last Name: </b> {{ $request->last_name }}
+                    <br><b>Building: </b> {{ $request->building }}
+                    <br><b>Room: </b> {{ $request->room }}
+                    <br><b>Problem: </b>
+                        @if(strlen($request->problem) > 150)
+                           {{ substr($request->problem, 0, 100) . "..."}}
+                        @else
+                            {{ $request->problem }}
+                        @endif
+                    <br><b>Email: </b> {{ $request->email }}
+                    <br><b>Created At: </b> {{ $request->created_at->diffForHumans() }}
+                    <br><b>Updated At: </b> {{ $request->updated_at->diffForHumans() }}
+                    <br><a href="/dashboard/{{ $request->id }}" class="btn btn-outline-info btn-sm">View</a>
             </div>
         @endforeach
     </div>
