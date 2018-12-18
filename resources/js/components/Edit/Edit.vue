@@ -91,10 +91,10 @@
                 <transition name="conceal">
                     <button v-if="conceal" class="btn btn-danger btn-sm ml-3" @click.prevent="showPassword">Show Password</button>
                 </transition>
-                <input id="password" name="password" :type="type" class="form-control w-75" v-model="password" required><br>
+                <input id="password" name="password" :type="type" class="form-control w-75" v-model="userPassword" required><br>
                 <label for="pwcheck" class="lead">Re-type Password:</label>
                 <input name="pwcheck" class="form-control mb-4 w-75" :type="type" v-model="pwcheck" @input="check" required>
-                <button class="btn btn-outline-success ml-2">Update</button>
+                <button class="btn btn-outline-success ml-2" @click.prevent="update('password', userPassword)">Update</button>
             </div>
             <hr>
             <p class="lead">Administrator: {{ admin }}</p>
@@ -126,9 +126,9 @@ export default {
             userState: this.state === "" ? "Add your state" : this.state,
             userPrPhone: this.primaryphone === "" ? "Add a primary number" : this.primaryphone,
             userSecPhone: this.alternatephone === "" ? "Add a secondary number" : this.alternatephone,
-            error: false,
-            password: "",
+            userPassword: "",
             pwcheck: "",
+            error: false,
             reveal: false,
             conceal: true,
             type: "password",
@@ -147,7 +147,7 @@ export default {
     },
     methods: {
         check(){
-            this.password === this.pwcheck ? this.error = false : this.error = true
+            this.userPassword === this.pwcheck ? this.error = false : this.error = true
         },
         showPassword() {
             this.reveal = true

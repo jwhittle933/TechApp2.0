@@ -51,7 +51,7 @@
             <td><textarea class="form-control" type='text' name='problem' required></textarea></td></tr>
             <tr><td><label for='email'>Email: </label></td>
             <td><input class="form-control" type='email' name='email' required></td></tr>
-            <tr><td><input class="btn btn-outline-primary" type='submit' value='SUBMIT'></td></tr>
+            <tr><td><input class="btn btn-sm btn-outline-primary" type='submit' value='SUBMIT'></td></tr>
         </table>
 
         @if (count($errors))

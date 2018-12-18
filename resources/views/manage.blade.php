@@ -15,8 +15,6 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Administrator</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Phone Number</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -25,9 +23,11 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->administrator }}</td>
-                    <td>{{ $user->streetaddress }} {{ $user->city }} {{ $user->state }}</td>
-                    <td>{{ $user->primaryphone }}</td>
-                    <td><button class="btn btn-outline-info">Edit</button></td>
+                    <td class="w-25">
+                        <a class="btn btn-sm btn-outline-info">Info</a>
+                        <a href="mailto:{{ $user->email }}" class="btn btn-sm btn-outline-primary">Email</a>
+                        <a class="btn btn-sm btn-outline-success">Assign</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

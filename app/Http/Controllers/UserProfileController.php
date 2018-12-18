@@ -86,6 +86,10 @@ class UserProfileController extends Controller
         $columnName =  $request->columnName;
         $columnValue = $request->columnValue;
 
+        if ($columnName === "password") {
+            $columnValue = bcrypt($columnValue);
+        }
+
         // return "$userId, $columnName, $columnValue";
         try {
             DB::table('users')
