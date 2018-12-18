@@ -61,4 +61,5 @@
 
 @section('script')
 <script src="{{ asset('js/access.js') }}"></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 @endsection

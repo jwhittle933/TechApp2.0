@@ -4,7 +4,7 @@
             <input type="hidden" name="_token" :value="csrf">
             <input type="hidden" name="_method" value="patch">
             <h1 class="display-4 mt-5">Edit Your Information</h1>
-            <p class="mb-5">*Click the field to edit</p>
+            <p class="mb-5">*Click the field to update your information</p>
             <h3 class="mt-3">User ID: {{ Id }}</h3>
             <input type="hidden" name="id" :value="userid">
 
@@ -12,69 +12,68 @@
             <label for="name" class="lead">Name:</label>
             <div v-if="nameEdit === true" class="d-flex mb-3">
                 <input name="name" class="form-control w-50" v-model="userName" required>
-                <button id="name" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update($event)">Update</button>
-                <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit($event)">Cancel</button>
+                <button id="name" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('name', userName)">Update</button>
+                <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('name')">Cancel</button>
             </div>
-            <p id="name" v-else class="border-left pl-2 w-25" @click="editField($event)">{{ userName }}</p>
+            <p id="name" v-else class="border-left pl-2 w-25" @click="editField('name')">{{ userName }}{{ message }}</p>
 
             <!-- Email Field -->
             <label for="email" class="lead">Email:</label>
             <div v-if="emailEdit === true" class="d-flex mb-3">
                 <input name="email" type="email" class="form-control w-50" v-model="userEmail" required>
-                <button id="email" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update($event)">Update</button>
-                <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit($event)">Cancel</button>
+                <button id="email" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('email', userEmail)">Update</button>
+                <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('email')">Cancel</button>
             </div>
-            <p id="email" class="border-left pl-2 w-25" @click="editField($event)" v-else>{{ userEmail }}</p>
+            <p id="email" class="border-left pl-2 w-25" @click="editField('email')" v-else>{{ userEmail }}</p>
 
 
             <!-- Phone Field -->
             <label class="lead">Phone:</label><br>
             <div class="border-left pl-2 ml-2">
-                <label for="prphone">Primary:</label>
-                <div class="d-flex ml-2" v-if="prPhoneEdit">
-                    <input name="prphone" type="tel" class="form-control w-50">
-                    <button id="prphone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update($event)">Update</button>
-                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit($event)">Cancel</button>
+                <label for="primaryphone">Primary:</label>
+                <div class="d-flex ml-2 mb-2" v-if="prPhoneEdit">
+                    <input name="primaryphone" type="tel" class="form-control w-50" v-model="userPrPhone">
+                    <button id="primaryphone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('primaryphone', userPrPhone)">Update</button>
+                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('primaryphone')">Cancel</button>
                 </div>
-                <p id="prphone" class=" w-25" v-else @click="editField($event)">{{ userPrPhone }}</p>
+                <p id="primaryphone" class=" w-25" v-else @click="editField('primaryphone')">{{ userPrPhone }}</p>
 
-                <label for="secphone">Secondary:</label>
+                <label for="alternatephone">Secondary:</label>
                 <div class="d-flex ml-2" v-if="secPhoneEdit">
-                    <input name="secphone" type="tel" class="form-control w-50">
-                    <button id="secphone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update($event)">Update</button>
-                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit($event)">Cancel</button>
+                    <input name="alternatephone" type="tel" class="form-control w-50" v-model="userSecPhone">
+                    <button id="alternatephone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('alternatephone', userSecPhone)">Update</button>
+                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('alternatephone')">Cancel</button>
                 </div>
-                <p id="secphone" class="w-25" v-else @click="editField($event)">{{ userSecPhone }}</p>
+                <p id="alternatephone" class="w-25" v-else @click="editField('alternatephone')">{{ userSecPhone }}</p>
             </div>
 
             <!-- Address Field -->
-            <label class="lead">Address:</label>
+            <label class="lead mt-2">Address:</label>
             <div class="border-left pl-2 ml-2">
-                <label for="streetaddress" class="mt-3">Street:</label>
+                <label for="streetaddress" class="mt-2">Street:</label>
                 <div v-if="streetEdit" class="d-flex ml-2">
-                    <input name="streetaddress" type="text" :value="userStreet" class="form-control w-50">
-                    <button id="streetaddress" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update($event)">Update</button>
-                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit($event)">Cancel</button>
+                    <input name="streetaddress" type="text" class="form-control w-50" v-model="userStreet">
+                    <button id="streetaddress" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('streetaddress', userStreet)">Update</button>
+                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('streetaddress')">Cancel</button>
                 </div>
-                <p id="street" v-else @click="editField($event)">{{ userStreet }}</p>
+                <p id="street" v-else @click="editField('street')">{{ userStreet }}</p>
 
-                <label for="city" class="mt-3">City:</label>
+                <label for="city" class="mt-2">City:</label>
                 <div v-if="cityEdit" class="d-flex ml-2">
-                    <input name="city" type="text" :value="userCity" class="form-control w-50">
-                    <button id="city" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update($event)">Update</button>
-                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit($event)">Cancel</button>
+                    <input name="city" type="text" class="form-control w-50" v-model="userCity">
+                    <button id="city" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('city', userCity)">Update</button>
+                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('city')">Cancel</button>
                 </div>
-                <p id="city" v-else @click="editField($event)">{{ userCity }}</p>
+                <p id="city" v-else @click="editField('city')">{{ userCity }}</p>
 
-                <label for="state" class="mt-3">State:</label>
+                <label for="state" class="mt-2">State:</label>
                 <div v-if="stateEdit" class="d-flex ml-2">
-                    <input name="state" type="text" :value="userState" class="form-control w-50">
-                    <button id="state" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update($event)">Update</button>
-                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit($event)">Cancel</button>
+                    <input name="state" type="text" class="form-control w-50" v-model="userState">
+                    <button id="state" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('state', userState)">Update</button>
+                    <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('state')">Cancel</button>
                 </div>
-                <p id="state" v-else @click="editField($event)"> {{ userState }} </p>
+                <p id="state" v-else @click="editField('state')"> {{ userState }} </p>
             </div><br>
-            <hr>
 
             <!-- Password Field -->
             <div class="alert alert-warning alert-dismissible fade show w-75" role="alert" v-if="error">
@@ -86,12 +85,17 @@
             <h3 class="mb-4">Change Your Password</h3>
             <div class="ml-2">
                 <label for="password" class="lead">New Password: </label>
-                <button v-if="reveal" class="btn btn-outline-success btn-sm ml-3" @click.prevent="showPassword">Hide Password</button>
-                <button v-else class="btn btn-outline-danger btn-sm ml-3" @click.prevent="showPassword">Show Password</button>
+                <transition name="reveal">
+                    <button v-if="reveal" class="btn btn-outline-success btn-sm ml-3" @click.prevent="showPassword">Hide Password</button>
+                </transition>
+                <transition name="conceal">
+                    <button v-if="conceal" class="btn btn-outline-danger btn-sm ml-3" @click.prevent="hidePassword">Show Password</button>
+                </transition>
                 <input id="password" name="password" :type="type" class="form-control w-75" v-model="password" required><br>
 
                 <label for="pwcheck" class="lead">Re-type Password:</label>
                 <input name="pwcheck" type="password" class="form-control mb-4 w-75" v-model="pwcheck" @input="check" required>
+                <button class="btn btn-outline-success ml-2">Update</button>
             </div>
             <hr>
             <p class="lead">Administrator: {{ admin }}</p>
@@ -127,6 +131,7 @@ export default {
             password: "",
             pwcheck: "",
             reveal: false,
+            conceal: true,
             type: "password",
             nameEdit: false,
             emailEdit: false,
@@ -136,6 +141,8 @@ export default {
             streetEdit: false,
             cityEdit: false,
             stateEdit: false,
+            submitSuccess: false,
+            message: ""
         }
     },
     methods: {
@@ -143,12 +150,17 @@ export default {
             this.password === this.pwcheck ? this.error = false : this.error = true
         },
         showPassword() {
-            this.reveal = !this.reveal
-            this.reveal === false ? this.type = "password" : this.type = "text"
+            this.reveal = false
+            this.conceal = true
+            this.type = "text"
         },
-        editField(e){
-            //rethink switch statement
-            let field = e.target.id
+        hidePassword(){
+            this.conceal = false
+            this.reveal = true
+            this.type = "password"
+        },
+        editField(field){
+            //rethink switch
             switch (field){
                 case "name":
                     this.nameEdit = true
@@ -156,10 +168,10 @@ export default {
                 case "email":
                     this.emailEdit = true
                     break
-                case "prphone":
+                case "primaryphone":
                     this.prPhoneEdit = true
                     break
-                case "secphone":
+                case "alternatephone":
                     this.secPhoneEdit = true
                     break
                 case "street":
@@ -173,9 +185,8 @@ export default {
                     break
             }
         },
-        closeEdit(e) {
+        closeEdit(field) {
             //rethink switch
-            let field = e.target.previousElementSibling.id
             switch (field){
                 case "name":
                     this.nameEdit = false
@@ -183,10 +194,10 @@ export default {
                 case "email":
                     this.emailEdit = false
                     break
-                case "prphone":
+                case "primaryphone":
                     this.prPhoneEdit = false
                     break
-                case "secphone":
+                case "alternatephone":
                     this.secPhoneEdit = false
                     break
                 case "streetaddress":
@@ -200,24 +211,40 @@ export default {
                     break
             }
         },
-        update(e) {
-            let columnName = e.target.previousElementSibling.name
-            console.log(columnName)
-            let columnValue = e.target.previousElementSibling.value
-            console.log(columnValue)
-            // axios.patch('/api/userprofile/' + this.userid, {
-            //         userID: this.Id,
-            //         columnName: columnName,
-            //         columnValue: columnValue
-            // }).then(response => console.log(response.data))
-            // .catch(e => console.error(e.message))
-            console.log(e.target.id)
-            // this.closeEdit(e.target.id)
+        update(column, value) {
+            axios.patch('/api/userprofile/' + this.userid, {
+                    userID: this.Id,
+                    columnName: column,
+                    columnValue: value
+            }).then(response => console.log(response.data))
+            .catch(e => console.error(e.message))
+            this.closeEdit(column)
         }
     }
 }
 </script>
 
 <style scoped>
-
+.reveal-enter,
+.conceal-enter {
+    position: absolute;
+    transform: translateY(-110%);
+    opacity: 0;
+}
+.reveal-enter-active,
+.conceal-enter-active {
+    position: absolute;
+    transition: all 750ms;
+}
+.reveal-leave-to,
+.conceal-leave-to {
+    position: absolute;
+    transform: translateY(110%);
+    opacity: 0;
+}
+.reveal-leave-active,
+.conceal-leave-active {
+    position: absolute;
+    transition: all 750ms;
+}
 </style>

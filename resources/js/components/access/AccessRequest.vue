@@ -4,8 +4,8 @@
             <h3 class="">{{ firstname }} {{ lastname }}</h3>
             <p>Access ID: {{ accessid }}</p>
             <p>Email: {{ email }}</p>
-            <button @click="openAdd" class="btn btn-info">Add {{ firstname }} {{ lastname }}</button>
-            <button @click="openDelete" class="btn btn-danger">Deny Request</button>
+            <button @click="openAdd" class="btn btn-info">Add {{ userFirst }} {{ userLast }}</button>
+            <button @click="openDelete" class="btn btn-danger">Deny {{ userFirst}} {{ userLast }}'s Request</button>
         </div>
         <div>
             <add-request
@@ -16,10 +16,10 @@
             ></add-request>
             <delete-request
                 v-if="deleteShow"
-                :firstname="firstname"
-                :lastname="lastname"
-                :email="email"
-                :accessid="accessid"
+                :firstname="userFirst"
+                :lastname="userLast"
+                :email="userEmail"
+                :accessid="userId"
             ></delete-request>
         </div>
     </div>
@@ -35,8 +35,13 @@ export default {
     props: ['firstname', 'lastname', 'accessid', 'email'],
     data() {
         return {
+            addShow: false,
             deleteShow: false,
-            addShow: false
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            userFirst: this.firstname,
+            userLast: this.lastname,
+            userId: this.accessid,
+            userEmail: this.email
         }
     },
     methods: {

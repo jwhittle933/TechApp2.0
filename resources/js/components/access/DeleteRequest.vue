@@ -21,16 +21,24 @@ export default {
     data() {
         return {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            userFirst: this.firstname,
+            userLast: this.lastname,
+            userId: this.accessid,
+            userEmail: this.email
         }
     }
 }
 </script>
 
 <style scoped>
-.delete-enter-active, .delete-leave-active {
-    transition: opacity .1s;
+.delete-enter-active {
+    transition: all 1s ease;
+}
+.delete-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .delete-enter, .delete-leave-to {
+    transform: translateX(10px);
     opacity: 0;
 }
 </style>
