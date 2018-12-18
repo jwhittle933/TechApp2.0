@@ -15,7 +15,7 @@
                 <button id="name" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('name', userName)">Update</button>
                 <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('name')">Cancel</button>
             </div>
-            <p id="name" v-else class="border-left pl-2 w-25" @click="editField('name')">{{ userName }}{{ message }}</p>
+            <p id="name" v-else class="border-left pl-2 w-25" @click="editField('name')">{{ userName }}</p>
 
             <!-- Email Field -->
             <label for="email" class="lead">Email:</label>
@@ -86,15 +86,14 @@
             <div class="ml-2">
                 <label for="password" class="lead">New Password: </label>
                 <transition name="reveal">
-                    <button v-if="reveal" class="btn btn-outline-success btn-sm ml-3" @click.prevent="showPassword">Hide Password</button>
+                    <button v-if="reveal" class="btn btn-success btn-sm ml-3" @click.prevent="hidePassword">Hide Password</button>
                 </transition>
                 <transition name="conceal">
-                    <button v-if="conceal" class="btn btn-outline-danger btn-sm ml-3" @click.prevent="hidePassword">Show Password</button>
+                    <button v-if="conceal" class="btn btn-danger btn-sm ml-3" @click.prevent="showPassword">Show Password</button>
                 </transition>
                 <input id="password" name="password" :type="type" class="form-control w-75" v-model="password" required><br>
-
                 <label for="pwcheck" class="lead">Re-type Password:</label>
-                <input name="pwcheck" type="password" class="form-control mb-4 w-75" v-model="pwcheck" @input="check" required>
+                <input name="pwcheck" class="form-control mb-4 w-75" :type="type" v-model="pwcheck" @input="check" required>
                 <button class="btn btn-outline-success ml-2">Update</button>
             </div>
             <hr>
@@ -142,7 +141,8 @@ export default {
             cityEdit: false,
             stateEdit: false,
             submitSuccess: false,
-            message: ""
+            initalClass: "border-left pl-2 w-25",
+            successClass: "border-left border-success pl-2 w-25"
         }
     },
     methods: {
@@ -150,13 +150,13 @@ export default {
             this.password === this.pwcheck ? this.error = false : this.error = true
         },
         showPassword() {
-            this.reveal = false
-            this.conceal = true
+            this.reveal = true
+            this.conceal = false
             this.type = "text"
         },
         hidePassword(){
-            this.conceal = false
-            this.reveal = true
+            this.conceal = true
+            this.reveal = false
             this.type = "password"
         },
         editField(field){
@@ -212,11 +212,14 @@ export default {
             }
         },
         update(column, value) {
-            axios.patch('/api/userprofile/' + this.userid, {
+            axios.patch('/api/userprofile/' + this.Id, {
                     userID: this.Id,
                     columnName: column,
                     columnValue: value
-            }).then(response => console.log(response.data))
+            }).then( response => {
+
+                    console.log(response.data)
+                })
             .catch(e => console.error(e.message))
             this.closeEdit(column)
         }
@@ -234,7 +237,7 @@ export default {
 .reveal-enter-active,
 .conceal-enter-active {
     position: absolute;
-    transition: all 750ms;
+    transition: all 150ms;
 }
 .reveal-leave-to,
 .conceal-leave-to {
@@ -245,6 +248,6 @@ export default {
 .reveal-leave-active,
 .conceal-leave-active {
     position: absolute;
-    transition: all 750ms;
+    transition: all 150ms;
 }
 </style>

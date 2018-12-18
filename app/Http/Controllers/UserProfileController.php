@@ -94,7 +94,8 @@ class UserProfileController extends Controller
         } catch (QueryException $e) {
             return $e;
         }
-        return "Success! $columnName successfully changed to $columnValue";
+        $message = "Success! $columnName successfully changed to $columnValue";
+        return response($message, 200);
     }
 
     /**
