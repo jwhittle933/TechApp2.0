@@ -23,7 +23,7 @@
         data: () => {
             return {
                 menuText: [
-                    { words: "Submit a Technology Request", url: "" },
+                    { words: "Submit a Technology Request", url: "/reportform" },
                     { words: "What do I need?", url: ""},
                     { words: "Campus Technology Home", url: "http://www.sbts.edu/services/campus-technology/"},
                     { words: "SBTS Home", url: "http://www.sbts.edu"},

@@ -42,7 +42,11 @@ class DashboardController extends Controller
             'problem' => request('problem'),
             'email' => request('email'),
         ]);
-        return redirect('/dashboard')->with('store', $store);
+        if ($request->path() === "reportform"){
+            return redirect('/reportform')->with('store', $store);
+        } else {
+            return redirect('/dashboard')->with('store', $store);
+        }
     }
 
     public function show(Requests $request)

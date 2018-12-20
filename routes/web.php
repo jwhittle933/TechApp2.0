@@ -1,7 +1,7 @@
 <?php
 Route::get('/', 'IndexController@index');
 Route::get('/reportform', 'ReportFormController@index');
-Route::post('/reportform', 'ReportFormController@submit');
+Route::post('/reportform', 'DashboardController@store');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 Route::post('/login/access', 'LoginController@access');

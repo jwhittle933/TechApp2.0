@@ -12,7 +12,7 @@
             <label for="name" class="lead">Name:</label>
             <div v-if="nameEdit === true" class="d-flex mb-3">
                 <input name="name" class="form-control w-50" v-model="userName" required>
-                <button id="name" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('name', userName)">Update</button>
+                <button id="name" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('name', userName)">Save</button>
                 <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('name')">Cancel</button>
             </div>
             <p id="name" v-else class="border-left pl-2 w-25" @click="editField('name')">{{ userName }}</p>
@@ -21,7 +21,7 @@
             <label for="email" class="lead">Email:</label>
             <div v-if="emailEdit === true" class="d-flex mb-3">
                 <input name="email" type="email" class="form-control w-50" v-model="userEmail" required>
-                <button id="email" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('email', userEmail)">Update</button>
+                <button id="email" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('email', userEmail)">Save</button>
                 <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('email')">Cancel</button>
             </div>
             <p id="email" class="border-left pl-2 w-25" @click="editField('email')" v-else>{{ userEmail }}</p>
@@ -31,17 +31,17 @@
             <label class="lead">Phone:</label><br>
             <div class="border-left pl-2 ml-2">
                 <label for="primaryphone">Primary:</label>
-                <div class="d-flex ml-2 mb-2" v-if="prPhoneEdit">
+                <div class="d-flex ml-2 mb-2" v-if="primaryphoneEdit">
                     <input name="primaryphone" type="tel" class="form-control w-50" v-model="userPrPhone">
-                    <button id="primaryphone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('primaryphone', userPrPhone)">Update</button>
+                    <button id="primaryphone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('primaryphone', userPrPhone)">Save</button>
                     <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('primaryphone')">Cancel</button>
                 </div>
                 <p id="primaryphone" class=" w-25" v-else @click="editField('primaryphone')">{{ userPrPhone }}</p>
 
                 <label for="alternatephone">Secondary:</label>
-                <div class="d-flex ml-2" v-if="secPhoneEdit">
+                <div class="d-flex ml-2" v-if="alternatephoneEdit">
                     <input name="alternatephone" type="tel" class="form-control w-50" v-model="userSecPhone">
-                    <button id="alternatephone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('alternatephone', userSecPhone)">Update</button>
+                    <button id="alternatephone" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('alternatephone', userSecPhone)">Save</button>
                     <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('alternatephone')">Cancel</button>
                 </div>
                 <p id="alternatephone" class="w-25" v-else @click="editField('alternatephone')">{{ userSecPhone }}</p>
@@ -51,17 +51,17 @@
             <label class="lead mt-2">Address:</label>
             <div class="border-left pl-2 ml-2">
                 <label for="streetaddress" class="mt-2">Street:</label>
-                <div v-if="streetEdit" class="d-flex ml-2">
+                <div v-if="streetaddressEdit" class="d-flex ml-2">
                     <input name="streetaddress" type="text" class="form-control w-50" v-model="userStreet">
-                    <button id="streetaddress" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('streetaddress', userStreet)">Update</button>
+                    <button id="streetaddress" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('streetaddress', userStreet)">Save</button>
                     <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('streetaddress')">Cancel</button>
                 </div>
-                <p id="street" v-else @click="editField('street')">{{ userStreet }}</p>
+                <p id="street" v-else @click="editField('streetaddress')">{{ userStreet }}</p>
 
                 <label for="city" class="mt-2">City:</label>
                 <div v-if="cityEdit" class="d-flex ml-2">
                     <input name="city" type="text" class="form-control w-50" v-model="userCity">
-                    <button id="city" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('city', userCity)">Update</button>
+                    <button id="city" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('city', userCity)">Save</button>
                     <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('city')">Cancel</button>
                 </div>
                 <p id="city" v-else @click="editField('city')">{{ userCity }}</p>
@@ -69,7 +69,7 @@
                 <label for="state" class="mt-2">State:</label>
                 <div v-if="stateEdit" class="d-flex ml-2">
                     <input name="state" type="text" class="form-control w-50" v-model="userState">
-                    <button id="state" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('state', userState)">Update</button>
+                    <button id="state" class="btn btn-sm btn-outline-success ml-2" @click.prevent="update('state', userState)">Save</button>
                     <button class="btn btn-sm btn-outline-danger ml-2" @click.prevent="closeEdit('state')">Cancel</button>
                 </div>
                 <p id="state" v-else @click="editField('state')"> {{ userState }} </p>
@@ -133,16 +133,24 @@ export default {
             conceal: true,
             type: "password",
             nameEdit: false,
+            nameSuccess: false,
             emailEdit: false,
+            emailSuccess: false,
             pwEdit: false,
-            prPhoneEdit: false,
-            secPhoneEdit: false,
-            streetEdit: false,
+            pwSuccess: false,
+            primaryphoneEdit: false,
+            prPhoneSuccess: false,
+            alternatephoneEdit: false,
+            secPhoneSuccess: false,
+            streetaddressEdit: false,
+            streetSuccess: false,
             cityEdit: false,
+            citySuccess: false,
             stateEdit: false,
+            stateSucces: false,
             submitSuccess: false,
             initalClass: "border-left pl-2 w-25",
-            successClass: "border-left border-success pl-2 w-25"
+            successClass: "border-left border-success pl-2 w-25",
         }
     },
     methods: {
@@ -160,56 +168,14 @@ export default {
             this.type = "password"
         },
         editField(field){
-            //rethink switch
-            switch (field){
-                case "name":
-                    this.nameEdit = true
-                    break
-                case "email":
-                    this.emailEdit = true
-                    break
-                case "primaryphone":
-                    this.prPhoneEdit = true
-                    break
-                case "alternatephone":
-                    this.secPhoneEdit = true
-                    break
-                case "street":
-                    this.streetEdit = true
-                    break
-                case "city":
-                    this.cityEdit = true
-                    break
-                case "state":
-                    this.stateEdit = true
-                    break
-            }
+            //works, but fails on phone numbers; rename properties
+            let property = field.toString() + "Edit"
+            this[property] = true
         },
         closeEdit(field) {
-            //rethink switch
-            switch (field){
-                case "name":
-                    this.nameEdit = false
-                    break
-                case "email":
-                    this.emailEdit = false
-                    break
-                case "primaryphone":
-                    this.prPhoneEdit = false
-                    break
-                case "alternatephone":
-                    this.secPhoneEdit = false
-                    break
-                case "streetaddress":
-                    this.streetEdit = false
-                    break
-                case "city":
-                    this.cityEdit = false
-                    break
-                case "state":
-                    this.stateEdit = false
-                    break
-            }
+            //works, but fails on phone numbers; rename properties
+            let property = field.toString() + "Edit"
+            this[property] = false
         },
         update(column, value) {
             axios.patch('/api/userprofile/' + this.Id, {
@@ -217,7 +183,8 @@ export default {
                     columnName: column,
                     columnValue: value
             }).then( response => {
-
+                    let property = column.toString() + "Success"
+                    this[property] = true
                     console.log(response.data)
                 })
             .catch(e => console.error(e.message))

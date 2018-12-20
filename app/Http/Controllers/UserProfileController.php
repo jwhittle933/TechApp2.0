@@ -99,7 +99,7 @@ class UserProfileController extends Controller
             //create error log
             return $e;
         }
-        $message = "Success! $columnName successfully changed to $columnValue";
+        $message = "Success!";
         return response($message, 200);
     }
 
