@@ -1,4 +1,7 @@
 # SBTS Troubleshooter by Jonathan Whittle
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jwhittle933/TechApp2.0.svg)](https://greenkeeper.io/)
+
 ### Built with Laravel and Vue
 
 ### Designed for Classroom Technology @ The Southern Baptist Theological Seminary
