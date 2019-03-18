@@ -22,7 +22,8 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "vue": "^2.5.7",
-        "vue-svgicon": "^3.2.1"
+        "vue-svgicon": "^3.2.1",
+        "vue-template-compiler": "^2.6.9"
     },
     "dependencies": {
         "vue-router": "^3.0.1",
