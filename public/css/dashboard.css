@@ -1,0 +1,36 @@
+table {
+    /* border: 2px solid black; */
+    /* Border causes issues in Chrome */
+    margin: 15px;
+    width: 35vw;
+}
+.request-form {
+    width: auto;
+    margin-top: 5vh;
+}
+input {
+    justify-content: flex-end;
+}
+.flex-requests {
+    display:flex;
+    flex-wrap: wrap;
+}
+.entry {
+    margin: 15px;
+    padding: 5px;
+    width: 30%;
+    border: 2px solid lightblue;
+    box-shadow: 5px 5px grey;
+    font-family: Menlo;
+    font-size: 1em;
+}
+a {
+    text-decoration:none;
+    color: black
+}
+a:visited {
+    color:black
+}
+a:hover {
+    text-decoration: none
+}
