@@ -22,14 +22,14 @@
       <p>Updated At:  {{ $updated_at }}<br></p>
       <form action="{{ url('/dashboard', ['id' => $id]) }}" method="POST">
           {{ method_field('DELETE') }}
-          {{ csrf_field() }}
+          @csrf
           <button type="submit" class="btn btn-outline-danger">Delete</button>
       </form>
   </div>
   <div class='form-group update'>
       <form class="container form" action="{{ url('/dashboard', ['id' => $id]) }}" method="POST">
           {{ method_field('PATCH') }}
-          {{ csrf_field() }}
+          @csrf
           <p><b>ID: </b></label>{{ $id }}<br></p>
           <label for="first_name"><b>First Name: </label></b>
           <input name="first_name" class="form-control" value="{{ $first_name }}"><br>

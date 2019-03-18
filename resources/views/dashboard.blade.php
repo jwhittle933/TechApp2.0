@@ -70,7 +70,7 @@
 
     <div class='flex-requests container-fluid position-relative'>
         @foreach ($requests as $request)
-            <div class='entry' id={{$request->id}}>
+            <div class='entry' id={{ $request->id }}>
                     <b>ID: </b> {{ $request->id }}
                     <br><b>First Name: </b> {{ $request->first_name }}
                     <br><b>Last Name: </b> {{ $request->last_name }}

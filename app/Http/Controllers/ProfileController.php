@@ -14,6 +14,13 @@ class ProfileController extends Controller
         $value = session('user');
         if (!$value) return redirect('login');
 
+        /**
+         * @param value uses the logged in user's name from the session
+         * to find their row in the db. If the user updates
+         * their name in the db, the search will not be able
+         * to find them. Session value should be updated to include
+         * user's id.
+         */
         $currentUser = DB::table('users')->where('name', $value)->first();
 
         return view('profile')->with('currentUser', $currentUser);

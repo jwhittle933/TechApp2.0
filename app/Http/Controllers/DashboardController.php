@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $value = session('user');
         if (!$value) return redirect('/login');
         $requests = Requests::all();
-        return view('/dashboard', [
+        return view('dashboard', [
             'requests' => $requests,
         ]);
     }
