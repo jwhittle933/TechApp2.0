@@ -1,0 +1,26 @@
+header {
+    text-align: center;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+}
+h1 {
+    font-family: Montserrat;
+}
+h2 {
+    font: normal 1.5em Montserrat;
+}
+input {
+    margin-bottom: 2vh;
+}
+.login {
+    width: 45vw;
+    float: left;
+    clear: left;
+    margin-left: 5vw;
+}
+.request {
+    width: 45vw;
+    float: right;
+    clear: right;
+    margin-right: 5vw;
+}
