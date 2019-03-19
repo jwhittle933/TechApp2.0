@@ -12,7 +12,7 @@
 @include('layouts.nav')
 
 <div id="profile">
-    <profile
+    <edit
         :userid="'{{ $currentUser->id }}'"
         :name="'{{ $currentUser->name }}'"
         :email="'{{ $currentUser->email }}'"
@@ -22,7 +22,7 @@
         :state="'{{ $currentUser->state }}'"
         :primaryphone="'{{ $currentUser->primaryphone }}'"
         :alternatephone="'{{ $currentUser->alternatephone }}'"
-    ></profile>
+    ></edit>
 </div>
 
 @include('layouts.footer')
