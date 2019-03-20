@@ -50055,9 +50055,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('access-request', __webpack_require__(/*! ./components/Access/AccessRequest.vue */ "./resources/js/components/Access/AccessRequest.vue"));
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('delete-request', __webpack_require__(/*! ./components/Access/DeleteRequest.vue */ "./resources/js/components/Access/DeleteRequest.vue"));
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('add-request', __webpack_require__(/*! ./components/Access/AddRequest.vue */ "./resources/js/components/Access/AddRequest.vue"));
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('access-request', __webpack_require__(/*! ./components/Access/AccessRequest */ "./resources/js/components/Access/AccessRequest.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('delete-request', __webpack_require__(/*! ./components/Access/DeleteRequest */ "./resources/js/components/Access/DeleteRequest.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('add-request', __webpack_require__(/*! ./components/Access/AddRequest */ "./resources/js/components/Access/AddRequest.vue").default);
 var accessRequests = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#accessrequests'
 });

@@ -50793,7 +50793,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('edit', __webpack_require__(/*! ./components/Edit/Edit.vue */ "./resources/js/components/Edit/Edit.vue"));
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('edit', __webpack_require__(/*! ./components/Edit/Edit */ "./resources/js/components/Edit/Edit.vue").default);
 var accessRequests = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#profile'
 });

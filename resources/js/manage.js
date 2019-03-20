@@ -1,9 +1,9 @@
-require('./bootstrap')
+require('./bootstrap');
 
-import Vue from 'vue'
+import Vue from 'vue';
 
-Vue.component('manage', require('./components/Manage/Manage.vue'))
+Vue.component('manage', require('./components/Manage/Manage').default);
 
 const accessRequests = new Vue({
     el: '#manage'
-})
+});

@@ -49055,7 +49055,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('manage', __webpack_require__(/*! ./components/Manage/Manage.vue */ "./resources/js/components/Manage/Manage.vue"));
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('manage', __webpack_require__(/*! ./components/Manage/Manage */ "./resources/js/components/Manage/Manage.vue").default);
 var accessRequests = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#manage'
 });
