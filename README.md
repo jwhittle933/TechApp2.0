@@ -14,4 +14,11 @@ A troubleshooter application designed for Classroom Technology @ The Southern Ba
 
 ## Demo the app
 
-### You can demo the front end [here](http://troubleshooter-env.mamnsfbpzm.us-east-2.elasticbeanstalk.com/)
+A high-fidelity prototype is available on [Heroku](http://sbts-tech-help.herokuapp.com/). To login and sample Dashboard, please use the following credentials:
+
+```json
+username: test@user.com
+password: test
+```
+
+_Please be aware that this is a work in progress_
