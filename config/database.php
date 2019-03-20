@@ -38,23 +38,6 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-        /**
-         * Uncomment for AWS Deployment
-        'mysql' => [
-            'driver' => 'mysql',
-            'host' => env('RDS_HOSTNAME', '127.0.0.1'),
-            'port' => env('RDS_PORT', '3306'),
-            'database' => env('RDS_DB_NAME', 'forge'),
-            'username' => env('RDS_USERNAME', 'forge'),
-            'password' => env('RDS_PASSWORD', ''),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'strict' => true,
-            'engine' => null,
-        ],
-        */
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'gtizpe105piw2gfq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	'),
