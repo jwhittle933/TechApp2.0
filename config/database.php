@@ -57,11 +57,11 @@ return [
         */
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'gtizpe105piw2gfq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'l9562c2cw58n4q9f'),
+            'username' => env('DB_USERNAME', 'x4zcsz0lpei7kq9a'),
+            'password' => env('DB_PASSWORD', 'd0bcvqeuh1ppurc8'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
